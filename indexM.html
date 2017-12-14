@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css"> -->
+    <link rel='stylesheet' href='./main.css'>
+    <title>23mofang</title>
+</head>
+
+<body>
+    <header class="nav clearfix">
+        <a href="" class="nav-btn nav-menu"></a>
+        <a href="" class="touch-opacity">
+            <img src="https://cdn2.23mofang.com/res/mobile/img/nav/logo2-02.png" alt="">
+        </a>
+        <a href="" class="nav-btn nav-btn-center"></a>
+    </header>
+    <div class="nav-place"></div>
+    <div class="nav-menu">
+        <ul class="nav-menu-ul">
+            <li><a href="">首页</a></li>
+            <li><a href="">了解产品</a></li>
+            <li><a href="">检查流程</a></li>
+            <li><a href="">用户故事</a></li>
+            <li><a href="">检测项目</a></li>
+            <li><a href="">常见问题</a></li>
+        </ul>
+        <a href="" class="nav-menu-buy">我要购买</a>
+    </div>
+    <div class="nav-center"></div>
+    <script type="text/javascript">
+        var $menu = $('.nav-menu'),
+            $menuBtn = $('.nav-btn-menu'),
+            $center = $('.nav-center'),
+            $centerBtn = $('.nav-btn-center')
+
+        //导航样式控制
+        $('.nav-btn-menu').on('click', function(event){
+            if($center.hasClass('current')) return
+            if($menu.hasClass('current')) {
+                $menuBtn.removeClass('nav-btn-menu-on')
+                $menu.animate({height: 0}, 300).removeClass('current')
+                $centerBtn.css('opacity', 1)
+            } else {
+                $centerBtn.addClass('nav-btn-center-on')
+                $center.animate()
+            }
+
+
+        })
+        //个人中心
+        $centerBtn.on('click',function(event) {
+            if ($menu.hasClass('current')) return
+            if ($center.hasClass('current')) {
+                $centerBtn.removeClass('nav-btn-center-on')
+
+            } else {
+
+            }
+            
+
+        })
+        //加载完成后添加滚动监听
+        $(window).load(function() {
+            var $window = $(window),
+                $document = $(document),
+                _windowHeight = $window.height(),
+                _hideOffset = $('.nav').height(),
+                _previousScrollTop = null,
+                _scrollThrottleTime = null,
+                _lastScrollHnadlerRun = new Date().getTime(),
+                _throttleDelay = 300,
+                _visible = true
+            
+            function showNav(ele) {
+                ele.removeClass('nav-hide')
+            }
+            function hideNav(ele) {
+                ele.add('nav-hide')
+            }
+            function isMenuOpen() {
+                return $('.nav-menu').hasClass('current') || $('.nav-center').hasClass('current');
+            }
+
+            function scrollHandler(){
+                _lastScrollHnadlerRun = new Date.getTime()
+                detectState()
+            }
+
+            function detectState() {
+                var scrollTop = $window.scrollTop(),
+                    scrollDelta = scrollTop - _previousScrollTop;
+                _previousScrollTop = scrollTop
+                if(isMenuOpen()) return
+                if (scrollDelta < 0) {
+                    if(_visible) return
+                    _visible = true;
+                } else {
+                    
+                }
+            }
+        })
+
+        
+        
+
+
+
+
+
+
+    </script>
+    <div class="activity-box">
+        <img src="./images/home@3x.jpg" style="width: 100%;display: block">
+        <a href="/product" class="buy-btn">立即购买</a>
+        <div class="rule-btn">活动规则</div>
+    </div>
+    <div class="modal-rule-win">
+        <div class="rule-detail">
+            <h3 class="rule-title">活动规则</h3>
+            <ol class="rule-index">
+                <li>活动时间为2017年12月12日0时0分至12月26日23时59分。</li>
+                <li>凡在此期间购买满三个基因检测，将再免费获赠一个基因检测。</li>
+                <li>其他优惠券不可叠加使用（包含新人优惠券）。</li>
+                <li>活动期间按下单先后顺序发货。</li>
+                <li>23魔方保留对活动的最终解释权。</li>
+            </ol>
+            <p class="confirm-btn">确定</p>
+        </div>
+
+    </div>
+    <div class="indexb-panel jsgm">
+        <h3 class="indexb-panel-title">
+            家庭检测<br>产生更大价值
+        </h3>
+        <p class="indexb-panel-subtitle">
+            家人可一起进行基因检测，可生成<br>家族遗传树，后台遗传情况一图看清
+        </p>
+        <a href="" class="indexb-panel-buy touch-opacity">家庭套餐，多买多优惠</a>
+
+
+    </div>
+
+
+    
+    <!-- <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script> -->
+    <script>
+        $('.rule-btn').on('click',function(ev) {
+            console.log(ev.target)
+            $('.modal-rule-win').css('display','block')
+        })
+        $('.confirm-btn').on('click',function(ev) {
+            console.log(ev.target)
+            $('.modal-rule-win').css('display','none')
+        })
+    </script>
+
+</body>
+
+</html>

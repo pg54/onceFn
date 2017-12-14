@@ -84,7 +84,7 @@
  /**
   * @description 实现1px border方案
   */
- .bdtb1px {
+ .bdtb1px { 
    border-top: 1px solid;
    border-bottom: 1px solid;
    border-left: 0;

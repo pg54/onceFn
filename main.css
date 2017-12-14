@@ -15,6 +15,40 @@
     -webkit-transition: all .5s initial;
     transition: all .5s initial
 }
+.nav-place {
+
+}
+.nav-menu {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    min-width:100%;
+    height: 0;
+    z-index: 800;
+    background-color: #fff;
+    overflow: scroll;
+
+}
+.nav-center {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    min-width:100%;
+    height: 0;
+    z-index: 800;
+    background-color: #fff;
+    overflow: scroll;
+
+}
+
+
+
+
+
+
+
+
+
 .activity-box {
     position: relative;
 }
@@ -97,6 +131,24 @@
     background-origin: center bottom;
     background-repeat: no-repeat;
 }
+
+.indexb-panel {
+    box-sizing: border-box;
+    height: 613px;
+    padding-top: 50px;
+    text-align: center;
+    background-size: 540px 613px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+.jsgm {
+    background-color: #f5f0e6;
+    background-size: 375px 257px;
+    background-position: center 320px;
+    background-image: url('./images/indexb_panel_jzgm.jpg');
+}
+
+
 
 
 /**
