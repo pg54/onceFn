@@ -5,7 +5,6 @@ var onceFn = {
         switch (type) {
             case 1:
                 return str.replace(/\s/g, '')
-
         }
 
     },
