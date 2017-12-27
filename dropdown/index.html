@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <title>下拉菜单</title>
+</head>
+
+<body>
+    <div id="app">
+        <onc-dropdown></onc-dropdown>
+    </div>
+
+    <template id="ddComponent">
+        <div class="onc-dropdown">
+            <div class="dropdown-trigger" :hoverable="true">
+                <span>下拉菜单</span>
+                <i class="fa fa-angle-down"></i>
+            </div>
+            <div class="dropdown-menu">
+                <ul class="dropdown-content">
+                    <li class="dropdown-item">one</li>
+                    <div class="dropdown-divider"></div>
+                    <li class="dropdown-item">two</li>
+                    <div class="dropdown-divider"></div>
+                    <li class="dropdown-item">three</li>
+                    <div class="dropdown-divider"></div>
+                    <li class="dropdown-item">four</li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <script type="text/javascript">
+
+        Vue.component("onc-dropdown", {
+                template: "#ddComponent",
+                props: {
+                    trigger: {
+                        type: String,
+                        default: hover
+                    },
+                    disabled: {
+                        type: Boolean,
+                        default: false
+                    }
+                },
+                data: function() {
+                    return {
+                        timeout: null,
+                        visible: false,
+                        triggerElm: null
+
+                    }
+                },
+                watch: {
+                    hoverable: function() {
+
+                    }
+                },
+                mounted() {
+                    this.initEvent()
+                },
+                methods: {
+                    initEvent() {
+                        this.triggerElm = document.getElementsByClassName('dropdown-trigger')[0]  //暂时使用，实际情况不能用这个方法
+                        if (trigger === 'hover') {
+                            this.triggerElm.addEventListener('mouseenter', show);
+                            this.triggerElm.addEventListener('mouseleave', hide);
+                        } else if (trigger === 'click') {
+                            this.triggerElm.addEventListener('mouseenter', handleClick);
+                        }
+
+                    },
+                    show() {
+                        if (this.triggerElm.disabled) return;
+                        clearTimeout(this.timeout);
+                        this.timeout = setTimeout(() => {
+                            this.visibel = true;
+                        }, this.showTimeout)
+
+                    },
+                    hide() {
+                        if (this.triggerElm.disabled) return;
+                        this.removeTabindex();
+                        this.resetTabindex(this.triggerElm);
+                        clearTimeout(this.timeout);
+                        this.timeout = setTimeout(() => {
+                        this.visible = false;
+                        }, this.hideTimeout);
+                    },
+                    handleClick(e) {
+                        var trigger = e.target.parentNode
+                        if (trigger.classList.contains('is-active')) {
+                            trigger.classList.remove('is-active')
+                        } else {
+                            trigger.classList.add('is-active')
+                        }
+                    }
+
+                }
+
+            });
+        
+        new Vue({
+            el: '#app',
+            data: function () {
+                return {
+
+                }
+            },
+            methods: {
+
+            }
+        })
+
+        Vue.component('anchored-heading', {
+            render: function (createElement) {
+                return createElement(
+                    'h' + this.level,
+                    this.$slots.default
+                )
+            },
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                }
+            }
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>
