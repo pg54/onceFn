@@ -41,37 +41,36 @@
         .index-banner-gene li:last-child {
             margin-right: 0;
         }
-
-        .bar-1::before {
+        .index-gene-bar::before {
             content: '';
             display: block;
             width: 20px;
-            height: 333px;
             margin-bottom: 10px;
-            /* background-size: 2340px 666px; */
-            background-image: url("./images/gene_bar_color.png")
+            background-size: 1170px 333px;
+            cursor: pointer;
+        }
+
+        .index-gene-bar-gray::before {
+            background-image: url("./images/gene_bar_gray.png");
+        }
+        .index-gene-bar-color::before {
+            background-image: url("./images/gene_bar_color.png");
+        }
+
+        .bar-1::before {
+            height: 333px;
+            background-position: 0px 0px;
+            
         }
 
         .bar-2::before {
-            content: '';
-            display: block;
-            width: 20px;
-            height: 333px;
+            height: 312px;
             background-position: -50px 0;
-            margin-bottom: 10px;
-            background-size: 1170px 333px;
-            background-image: url("./images/gene_bar_color.png")
         }
 
         .bar-3::before {
-            content: '';
-            display: block;
-            width: 20px;
-            height: 333px;
+            height: 281px;
             background-position: -100px 0;
-            margin-bottom: 10px;
-            background-size: 1170px 333px;
-            background-image: url("./images/gene_bar_color.png")
         }
 
 
@@ -79,11 +78,12 @@
 </head>
 
 <body>
+    
     <div class="index-banner">
         <ul class="index-banner-gene clearfix">
-            <li class="index-gene-bar bar-1">1</li>
-            <li class="index-gene-bar bar-2">2</li>
-            <li class="index-gene-bar bar-3">3</li>
+            <li class="bar-1 index-gene-bar index-gene-bar-gray">1</li>
+            <li class="bar-2 index-gene-bar index-gene-bar-gray">2</li>
+            <li class="bar-3 index-gene-bar index-gene-bar-gray">3</li>
             <li></li>
             <li></li>
             <li></li>

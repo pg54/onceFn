@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片相关</title>
+    <style>
+        #test {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            background: red url(http://via.placeholder.com/200x200) no-repeat;
+            color: blue;
+            background-origin: border-box;
+            background-clip: content-box;
+            margin-right: 100px;
+        }
+        #test:hover {
+            background: yellow;
+        }
+        #left {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background: wheat;
+        }
+    </style>
+    
+</head>
+<body>
+        <!-- http://dabblet.com/gist/b7e7fef7dcf9a7161a51 -->
+        <div style="display: flex;justify-content: flex-start">
+            <div id='test'>test</div>
+            <div id='left'></div>
+        </div>
+
+</body>
+</html>
