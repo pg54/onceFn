@@ -115,13 +115,8 @@
         //     }
         // })
 
+    
         
-        
-
-
-
-
-
 
     </script>
     <div class="activity-box">
@@ -166,6 +161,16 @@
         $('.confirm-btn').on('click',function(ev) {
             console.log(ev.target)
             $('.modal-rule-win').css('display','none')
+        })
+
+        $('.modal-rule-win').on('click', function(ev) {
+            console.log(ev.target)
+            if ($(ev.target).hasClass('modal-rule-win')) {
+                $(this).css('display','none')
+                ev.stopPropagation;
+            }
+            
+
         })
     </script>
 

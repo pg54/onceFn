@@ -13,12 +13,11 @@
 
 <body>
     <div id="app">
-        <onc-dropdown></onc-dropdown>
+        <onc-dropdown :trigger="tr"></onc-dropdown>
     </div>
-
     <template id="ddComponent">
         <div class="onc-dropdown">
-            <div class="dropdown-trigger" :hoverable="true">
+            <div class="dropdown-trigger">
                 <span>下拉菜单</span>
                 <i class="fa fa-angle-down"></i>
             </div>
@@ -43,7 +42,7 @@
                 props: {
                     trigger: {
                         type: String,
-                        default: hover
+                        default: 'hover'
                     },
                     disabled: {
                         type: Boolean,
@@ -54,12 +53,10 @@
                     return {
                         timeout: null,
                         visible: false,
-                        triggerElm: null
+                        triggerElm: null,
+                        showTimeout: 1000,
+                        hideTimeout: 500,
 
-                    }
-                },
-                watch: {
-                    hoverable: function() {
 
                     }
                 },
@@ -69,29 +66,33 @@
                 methods: {
                     initEvent() {
                         this.triggerElm = document.getElementsByClassName('dropdown-trigger')[0]  //暂时使用，实际情况不能用这个方法
-                        if (trigger === 'hover') {
-                            this.triggerElm.addEventListener('mouseenter', show);
-                            this.triggerElm.addEventListener('mouseleave', hide);
-                        } else if (trigger === 'click') {
-                            this.triggerElm.addEventListener('mouseenter', handleClick);
+                        if (this.trigger === 'hover') {
+                            this.triggerElm.addEventListener('mouseenter', this.show);
+                            this.triggerElm.addEventListener('mouseleave', this.hide);
+                        } 
+                        else if (this.trigger === 'click') {
+                            console.log(1)
+                            this.triggerElm.addEventListener('click', this.handleClick);
                         }
-
                     },
                     show() {
+                        console.log('show')
                         if (this.triggerElm.disabled) return;
                         clearTimeout(this.timeout);
                         this.timeout = setTimeout(() => {
-                            this.visibel = true;
-                        }, this.showTimeout)
+                            // this.visibel = true;
 
+                        }, this.showTimeout)
                     },
                     hide() {
+                        console.log('hide')
                         if (this.triggerElm.disabled) return;
-                        this.removeTabindex();
-                        this.resetTabindex(this.triggerElm);
+                        // this.removeTabindex();
+                        // this.resetTabindex(this.triggerElm);
                         clearTimeout(this.timeout);
                         this.timeout = setTimeout(() => {
-                        this.visible = false;
+                        // this.visible = false;
+
                         }, this.hideTimeout);
                     },
                     handleClick(e) {
@@ -111,6 +112,7 @@
             el: '#app',
             data: function () {
                 return {
+                    tr: 'hover'
 
                 }
             },
