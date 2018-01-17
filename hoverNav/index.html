@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <!-- <script src="./index.js"></script> -->
+    <!-- https://codepen.io/sean_codes/pen/WdzgdY -->
+</head>
+
+<body>
+    <nav>
+        <menu>
+            <menuitem id="demo1">
+            <a>drop</a>
+            <menu>
+                <menuitem>
+                <a>about</a>
+                </menuitem>
+                <menuitem>
+                <a>settings</a>
+                <menu>
+                    <menuitem>
+                    <a>Test 1</a>
+                    </menuitem>
+                    <menuitem>
+                    <a>Test 2</a>
+                    </menuitem>
+                    <menuitem>
+                    <a>Test 3</a>
+                    </menuitem>
+                    <menuitem>
+                    <a>Test 4</a>
+                    </menuitem>
+                </menu>
+                </menuitem>
+                <menuitem>
+                <a>help</a>
+                </menuitem>
+                <menuitem id="demo2">
+                <a>more</a>
+                <menu>
+                    <menuitem id="demo3">
+                    <a>deeper</a>
+                    <menu>
+                        <menuitem>
+                        <a>deep 1</a>
+                        </menuitem>
+                        <menuitem>
+                        <a>deep 2</a>
+                        </menuitem>
+                        <menuitem>
+                        <a>deep 3</a>
+                        </menuitem>
+                    </menu>
+                    </menuitem>
+                    <menuitem>
+                    <a>test</a>
+                    </menuitem>
+                </menu>
+                </menuitem>
+            </menu>
+            </menuitem>
+            <menuitem>
+            <a>no drop</a>
+            </menuitem>
+        </menu>
+    </nav>
+</body>
+<script>
+    function testDate(birth) {
+        let y = '' + birth.substr(0, 4);
+        let m = '' + birth.substr(4, 2);
+        let d = '' + birth.substr(6, 2);
+        let oStr = y + '-' + m + '-' + d;
+        console.log(oStr)
+        let n = new Date(oStr)
+        console.log(n)
+        // if (n) {
+        //     console.log('无效date')
+        //     return false;
+        // }
+        let nm = n.getMonth() + 1 < 10 ? '0' + (n.getMonth() + 1) : '' + (n.getMonth() + 1)
+        let nd = n.getDate()  < 10 ? '0' + n.getDate() : '' + n.getDate()
+        let nStr = '' + n.getFullYear() + nm + nd;
+        console.log(nStr)
+        if (birth != nStr) { //出生年月不正确
+            return false
+        }
+    }
+</script>
+
+</html>

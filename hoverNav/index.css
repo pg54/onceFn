@@ -1,0 +1,37 @@
+html,body {
+    padding: 0px;
+    margin: 0px;
+    background: #222;
+    font-family: 'Karla', sans-serif;
+    width: 100vw;
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+}
+
+nav menuitem > menu {
+    position: absolute;
+    pointer-events: none;
+}
+
+nav > menu {
+    display: flex;
+}
+
+nav > menu > menuitem {
+    pointer-events: all;
+    opacity: 1;
+}
+menu menuitem a {
+    white-space: nowrap;
+    display: block;
+}
+menuitem:hover > menu {
+    pointer-events: initial;
+}
+menuitem:hover > menu > menuitem,
+menu:hover > menuitem{
+   opacity:1;
+}
