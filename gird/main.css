@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#gBox {
+  width: 90%;
+  margin: 0 auto;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(4, 10vw);
+  grid-template-rows: repeat(4, 10vw);
+}
+
+#gBox div {
+  border: 1px solid black;
+}
+
+#gBox div:nth-child(1) {
+  grid-row: 3 / 4;
+  grid-column: 3 / 4;
+}

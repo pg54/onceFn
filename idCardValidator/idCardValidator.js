@@ -22,9 +22,7 @@ function validator(idStr) {
     /**
      * 每位加权因子
      */
-    const powerArray = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5,
-        8, 4, 2
-    ];
+    const ratios = [7, 9, 10, 5, 8, 4 ,2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
 
     /**
      * 验证所有的身份证的合法性
@@ -73,52 +71,82 @@ function validator(idStr) {
      * 5.通过上面得知如果余数是2，就会在身份证的第18位数字上出现罗马数字的Ⅹ。如果余数是10，身份证的最后一位号码就是2。
      * </p>
      *
-     * @param idcard
-     * @return
      */
+    const lastCharPair = {
+        0 : '1', 
+        1 : '0', 
+        2 : 'x',
+        3 : '9', 
+        4 : '8',
+        5 : '7',
+        6 : '6',
+        7 : '5',
+        8 : '4',
+        9 : '3',
+        10: '2'
+    };
     function validate18Idcard(idStr) {
         if (idStr.length != 18) {
             return false;
         }
         let idStr17 = idStr.substr(0,17);
         //17个字符都为数字 待完成
+        if (!/^\d{17}$/.test(idStr17)) {
+            return false;
+        }
 
         let province = idStr17.substr(0, 2);
-        if(provinceArray.indexOf(province) != -1) {
+        if(provinceArray.indexOf(province) === -1) {
             return false
         }
 
         //校验出生日期
-        let birth = idStr.substr(6, 14);
-        let y = '' + birth.substr(0, 4);
-        let m = '' + birth.substr(4, 6);
-        let d = '' + birth.substr(6, 8);
+        let birth = idStr.substring(6, 14);
+        let y = '' + birth.substring(0, 4);
+        let m = '' + birth.substring(4, 6);
+        let d = '' + birth.substring(6, 8);
         birth = y + '-' + m + '-' + d;
         let n = new Date(birth)
         let nm = n.getMonth() + 1 < 10 ? '0' + (n.getMonth() + 1) : '' + (n.getMonth() + 1)
-        let nStr = '' + n.getFullYear() + nm + n.getDate();
+        let nd = n.getDate()  < 10 ? '0' + n.getDate() : '' + n.getDate()
+        let nStr = '' + n.getFullYear() + nm + nd;
         if (birth != nStr) { //出生年月不正确
+            return false;
+        }
+
+        //获取18位
+        let idStr18 = idStr.substr(17,1);
+        let sumN = idStr17.split('').map(function(el, index){
+            Number(el) * ratios[index]
+        }).ruduce(function(sum, value) {return sum + value},0)
+        if (!(idStr18 === lastCharPair[sumN % 11])) {
+            return false;
+        }
+        return true;
+    }
+
+    function validate15Idcard(idStr) {
+        if (idStr.length != 15) {
+            return false;
+        }
+        let province = idStr17.substr(0, 2);
+        if(provinceArray.indexOf(province) === -1) {
             return false
         }
 
-        function testDate(birth) {
-            let y = '' + birth.substr(0, 4);
-            let m = '' + birth.substr(4, 6);
-            let d = '' + birth.substr(6, 8);
-            let oStr = y + '-' + m + '-' + d;
-            let n = new Date(birth)
-            let nm = n.getMonth() + 1 < 10 ? '0' + (n.getMonth() + 1) : '' + (n.getMonth() + 1)
-            let nStr = '' + n.getFullYear() + nm + n.getDate();
-            if (oStr != nStr) { //出生年月不正确
-                return false
-            }
+        let birth = idStr.substring(6, 12);
+        let y = '' + birth.substring(0, 2);
+        let m = '' + birth.substring(2, 4);
+        let d = '' + birth.substring(4, 6);
+        birth = '19' + y + '-' + m + '-' + d;  //老身份证都是2000年前的。
+        let n = new Date(birth)
+        let nm = n.getMonth() + 1 < 10 ? '0' + (n.getMonth() + 1) : '' + (n.getMonth() + 1)
+        let nd = n.getDate()  < 10 ? '0' + n.getDate() : '' + n.getDate()
+        let nStr = '' + n.getFullYear() + nm + nd;
+        if (birth != nStr) { //出生年月不正确
+            return false;
         }
-
-
-
-
-        
-
+        return true;
 
 
     }
@@ -127,6 +155,5 @@ function validator(idStr) {
 
 
 
-    isValidatedAllIdcard(idStr)
 }
 export default validator
