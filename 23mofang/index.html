@@ -41,6 +41,7 @@
         }
         .index-banner-gene li:last-child {
             margin-right: 0;
+            
         }
         .index-gene-bar::before {
             content: '';
@@ -52,31 +53,74 @@
         }
 
         .index-gene-bar-gray::before {
+            transform: scale(1.0);
+            transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
             background-image: url("./images/gene_bar_gray.png");
         }
         .index-gene-bar-color::before {
+            transform: scale(1.05);
             background-image: url("./images/gene_bar_color.png");
+        }
+
+        .bar-1 {
+            border: 1px solid blue;
         }
 
         .bar-1::before {
             height: 333px;
+            border-bottom: 1px solid red;
             background-position: 0px 0px;
             
         }
 
+
+        .bar-2 {
+            border: 1px solid blue;
+        }
         .bar-2::before {
-            height: 312px;
+            height: 333px;
+            border-bottom: 1px solid red;
             background-position: -50px 0;
         }
 
+        .bar-3 {
+            border: 1px solid blue;
+        }
         .bar-3::before {
-            height: 281px;
+            height: 333px;
+            border-bottom: 1px solid red;
             background-position: -100px 0;
         }
 
+
+
+        .bar-4 {
+            border: 1px solid blue;
+        }
         .bar-4::before {
-            height: 281px;
-            background-position: -100px 0;
+            height: 333px;
+            border-bottom: 1px solid red;
+            background-position: -150px 0;
+        }
+
+
+        .bar-5 {
+            border: 1px solid blue;
+        }
+        .bar-5::before {
+            height: 333px;
+            border-bottom: 1px solid red;
+            background-position: -200px 0;
+        }
+
+
+        .bar-6 {
+            border: 1px solid blue;
+        }
+        .bar-6::before {
+            height: 333px;
+            border-bottom: 1px solid red;
+            background-position: -250px 0;
         }
 
 
@@ -90,37 +134,49 @@
             <li class="bar-1 index-gene-bar index-gene-bar-gray">1</li>
             <li class="bar-2 index-gene-bar index-gene-bar-gray">2</li>
             <li class="bar-3 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-4 index-gene-bar index-gene-bar-gray">3</li>
+            <li class="bar-4 index-gene-bar index-gene-bar-gray">4</li>
 
-            <li class="bar-5 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-6 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-7 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-8 index-gene-bar index-gene-bar-gray">3</li>
+            <li class="bar-5 index-gene-bar index-gene-bar-gray">5</li>
+            <li class="bar-6 index-gene-bar index-gene-bar-gray">6</li>
+            <li class="bar-7 index-gene-bar index-gene-bar-gray">7</li>
+            <li class="bar-8 index-gene-bar index-gene-bar-gray">8</li>
 
-            <li class="bar-9 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-10 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-11 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-12 index-gene-bar index-gene-bar-gray">3</li>
+            <li class="bar-9 index-gene-bar index-gene-bar-gray">9</li>
+            <li class="bar-10 index-gene-bar index-gene-bar-gray">10</li>
+            <li class="bar-11 index-gene-bar index-gene-bar-gray">11</li>
+            <li class="bar-12 index-gene-bar index-gene-bar-gray">12</li>
 
-            <li class="bar-13 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-14 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-15 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-16 index-gene-bar index-gene-bar-gray">3</li>
+            <li class="bar-13 index-gene-bar index-gene-bar-gray">13</li>
+            <li class="bar-14 index-gene-bar index-gene-bar-gray">14</li>
+            <li class="bar-15 index-gene-bar index-gene-bar-gray">15</li>
+            <li class="bar-16 index-gene-bar index-gene-bar-gray">16</li>
 
-            <li class="bar-17 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-18 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-19 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-20 index-gene-bar index-gene-bar-gray">3</li>
+            <li class="bar-17 index-gene-bar index-gene-bar-gray">17</li>
+            <li class="bar-18 index-gene-bar index-gene-bar-gray">18</li>
+            <li class="bar-19 index-gene-bar index-gene-bar-gray">19</li>
+            <li class="bar-20 index-gene-bar index-gene-bar-gray">20</li>
 
-            <li class="bar-21 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-22 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-23 index-gene-bar index-gene-bar-gray">3</li>
-            <li class="bar-24 index-gene-bar index-gene-bar-gray">3</li>
-
+            <li class="bar-21 index-gene-bar index-gene-bar-gray">21</li>
+            <li class="bar-22 index-gene-bar index-gene-bar-gray">22</li>
+            <li class="bar-23 index-gene-bar index-gene-bar-gray">23</li>
+            <li class="bar-24 index-gene-bar index-gene-bar-gray">24</li>
         </ul>
 
     </div>
-    
+    <script>
+        var bars = document.querySelectorAll('.index-gene-bar');
+        bars.forEach(function(ele) {
+            ele.addEventListener('mouseenter',function(event) {
+                this.classList.remove('index-gene-bar-gray');
+                this.classList.add('index-gene-bar-color')
+            }, false)
+            ele.addEventListener('mouseleave',function() {
+                this.classList.remove('index-gene-bar-color');
+                this.classList.add('index-gene-bar-gray')
+            }, false)
+
+        })
+    </script>
     
 
 </body>
