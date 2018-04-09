@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>https://popmotion.io/</title>
+    <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+</head>
+
+<body>
+    <div class="counter">1</div>
+
+    <script>
+        const { tween } = window.popmotion;
+        const counter = document.querySelector('.counter');
+        const updateCounter = (v) => counter.innerHTML = v;
+
+        tween().start(updateCounter);
+
+
+//         const { styler } = window.popmotion;
+
+// const ball = document.querySelector('.counter');
+// const divStyler = styler(ball);
+
+
+    </script>
+
+</body>
+
+</html>
