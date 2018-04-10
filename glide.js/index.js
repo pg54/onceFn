@@ -83,5 +83,21 @@ export default class Glide {
             warn('Options must be an `object` instance.')
         }
     }
-    get index ()
+    // 当前的index
+    get index () {
+        return this._i
+    }
+    //设置当前的index
+    set index (i) {
+        this._i = toInt(i)
+    }
+    get type () {
+        return this.setting.type
+    }
+    get disabled () {
+        return this._d
+    }
+    set disabled (status) {
+        this._d = !!status
+    }
 }
