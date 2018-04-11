@@ -1,0 +1,98 @@
+$white: #fff;
+$black: #1C2321;
+$color: #27AAE2;
+$dark: #777;
+  
+body {
+  background: $white;
+  font-family: helvetica;
+  color: $black;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0 auto 100vh auto;
+  background: $white;
+  .hero {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding-top: 20px;
+    background-color: $color;
+    text-align: center;
+    color: $white;
+    h1 {
+      letter-spacing: 8px;
+    }
+    .effect-selection__container {
+      width: 100%;
+      margin: 0 auto;
+      
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: center;
+      .effect-selection {
+        width: 115px;
+        padding: 5px;
+        text-align: left;
+        h4  {
+          font-weight: normal;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: $black;
+  }
+  .effect  {
+    margin: 0 auto 50px auto;
+    padding: 10px;
+  }
+  .image {
+    svg {
+      width: 100px;
+      margin: 0 auto;
+      display: block;
+      stroke: $color;
+      fill: $color;
+    }
+  }
+}
+
+#image-1 {
+  margin-top: 150px;
+  svg {
+    path {
+      fill: $color;
+    }
+  }
+}
+
+#image-2 {
+  margin-top: -150px;
+}
+
+#image-3 {
+  svg {
+    path {
+      fill: $color;
+    }
+  }
+}

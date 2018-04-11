@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="hero">
+            <h1>Parallax Playground</h1>
+            <p>Select effects, then scroll down.
+                <div class="effect-selection__container">
+                    <div class="effect-selection">
+                        <h4>Text Effects</h4>
+                        <div>
+                            <input type="checkbox" class="check" id="parallax-check" onchange="addParallax(this)">
+                            <label class="label" for="parallax-check">Parallax</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="scale-up-check" onchange="addScaleUp(this)">
+                            <label class="label" for="scale-up-check">Scale-Up</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="skew-check" onchange="addSkew(this)">
+                            <label class="label" for="skew-check">Skew</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="opacity-check" onchange="addOpacity(this)">
+                            <label class="label" for="opacity-check">Fade-In</label>
+                        </div>
+                    </div>
+                    <div class="effect-selection">
+                        <h4>Image Effects</h4>
+                        <div>
+                            <input type="checkbox" class="check" id="parallax-check-image" onchange="addImageParallax(this)">
+                            <label class="label" for="parallax-check-image">Parallax</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="scale-up-check-image" onchange="addImageScaleUp(this)">
+                            <label class="label" for="scale-up-check-image">Scale-Up</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="rotate-check-image" onchange="addImageRotate(this)">
+                            <label class="label" for="rotate-check-image">Rotate</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="skew-check-image" onchange="addImageSkew(this)">
+                            <label class="label" for="skew-check-image">Skew</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="check" id="opacity-check-image" onchange="addImageOpacity(this)">
+                            <label class="label" for="opacity-check-image">Fade-In</label>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="text effect">
+                <h3 class="headline">Quis Nostrud</h3>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="image effect" id="image-1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125"
+                    enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path fill="#000000" d="M82.7,26.7c-10-3.2-21.1,2.4-24.3,12.4c-1.4,4.4-2.9,6.6-5.8,9c1.2-4.3,1.2-7.3-0.5-12.4  c-2.9-9,2.2-19.1,11.2-22c9.2-3,19.6,2.9,22.5,11.1c0.7,1.9,1.5,1.7,0.9-0.3c-3.2-9.7-13.8-15.8-23.9-12.5  c-10,3.2-15.6,14.4-12.4,24.3c1.4,4.4,1.5,7.1,0.6,10.7c-1.5-4.2-3.3-6.6-7.7-9.8c-7.7-5.6-9.4-16.8-3.9-24.4  C45.1,5,56.9,3.6,64.1,8.6c1.7,1.2,2.3,0.5,0.5-0.7c-8.3-6-20.5-4.7-26.7,3.9c-6.2,8.5-4.2,20.8,4.3,27c3.8,2.7,5.4,4.8,6.8,8.3  c-3.7-2.5-6.6-3.4-11.9-3.4c-9.5,0-17.5-8-17.5-17.5c0-9.6,8.8-17.7,17.5-17.9c2-0.1,2.1-0.9,0-0.9c-10.2,0-19.3,8.2-19.3,18.9  c0,10.5,8.8,19.3,19.3,19.3c4.7,0,7.2,0.7,10.4,2.7c-4.5,0.2-7.3,1.1-11.6,4.3c-7.7,5.6-18.8,3.8-24.4-3.9  C5.7,40.8,8,29.1,14.9,23.8c1.6-1.2,1.2-2-0.5-0.7c-8.3,6-10.8,18-4.5,26.6c6.2,8.5,18.5,10.4,27,4.3c3.8-2.7,6.3-3.7,10-3.9  c-3.5,2.8-5.3,5.2-6.9,10.3c-2.9,9-13,14.2-22,11.2c-9.2-3-14.1-13.8-11.7-22.2c0.6-2-0.2-2.3-0.9-0.3c-3.2,9.7,1.8,20.9,12,24.2  c10,3.2,21.1-2.4,24.3-12.4c1.4-4.4,2.9-6.6,5.8-9c-1.2,4.3-1.2,7.3,0.5,12.4c2.9,9-2.2,19.1-11.2,22c-9.2,3-19.6-2.9-22.5-11.1  c-0.7-1.9-1.5-1.7-0.9,0.3c3.2,9.7,13.8,15.8,23.9,12.5c10-3.2,15.6-14.4,12.4-24.3c-1.4-4.4-1.5-7.1-0.6-10.7  c1.5,4.2,3.3,6.6,7.7,9.8c7.7,5.6,9.4,16.8,3.9,24.4c-5.7,7.8-17.5,9.2-24.7,4.2c-1.7-1.2-2.3-0.5-0.5,0.7c8.3,6,20.5,4.7,26.7-3.9  c6.2-8.5,4.2-20.8-4.3-27C54,58.6,52.4,56.5,51,53c3.7,2.5,6.6,3.4,11.9,3.4c9.5,0,17.5,8,17.5,17.5c0,9.6-8.8,17.7-17.5,17.9  c-2,0.1-2.1,0.9,0,0.9c10.2,0,19.3-8.2,19.3-18.9c0-10.5-8.8-19.3-19.3-19.3c-4.7,0-7.2-0.7-10.4-2.7c4.5-0.2,7.3-1.1,11.7-4.3  c7.7-5.6,18.8-3.8,24.4,3.9c5.7,7.8,3.3,19.5-3.6,24.8c-1.6,1.2-1.2,2,0.5,0.7c8.3-6,10.8-18,4.5-26.6c-6.2-8.5-18.5-10.4-27-4.3  c-3.8,2.7-6.3,3.7-10,3.9c3.5-2.8,5.3-5.2,6.9-10.3c2.9-9,13-14.2,22-11.2c9.2,3,14.1,13.8,11.7,22.2c-0.6,2,0.2,2.3,0.9,0.3  C97.8,41.2,92.8,30,82.7,26.7z"
+                    />
+                </svg>
+            </div>
+            <div class="image effect" id="image-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125"
+                    style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                    <path d="M50,95C25.1870632,95,5,74.8134155,5,50C5,25.1870632,25.1870632,5,50,5c24.8134155,0,45,20.1870632,45,45  C95,74.8134155,74.8134155,95,50,95z M50,6.7166214C26.1335049,6.7166214,6.7166214,26.1335049,6.7166214,50  c0,23.8669739,19.4168835,43.2833786,43.2833786,43.2833786c23.8669739,0,43.2833786-19.4164047,43.2833786-43.2833786  C93.2833786,26.1335049,73.8669739,6.7166214,50,6.7166214z"
+                    />
+                    <path d="M54.4141693,86.1716614C34.4689827,86.1716614,18.242506,69.9451828,18.242506,50  s16.2264767-36.1716614,36.1716614-36.1716614S90.5858307,30.0548153,90.5858307,50S74.3593521,86.1716614,54.4141693,86.1716614z   M54.4141693,15.5449591c-18.998745,0-34.45504,15.456296-34.45504,34.45504s15.4562969,34.45504,34.45504,34.45504  S88.8692093,68.9987411,88.8692093,50S73.4129105,15.5449591,54.4141693,15.5449591z"
+                    />
+                    <path d="M50,77.3433228c-15.0769539,0-27.3433247-12.2663651-27.3433247-27.3433228S34.9230461,22.6566753,50,22.6566753  S77.3433228,34.9230461,77.3433228,50S65.0769577,77.3433228,50,77.3433228z M50,24.3732967  c-14.1305122,0-25.6267033,11.496191-25.6267033,25.6267033S35.8694878,75.6267014,50,75.6267014  S75.6267014,64.1305161,75.6267014,50S64.1305161,24.3732967,50,24.3732967z"
+                    />
+                    <path d="M54.4141693,68.5149841c-10.2092018,0-18.5149879-8.3062592-18.5149879-18.5149841  c0-10.2092018,8.3057861-18.514986,18.5149879-18.514986c10.208725,0,18.5149841,8.3057842,18.5149841,18.514986  C72.9291534,60.208725,64.6228943,68.5149841,54.4141693,68.5149841z M54.4141693,33.2016335  c-9.262764,0-16.7983665,7.5356064-16.7983665,16.7983665c0,9.2622833,7.5356026,16.7983627,16.7983665,16.7983627  c9.2622833,0,16.7983627-7.5360794,16.7983627-16.7983627C71.212532,40.7372398,63.6764526,33.2016335,54.4141693,33.2016335z"
+                    />
+                    <path d="M50,59.6866493c-5.3414497,0-9.6866493-4.3451996-9.6866493-9.6866493S44.6585503,40.3133507,50,40.3133507  S59.6866493,44.6585503,59.6866493,50S55.3414497,59.6866493,50,59.6866493z M50,42.0299721  c-4.3945312,0-7.9700279,3.5754967-7.9700279,7.9700279c0,4.3950119,3.5754967,7.9700279,7.9700279,7.9700279  c4.3950119,0,7.9700279-3.575016,7.9700279-7.9700279C57.9700279,45.6054688,54.3950119,42.0299721,50,42.0299721z"
+                    />
+                    <path d="M53.4332428,53.0653954c-1.6898003,0-3.0653954-1.3755951-3.0653954-3.0653954  c0-1.6902771,1.3755951-3.0653954,3.0653954-3.0653954S56.4986382,48.3097229,56.4986382,50  C56.4986382,51.6898003,55.1230431,53.0653954,53.4332428,53.0653954z M53.4332428,48.651226  c-0.7433586,0-1.348774,0.6049385-1.348774,1.348774s0.6054153,1.348774,1.348774,1.348774S54.7820168,50.7438354,54.7820168,50  S54.1766014,48.651226,53.4332428,48.651226z"
+                    />
+                </svg>
+            </div>
+
+            <div class="text effect">
+                <h3 class="headline">Lorem Ipsum</h3>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute iruredolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="text effect test">
+                <h3 class="headline">Parallax & Opacity</h3>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+            </div>
+
+            <div class="image effect" id="image-3">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125"
+                    enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path fill="#000000" d="M94.5,50c0-4.1-0.6-7.9-1.7-11.3c-0.8-3.6-2.2-7.4-4.3-11c-2-3.5-4.5-6.5-7.1-8.9c-2.5-2.8-5.6-5.3-9.2-7.3  c-3.6-2-7.3-3.5-10.9-4.2C57.9,6.1,54.1,5.5,50,5.5c-4.1,0-7.9,0.6-11.3,1.7C35,8,31.3,9.4,27.8,11.5c-3.6,2.1-6.6,4.6-9,7.2  c-2.7,2.4-5.2,5.5-7.3,9.1c-2.1,3.6-3.5,7.3-4.3,11C6.1,42.1,5.5,45.9,5.5,50c0,4.2,0.6,8.1,1.8,11.5C8,65,9.4,68.7,11.5,72.2  c0.4,0.6,0.8,1.2,1.1,1.9c0.1,0.2,0.3,0.5,0.5,0.7c0.2,0.3,0.5,0.7,0.7,1c0.2,0.3,0.4,0.6,0.6,0.9c0.2,0.2,0.4,0.5,0.5,0.7  c0.3,0.3,0.5,0.7,0.8,1c0,0,0.1,0.1,0.1,0.1c0.9,1.1,1.9,2,2.9,2.9c2.4,2.6,5.4,5.1,8.9,7.1c0.7,0.4,1.4,0.8,2.1,1.1  c0.1,0,0.1,0.1,0.2,0.1c2.8,1.4,5.7,2.4,8.6,3c3.4,1.1,7.2,1.7,11.3,1.7c4.1,0,7.9-0.6,11.3-1.7c3.6-0.8,7.4-2.2,10.9-4.2  c3.6-2.1,6.7-4.6,9.2-7.4c2.7-2.4,5.1-5.4,7.1-8.9c2.1-3.6,3.5-7.3,4.3-11C93.9,57.9,94.5,54.1,94.5,50z M50.2,92.5  c2.8-0.9,5-2.5,6.3-4.8c0.5-0.9,0.9-1.9,1.1-2.9c1.2-5.7-2.4-12.8-9.1-18.5c0.5,0,1,0,1.5,0c12.4,0,22.5,5.9,22.5,13.1  C72.5,86.6,62.5,92.4,50.2,92.5z M29.1,87c0.9,0.2,1.7,0.3,2.6,0.3c1.9,0,3.6-0.4,5.2-1.3c3.6-2.1,5.6-6.3,5.7-11.8  c0.1-3.4-0.6-7.1-1.9-10.7c0.4,0.2,0.9,0.5,1.3,0.7l0.5-0.9l-0.5,0.9c10.7,6.2,16.5,16.3,12.9,22.6C51.2,92.9,39.8,93,29.1,87z   M7.5,50.4c0.9,2.7,2.6,4.9,4.8,6.1c1.5,0.9,3.3,1.3,5.1,1.3c5.3,0,11.4-3.6,16.2-9.4c0,0.5,0,1,0,1.5c0,12.4-5.9,22.5-13.1,22.5  C13.5,72.5,7.7,62.6,7.5,50.4z M49.6,7.5c-2.7,0.9-4.9,2.5-6.2,4.8c-2.1,3.6-1.7,8.2,1,13.1c1.7,3,4.1,5.8,7.1,8.3c-0.5,0-1,0-1.5,0  c-12.4,0-22.5-5.9-22.5-13.1C27.5,13.5,37.4,7.6,49.6,7.5z M86.6,28.5c-2.2-1.9-4.6-3-7.3-3c-6.9,0-12.7,7.5-14.5,17.7  c-0.3-0.4-0.5-0.8-0.8-1.3c-3-5.3-4.7-10.9-4.6-15.9c0.1-4.8,1.7-8.4,4.7-10.1c1.2-0.7,2.6-1.1,4.1-1.1  C74.5,14.8,81.8,20.3,86.6,28.5z M92.5,49.6c-0.9-2.7-2.6-4.9-4.8-6.1c-1.5-0.9-3.3-1.3-5.1-1.3c-5.3,0-11.4,3.6-16.2,9.4  c0-0.5,0-1,0-1.5c0-12.4,5.9-22.5,13.1-22.5C86.5,27.5,92.3,37.4,92.5,49.6z M50,64.3c-1.3,0-2.6,0.1-3.9,0.2  c-1-0.7-2.1-1.4-3.3-2.1c-1.1-0.7-2.3-1.2-3.5-1.8c-0.5-1.2-1.1-2.3-1.8-3.5l0,0l0,0c-0.7-1.1-1.4-2.2-2.1-3.3  c0.1-1.3,0.2-2.6,0.2-3.9c0-1.3-0.1-2.6-0.2-3.9c0.7-1,1.4-2.1,2.1-3.3c0.7-1.1,1.2-2.3,1.8-3.5c1.2-0.5,2.3-1.1,3.5-1.8  c1.1-0.7,2.2-1.4,3.2-2.1c1.3,0.1,2.6,0.2,3.9,0.2s2.6-0.1,3.9-0.2c1,0.7,2.1,1.5,3.2,2.1c1.1,0.7,2.3,1.2,3.5,1.8  c0.5,1.2,1.1,2.3,1.8,3.5s1.4,2.2,2.1,3.3c-0.1,1.3-0.2,2.6-0.2,3.9c0,1.3,0.1,2.6,0.2,3.9c-0.7,1-1.4,2.1-2.1,3.3  c-0.7,1.1-1.2,2.3-1.8,3.5c-1.2,0.5-2.3,1.1-3.5,1.8c-1.1,0.7-2.2,1.4-3.2,2.1C52.6,64.3,51.3,64.3,50,64.3z M24.7,83.2  c-4.3-2.4-8.3-6.5-11.4-11.7c2.2,1.9,4.6,3,7.3,3c6.9,0,12.7-7.5,14.5-17.7c0.3,0.4,0.5,0.9,0.8,1.3l0,0l0,0  c3,5.3,4.7,10.9,4.6,15.9c-0.1,4.8-1.7,8.4-4.7,10.1C32.9,85.9,28.9,85.5,24.7,83.2z M13.2,71.3l-0.8,0.5L13.2,71.3L13.2,71.3z   M68.3,12.8c-1.9,0-3.6,0.4-5.1,1.3c-3.6,2.1-5.6,6.3-5.7,11.8c-0.1,3.4,0.6,7.1,1.9,10.7c-0.4-0.2-0.9-0.5-1.3-0.7  c-5.3-3-9.5-7.1-12-11.5c-2.3-4.2-2.7-8.1-1-11.1c1.7-3,5.5-4.7,10.5-4.7c4.8,0,10.2,1.6,15.2,4.4C70,12.9,69.2,12.8,68.3,12.8z   M25.5,20.6c0,6.9,7.5,12.7,17.6,14.5c-0.4,0.3-0.8,0.5-1.3,0.8c-5.1,3-10.7,4.6-15.6,4.6c-5,0-8.7-1.7-10.5-4.7  c-3.6-6.2,2.1-16.2,12.7-22.5C26.6,15.5,25.5,18,25.5,20.6z M13.1,29c-0.6,2.8-0.3,5.5,1,7.8c2.1,3.7,6.4,5.7,12.2,5.7  c3.3,0,6.8-0.7,10.3-1.9c-0.2,0.4-0.5,0.9-0.7,1.3c-4.8,8.4-12.2,14-18.5,14c-1.5,0-2.9-0.4-4.1-1.1c-2.9-1.7-4.6-5.3-4.7-10.1  C8.5,39.8,10.1,34.2,13.1,29z M74.5,79.4c0-6.9-7.5-12.7-17.6-14.5c0.4-0.3,0.8-0.5,1.3-0.8c5.1-3,10.7-4.6,15.6-4.6  c5,0,8.7,1.7,10.5,4.7c1.7,2.9,1.4,6.9-1,11.1c-2.4,4.3-6.5,8.3-11.7,11.4C73.4,84.5,74.5,82,74.5,79.4z M87,70.9  c0.6-2.8,0.2-5.5-1.1-7.7c-2.1-3.7-6.4-5.7-12.2-5.7c-3.3,0-6.8,0.7-10.3,1.9c0.2-0.4,0.5-0.9,0.7-1.3c4.8-8.4,12.2-14,18.5-14  c1.5,0,2.9,0.4,4.1,1.1c2.9,1.7,4.6,5.3,4.7,10.1C91.5,60.2,89.9,65.7,87,70.9z"
+                    />
+                </svg>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="text effect">
+                <h3 class="headline">Quis Nostrud</h3>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+                <p class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.</p>
+            </div>
+
+            <div class="image effect" id="image-4">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125"
+                    enable-background="new 0 0 100 100" xml:space="preserve">
+                    <path d="M78,51.75c-0.965,0-1.75-0.785-1.75-1.75s0.785-1.75,1.75-1.75s1.75,0.785,1.75,1.75S78.965,51.75,78,51.75z M78,48.75  c-0.689,0-1.25,0.561-1.25,1.25s0.561,1.25,1.25,1.25s1.25-0.561,1.25-1.25S78.689,48.75,78,48.75z"
+                    />
+                    <path d="M76,54.75c-2.619,0-4.75-2.131-4.75-4.75s2.131-4.75,4.75-4.75s4.75,2.131,4.75,4.75S78.619,54.75,76,54.75z M76,45.75  c-2.344,0-4.25,1.907-4.25,4.25c0,2.344,1.906,4.25,4.25,4.25s4.25-1.906,4.25-4.25C80.25,47.657,78.344,45.75,76,45.75z"
+                    />
+                    <path d="M74,57.75c-4.273,0-7.75-3.477-7.75-7.75s3.477-7.75,7.75-7.75s7.75,3.477,7.75,7.75S78.273,57.75,74,57.75z M74,42.75  c-3.998,0-7.25,3.252-7.25,7.25c0,3.998,3.252,7.25,7.25,7.25s7.25-3.252,7.25-7.25C81.25,46.002,77.998,42.75,74,42.75z"
+                    />
+                    <path d="M72,60.75c-5.928,0-10.75-4.822-10.75-10.75S66.072,39.25,72,39.25S82.75,44.072,82.75,50S77.928,60.75,72,60.75z M72,39.75  c-5.652,0-10.25,4.598-10.25,10.25c0,5.652,4.598,10.25,10.25,10.25S82.25,55.652,82.25,50C82.25,44.348,77.652,39.75,72,39.75z"
+                    />
+                    <path d="M70,63.75c-7.582,0-13.75-6.168-13.75-13.75c0-7.582,6.168-13.75,13.75-13.75S83.75,42.418,83.75,50  C83.75,57.582,77.582,63.75,70,63.75z M70,36.75c-7.306,0-13.25,5.944-13.25,13.25c0,7.306,5.944,13.25,13.25,13.25  S83.25,57.306,83.25,50C83.25,42.694,77.306,36.75,70,36.75z"
+                    />
+                    <path d="M68,66.75c-9.236,0-16.75-7.514-16.75-16.75c0-9.236,7.514-16.75,16.75-16.75S84.75,40.764,84.75,50  C84.75,59.236,77.236,66.75,68,66.75z M68,33.75c-8.96,0-16.25,7.29-16.25,16.25c0,8.96,7.29,16.25,16.25,16.25  S84.25,58.96,84.25,50C84.25,41.04,76.96,33.75,68,33.75z"
+                    />
+                    <path d="M66,69.75c-10.891,0-19.75-8.859-19.75-19.75c0-10.89,8.859-19.75,19.75-19.75S85.75,39.11,85.75,50  C85.75,60.891,76.891,69.75,66,69.75z M66,30.75c-10.614,0-19.25,8.636-19.25,19.25S55.386,69.25,66,69.25S85.25,60.614,85.25,50  S76.614,30.75,66,30.75z"
+                    />
+                    <path d="M64,72.75c-12.544,0-22.75-10.206-22.75-22.75c0-12.544,10.206-22.75,22.75-22.75S86.75,37.456,86.75,50  C86.75,62.544,76.544,72.75,64,72.75z M64,27.75c-12.269,0-22.25,9.981-22.25,22.25S51.731,72.25,64,72.25S86.25,62.269,86.25,50  S76.269,27.75,64,27.75z"
+                    />
+                    <path d="M62,75.75c-14.199,0-25.75-11.552-25.75-25.75c0-14.199,11.551-25.75,25.75-25.75c14.198,0,25.75,11.551,25.75,25.75  C87.75,64.198,76.198,75.75,62,75.75z M62,24.75c-13.923,0-25.25,11.327-25.25,25.25S48.077,75.25,62,75.25S87.25,63.923,87.25,50  S75.923,24.75,62,24.75z"
+                    />
+                    <path d="M60,78.75c-15.853,0-28.75-12.897-28.75-28.75c0-15.853,12.897-28.75,28.75-28.75c15.853,0,28.75,12.897,28.75,28.75  C88.75,65.853,75.853,78.75,60,78.75z M60,21.75c-15.577,0-28.25,12.673-28.25,28.25S44.423,78.25,60,78.25S88.25,65.577,88.25,50  S75.577,21.75,60,21.75z"
+                    />
+                    <path d="M58,81.75c-17.507,0-31.75-14.243-31.75-31.75S40.493,18.25,58,18.25S89.75,32.493,89.75,50S75.507,81.75,58,81.75z   M58,18.75c-17.231,0-31.25,14.019-31.25,31.25S40.769,81.25,58,81.25S89.25,67.231,89.25,50S75.231,18.75,58,18.75z"
+                    />
+                    <path d="M56,84.75c-19.161,0-34.75-15.589-34.75-34.75S36.839,15.25,56,15.25S90.75,30.839,90.75,50S75.161,84.75,56,84.75z   M56,15.75c-18.886,0-34.25,15.364-34.25,34.25S37.114,84.25,56,84.25S90.25,68.886,90.25,50S74.886,15.75,56,15.75z"
+                    />
+                    <path d="M54,87.75c-20.815,0-37.75-16.935-37.75-37.75S33.185,12.25,54,12.25S91.75,29.185,91.75,50S74.815,87.75,54,87.75z   M54,12.75c-20.54,0-37.25,16.71-37.25,37.25c0,20.54,16.71,37.25,37.25,37.25c20.54,0,37.25-16.71,37.25-37.25  C91.25,29.46,74.54,12.75,54,12.75z"
+                    />
+                    <path d="M52,90.75c-22.47,0-40.75-18.28-40.75-40.75S29.53,9.25,52,9.25S92.75,27.53,92.75,50S74.47,90.75,52,90.75z M52,9.75  C29.806,9.75,11.75,27.806,11.75,50c0,22.194,18.056,40.25,40.25,40.25c22.194,0,40.25-18.056,40.25-40.25  C92.25,27.806,74.194,9.75,52,9.75z"
+                    />
+                    <path d="M50,93.75C25.876,93.75,6.25,74.124,6.25,50S25.876,6.25,50,6.25S93.75,25.876,93.75,50S74.124,93.75,50,93.75z M50,6.75  C26.152,6.75,6.75,26.152,6.75,50c0,23.848,19.402,43.25,43.25,43.25c23.848,0,43.25-19.402,43.25-43.25  C93.25,26.152,73.848,6.75,50,6.75z"
+                    />
+                </svg>
+            </div>
+
+        </div>
+
+        <div>
+            <p>SVG's Created by
+                <a href="https://thenounproject.com/emilegraphics/">emilegraphics</a> from the Noun Project</p>
+        </div>
+
+    </div>
+    <script>
+        var displacementAmount = 250;
+        var textArr = Array.prototype.slice(document.querySelectorAll('.text'));
+        var imageArr = Array.prototype.slice(document.querySelectorAll('.image'));
+
+        //////////////////////
+        //// EFFECT SELECTION
+        //////////////////////
+
+        function addParallax(chk) {
+            for (var i = 0; i < textArr.length; i++) {
+                if (chk.checked) {
+                    textArr[i].classList.add('parallax');
+                    addEffects();
+                } else {
+                    resetParallax();
+                    textArr[i].classList.remove('parallax');
+                    addEffects();
+                }
+            }
+        }
+
+        function addImageParallax(chk) {
+            for (var i = 0; i < imageArr.length; i++) {
+                if (chk.checked) {
+                    imageArr[i].classList.add('parallax');
+                    addEffects();
+                } else {
+                    resetParallax();
+                    imageArr[i].classList.remove('parallax');
+                    addEffects();
+                }
+            }
+        }
+
+        function addOpacity(chk) {
+            for (var i = 0; i < textArr.length; i++) {
+                if (chk.checked) {
+                    textArr[i].classList.add('opacity');
+                    addEffects();
+                } else {
+                    resetOpacity();
+                    textArr[i].classList.remove('opacity');
+                    addEffects();
+                }
+            }
+        }
+
+        function addImageOpacity(chk) {
+            for (var i = 0; i < imageArr.length; i++) {
+                if (chk.checked) {
+                    imageArr[i].classList.add('opacity');
+                    addEffects();
+                } else {
+                    resetOpacity();
+                    imageArr[i].classList.remove('opacity');
+                    addEffects();
+                }
+            }
+        }
+
+
+        function addScaleUp(chk) {
+            for (var i = 0; i < textArr.length; i++) {
+                if (chk.checked) {
+                    textArr[i].classList.add('scale-up');
+                    addEffects();
+                } else {
+                    resetScaleUp();
+                    textArr[i].classList.remove('scale-up');
+                    addEffects();
+                }
+            }
+        }
+
+        function addImageScaleUp(chk) {
+            for (var i = 0; i < imageArr.length; i++) {
+                if (chk.checked) {
+                    imageArr[i].classList.add('scale-up');
+                    addEffects();
+                } else {
+                    resetScaleUp();
+                    imageArr[i].classList.remove('scale-up');
+                    addEffects();
+                }
+            }
+        }
+
+        function addImageRotate(chk) {
+            for (var i = 0; i < imageArr.length; i++) {
+                if (chk.checked) {
+                    imageArr[i].classList.add('rotate');
+                    addEffects();
+                } else {
+                    resetRotate();
+                    imageArr[i].classList.remove('rotate');
+                    addEffects();
+                }
+            }
+        }
+
+        function addSkew(chk) {
+            for (var i = 0; i < textArr.length; i++) {
+                if (chk.checked) {
+                    textArr[i].classList.add('skew');
+                    addEffects();
+                } else {
+                    resetSkew();
+                    textArr[i].classList.remove('skew');
+                    addEffects();
+                }
+            }
+        }
+
+        function addImageSkew(chk) {
+            for (var i = 0; i < imageArr.length; i++) {
+                if (chk.checked) {
+                    imageArr[i].classList.add('skew');
+                    addEffects();
+                } else {
+                    resetSkew();
+                    imageArr[i].classList.remove('skew');
+                    addEffects();
+                }
+            }
+        }
+
+        ///////////////////////////////////////
+        //// ADD EFFECT PROPERTIES TO EACH OBJ
+        ///////////////////////////////////////
+
+        // set initial properties for each object
+        textArr.forEach(function (obj) {
+            obj.scrollStyle = {
+                parallax: 0,
+                scaleUp: 1,
+                skewX: 0,
+                skewY: 0,
+                opacity: 1
+            };
+        });
+
+        imageArr.forEach(function (obj) {
+            obj.scrollStyle = {
+                parallax: 0,
+                scaleUp: 1,
+                skewX: 0,
+                skewY: 0,
+                opacity: 1,
+                rotate: 0
+            };
+        });
+
+        // set each property as style
+
+        function setStyle() {
+            for (var i = 0; i < textArr.length; i++) {
+                // set opacity
+                textArr[i].style.opacity = textArr[i].scrollStyle.opacity;
+                // set transform string
+                textArr[i].style.transform = 'translateY(' +
+                    textArr[i].scrollStyle.parallax +
+                    'px) scale(' + textArr[i].scrollStyle.scaleUp +
+                    ') skew(' + textArr[i].scrollStyle.skewX +
+                    'deg, ' + textArr[i].scrollStyle.skewY + 'deg)';
+            }
+        }
+
+        function setImageStyle() {
+            for (var i = 0; i < imageArr.length; i++) {
+                // set opacity
+                imageArr[i].style.opacity = imageArr[i].scrollStyle.opacity;
+                // set transform string
+                imageArr[i].style.transform = 'translateY(' +
+                    imageArr[i].scrollStyle.parallax +
+                    'px) scale(' + imageArr[i].scrollStyle.scaleUp +
+                    ') rotate(' + imageArr[i].scrollStyle.rotate +
+                    'deg) skew(' + imageArr[i].scrollStyle.skewX +
+                    'deg, ' + imageArr[i].scrollStyle.skewY + 'deg)';
+            }
+        }
+
+        /////////////
+        //// EFFECTS
+        /////////////
+        function addEffects() {
+
+            var all = document.getElementsByTagName('*');
+            remove_style(all);
+
+            var parallaxArr = [];
+            var opacityArr = [];
+            var scaleUpArr = [];
+            var rotateArr = [];
+            var skewArr = [];
+
+            setParallax();
+            setOpacity();
+            setScaleUp();
+            setRotate();
+            setSkew();
+        }
+
+        /// Parallax
+        function setParallax() {
+            var parallaxArr = document.querySelectorAll('.parallax');
+            if (parallaxArr) {
+                for (var i = 0; i < parallaxArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var parallax = parallaxArr[newI];
+                        window.addEventListener('scroll', function () {
+                            parallaxScroll(parallax);
+                        });
+                    })();
+                }
+            }
+        }
+
+        function parallaxScroll(el) {
+            var windowOffsetCalc = getWindowOffsetCalc(el);
+            var displacementAdjust = windowOffsetCalc * displacementAmount;
+            if (windowOffsetCalc >= 0) {
+                el.scrollStyle.parallax = displacementAdjust;
+            } else {
+                el.scrollStyle.parallax = 0;
+            }
+        }
+
+        function resetParallax() {
+            var parallaxArr = document.querySelectorAll('.parallax');
+            if (parallaxArr) {
+                for (var i = 0; i < parallaxArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var parallax = parallaxArr[newI];
+                        window.addEventListener('scroll', function () {
+                            parallax.scrollStyle.parallax = 0;
+                        });
+                    })();
+                }
+            }
+        }
+
+        /// opacity
+        function setOpacity() {
+            var opacityArr = document.querySelectorAll('.opacity');
+            if (opacityArr) {
+                for (var i = 0; i < opacityArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var opacity = opacityArr[newI];
+                        window.addEventListener('scroll', function () {
+                            opacityScroll(opacity);
+                        });
+                    })();
+                }
+            }
+        }
+
+        function opacityScroll(el) {
+            var windowOffsetCalc = getWindowOffsetCalc(el);
+            if (windowOffsetCalc >= 0) {
+                el.scrollStyle.opacity = 1 - windowOffsetCalc;
+            } else {
+                el.scrollStyle.opacity = 1;
+            }
+        }
+
+        function resetOpacity() {
+            var opacityArr = document.querySelectorAll('.opacity');
+            if (opacityArr) {
+                for (var i = 0; i < opacityArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var opacity = opacityArr[newI];
+                        window.addEventListener('scroll', function () {
+                            opacity.scrollStyle.opacity = 1;
+                        });
+                    })();
+                }
+            }
+        }
+
+        /// scale-up
+        function setScaleUp() {
+            var scaleUpArr = document.querySelectorAll('.scale-up');
+            if (scaleUpArr) {
+                for (var i = 0; i < scaleUpArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var scaleUp = scaleUpArr[newI];
+                        window.addEventListener('scroll', function () {
+                            scaleUpScroll(scaleUp);
+                        });
+                    })();
+                }
+            }
+        }
+
+        function scaleUpScroll(el) {
+            var windowOffsetCalc = getWindowOffsetCalc(el);
+            var scaleCalc = 0.75 + ((1 - windowOffsetCalc) / 4)
+            if (windowOffsetCalc >= 0) {
+                el.scrollStyle.scaleUp = scaleCalc;
+            } else {
+                el.scrollStyle.scaleUp = 1;
+            }
+        }
+
+        function resetScaleUp() {
+            var scaleUpArr = document.querySelectorAll('.scale-up');
+            if (scaleUpArr) {
+                for (var i = 0; i < scaleUpArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var scaleUp = scaleUpArr[newI];
+                        window.addEventListener('scroll', function () {
+                            scaleUp.scrollStyle.scaleUp = 1;
+                        });
+                    })();
+                }
+            }
+        }
+
+        /// rotate
+        function setRotate() {
+            var rotateArr = document.querySelectorAll('.rotate');
+            if (rotateArr) {
+                for (var i = 0; i < rotateArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var rotate = rotateArr[newI];
+                        window.addEventListener('scroll', function () {
+                            rotateScroll(rotate);
+                        });
+                    })();
+                }
+            }
+        }
+
+        function rotateScroll(el) {
+            var windowOffsetCalc = getWindowOffsetCalc(el);
+            var rotateCalc = (1 - windowOffsetCalc) * 100;
+            el.scrollStyle.rotate = windowOffsetCalc * 100;
+        }
+
+        function resetRotate() {
+            var rotateArr = document.querySelectorAll('.rotate');
+            if (rotateArr) {
+                for (var i = 0; i < rotateArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var rotate = rotateArr[newI];
+                        window.addEventListener('scroll', function () {
+                            rotate.scrollStyle.rotate = 0;
+                        });
+                    })();
+                }
+            }
+        }
+
+
+        /// skew
+        function setSkew() {
+            var skewArr = document.querySelectorAll('.skew');
+            if (skewArr) {
+                for (var i = 0; i < skewArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var skew = skewArr[newI];
+                        window.addEventListener('scroll', function () {
+                            skewScroll(skew);
+                        });
+                    })();
+                }
+            }
+        }
+
+        function skewScroll(el) {
+            var windowOffsetCalc = getWindowOffsetCalc(el);
+            var displacementAdjust = windowOffsetCalc * displacementAmount;
+            var skewCalc1 = windowOffsetCalc * 10;
+            var skewCalc2 = (1 + windowOffsetCalc) * 10;
+            if (windowOffsetCalc >= 0) {
+                el.scrollStyle.skewX = skewCalc1;
+                el.scrollStyle.skewY = skewCalc1;
+            } else if (windowOffsetCalc >= -1 && windowOffsetCalc < 0) {
+                el.scrollStyle.skewX = 0;
+                el.scrollStyle.skewY = 0;
+            } else if (windowOffsetCalc <= -1) {
+                el.scrollStyle.skewX = skewCalc2;
+                el.scrollStyle.skewY = skewCalc2;
+            }
+        }
+
+        function resetSkew() {
+            var skewArr = document.querySelectorAll('.skew');
+            if (skewArr) {
+                for (var i = 0; i < skewArr.length; i++) {
+                    (function () {
+                        var newI = i;
+                        var skew = skewArr[newI];
+                        window.addEventListener('scroll', function () {
+                            skew.scrollStyle.skewX = 0;
+                            skew.scrollStyle.skewY = 0;
+                        });
+                    })();
+                }
+            }
+
+        }
+
+        addEffects();
+
+        // lib
+        var getPageOffset = function (element) {
+            if (!element) {
+                throw "getPageOffset passed an invalid element";
+            }
+            var pageOffsetX = element.offsetLeft,
+                pageOffsetY = element.offsetTop;
+
+            element = element.offsetParent;
+            while (element) {
+                pageOffsetX += element.offsetLeft;
+                pageOffsetY += element.offsetTop;
+                element = element.offsetParent;
+            }
+
+            return {
+                left: pageOffsetX,
+                top: pageOffsetY
+            };
+        };
+
+        var getWindowOffsetCalc = function (el) {
+            var calc = ((window.pageYOffset + (window.innerHeight / 2) - getPageOffset(el).top) / (window.innerHeight /
+                2)) * -1;
+            return calc
+        }
+
+        function remove_style(all) {
+            var i = all.length;
+            var j, is_hidden;
+
+            // Presentational attributes.
+            var attr = [
+                'align',
+                'background',
+                'bgcolor',
+                'border',
+                'cellpadding',
+                'cellspacing',
+                'color',
+                'face',
+                'height',
+                'hspace',
+                'marginheight',
+                'marginwidth',
+                'noshade',
+                'nowrap',
+                'valign',
+                'vspace',
+                'width',
+                'vlink',
+                'alink',
+                'text',
+                'link',
+                'frame',
+                'frameborder',
+                'clear',
+                'scrolling',
+                'style'
+            ];
+
+            var attr_len = attr.length;
+
+            while (i--) {
+                is_hidden = (all[i].style.display === 'none');
+
+                j = attr_len;
+
+                while (j--) {
+                    all[i].removeAttribute(attr[j]);
+                }
+
+                // Re-hide display:none elements,
+                // so they can be toggled via JS.
+                if (is_hidden) {
+                    all[i].style.display = 'none';
+                    is_hidden = false;
+                }
+            }
+        }
+
+        // Event Listeners 
+
+        window.addEventListener('scroll', function () {
+            setStyle();
+            setImageStyle();
+        });
+    </script>
+</body>
+
+</html>
