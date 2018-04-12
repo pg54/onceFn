@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 ,user-scalable=0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 ,user-scalable=0"> -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
@@ -10,24 +11,27 @@
             margin: 0;
             padding: 0;
         }
+        
         .banner_img {
             display: block;
             width: 100vw;
         }
+        
         .reg_content {
             padding: 0 0.1rem;
         }
+        
         .inputWrap {
             position: relative;
             margin: 20px 0;
-        
         }
+        
         .inputWrap input {
-            font-size: .24rem;
+            font-size: .36rem;
             background-color: #fff;
             border-color: #dbdbdb;
             color: #363636;
-            -webkit-box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+            -webkit-box-shadow: inset 0 1px 2px rgba(10, 10, 10, .1);
             box-shadow: inset 0 1px 2px rgba(24, 8, 8, 0.1);
             /* max-width: 100%; */
             width: 100%;
@@ -35,26 +39,87 @@
             border-radius: 4px;
             padding: 8px 12px;
         }
+        
         .inputWrap input:focus {
             border: none;
         }
-
-
+        
+        .regBtn {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 0.1rem;
+        }
+        
+        .sms_wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .sms_code {
+            width: 68%;
+        }
+        
+        .sms_send {
+            width: 26%;
+            text-align: center;
+            font-size: 0.36rem;
+            line-height: 0.6rem;
+        }
     </style>
-    <!-- <script>!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(normal,e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);var u=normal?1:1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=normal?"50px": a/2*s*n+"px"},e.exports=t["default"]}]);  flex(false,100, 1);</script> -->
+    <script>
+        ! function(e) {
+            function t(a) {
+                if (i[a]) return i[a].exports;
+                var n = i[a] = {
+                    exports: {},
+                    id: a,
+                    loaded: !1
+                };
+                return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports
+            }
+            var i = {};
+            return t.m = e, t.c = i, t.p = "", t(0)
+        }([function(e, t) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {
+                value: !0
+            });
+            var i = window;
+            t["default"] = i.flex = function(normal, e, t) {
+                var a = e || 100,
+                    n = t || 1,
+                    r = i.document,
+                    o = navigator.userAgent,
+                    d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),
+                    l = o.match(/U3\/((\d+|\.){5,})/i),
+                    c = l && parseInt(l[1].split(".").join(""), 10) >= 80,
+                    p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi),
+                    s = i.devicePixelRatio || 1;
+                p || d && d[1] > 534 || c || (s = 1);
+                var u = normal ? 1 : 1 / s,
+                    m = r.querySelector('meta[name="viewport"]');
+                m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)), m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u + ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize = normal ? "50px" : a / 2 * s * n + "px"
+            }, e.exports = t["default"]
+        }]);
+        flex(false, 100, 1);
+    </script>
 </head>
+
 <body>
     <img class="banner_img" src="./images//register-bg2@2x.png" alt="">
     <div class="reg_content">
         <div class="inputWrap">
             <input type="text" placeholder="请输入手机号">
         </div>
+        <div class="inputWrap sms_wrap">
+            <input class="sms_code" type="text" placeholder="请输入验证码">
+            <a class="sms_send" href="">获取验证码</a>
+        </div>
         <div class="inputWrap">
-                <input type="text" placeholder="请输入验证码">
-            </div>
-            <div class="inputWrap">
-                    <input type="text" placeholder="请输入6位数密码">
-                </div>
+            <input type="text" placeholder="请输入6位数密码">
+        </div>
     </div>
+    <img class="regBtn" src="./images//register-btn@2x.png" alt="">
 </body>
+
 </html>

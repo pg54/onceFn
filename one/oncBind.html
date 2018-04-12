@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>公众号绑定</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Add your keywords and description here for SEO. -->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="icon" href="http://img.onenewcare.com/resource/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://img.onenewcare.com/resource/images/favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        ! function(e) {
+            function t(a) {
+                if (i[a]) return i[a].exports;
+                var n = i[a] = {
+                    exports: {},
+                    id: a,
+                    loaded: !1
+                };
+                return e[a].call(n.exports, n, n.exports, t), n.loaded = !0, n.exports
+            }
+            var i = {};
+            return t.m = e, t.c = i, t.p = "", t(0)
+        }([function(e, t) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {
+                value: !0
+            });
+            var i = window;
+            t["default"] = i.flex = function(normal, e, t) {
+                var a = e || 100,
+                    n = t || 1,
+                    r = i.document,
+                    o = navigator.userAgent,
+                    d = o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),
+                    l = o.match(/U3\/((\d+|\.){5,})/i),
+                    c = l && parseInt(l[1].split(".").join(""), 10) >= 80,
+                    p = navigator.appVersion.match(/(iphone|ipad|ipod)/gi),
+                    s = i.devicePixelRatio || 1;
+                p || d && d[1] > 534 || c || (s = 1);
+                var u = normal ? 1 : 1 / s,
+                    m = r.querySelector('meta[name="viewport"]');
+                m || (m = r.createElement("meta"), m.setAttribute("name", "viewport"), r.head.appendChild(m)),
+                    m.setAttribute("content", "width=device-width,user-scalable=no,initial-scale=" + u +
+                        ",maximum-scale=" + u + ",minimum-scale=" + u), r.documentElement.style.fontSize =
+                    normal ? "50px" : a / 2 * s * n + "px"
+            }, e.exports = t["default"]
+        }]);
+        flex(false, 100, 1);
+    </script>
+    <style>
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: #eeeeee;
+            font-family: Microsoft YaHei;
+        }
+        
+        input {
+            height: 0.9rem;
+            line-height: 0.9rem;
+            padding: 0.2rem;
+            font-size: 0.3rem;
+            padding: 0.2rem 0.16rem 0.2rem 0.16rem;
+            border-radius: 0.1rem;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .55), 0px 1px 1px rgba(255, 255, 255, .5);
+            border: none;
+            box-sizing: border-box;
+        }
+        
+        input:hover,
+        input:focus {
+            border: 1px solid #ffcd00;
+            outline: none;
+        }
+        
+        .logoWrap {
+            width: 2.8rem;
+            height: 2.8rem;
+            margin: 2.0rem auto 1.15rem;
+        }
+        
+        .logoWrap img {
+            width: 100%;
+        }
+        
+        .bindContent {
+            width: 6.58rem;
+            margin: 0 auto;
+        }
+        
+        .actionBtn {
+            font-size: 0.34rem;
+            color: #ffffff;
+            background: #ffcd00;
+            text-align: center;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            border-radius: 0.1rem;
+        }
+        
+        .actionBtn:hover {
+            cursor: pointer;
+        }
+        
+        .actionBtn:active {
+            opacity: 0.7;
+        }
+        
+        .threeAction {
+            margin-bottom: 0.24rem;
+        }
+        
+        .accountWrap {
+            height: 0.9rem;
+            margin-bottom: 0.38rem;
+        }
+        
+        .account {
+            width: 4.0rem;
+        }
+        
+        .accountBind {
+            width: 100%;
+        }
+        
+        .submitAccount {
+            width: 2.0rem;
+            margin-left: 0.58rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            font-size: 0.3rem;
+            color: #ffffff;
+            background: #8fc41A;
+            text-align: center;
+            border-radius: 0.1rem;
+            outline: none;
+            border: 0;
+        }
+        
+        .accountWrap,
+        .codeWrap,
+        .telWrap {
+            margin: 0.38rem 0;
+            font-size: 0.3rem;
+        }
+        
+        .veriCode {
+            width: 100%;
+        }
+        
+        .telWrap {
+            width: 100%;
+            height: 0.9rem;
+        }
+        
+        .telNumber {
+            width: 100%;
+        }
+        
+        .sendCode {
+            width: 2.3rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            margin-left: 0.38rem;
+            font-size: 0.3rem;
+            color: #ffffff;
+            background: #8fc41A;
+            text-align: center;
+            border-radius: 0.1rem;
+            outline: none;
+            border: 0;
+        }
+        
+        .sendCode:active {
+            opacity: 0.7;
+        }
+        
+        .notify {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4.8rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            border-radius: 0.08rem;
+            text-align: center;
+            background: rgba(76, 76, 76, 1);
+            font-size: 0.3rem;
+            color: #ffffff;
+            display: none;
+            transition: all 0.8s ease-in-out;
+        }
+        
+        .isBound .accountWrap {
+            margin-bottom: 1.18rem;
+        }
+        
+        .showSuccess {
+            width: 6.58rem;
+            margin: 0 auto;
+            font-size: 0.34rem;
+            color: #ffffff;
+            background: #ffcd00;
+            text-align: center;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            border-radius: 0.1rem;
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="logoWrap">
+        <img src="http://img.onenewcare.com/resource/images/logo@2x.png" srcset="http://img.onenewcare.com/resource/images/logo@2x.png 2x,http://img.onenewcare.com/resource/images/logo@2x.png 3x" alt="">
+    </div>
+
+
+    <div class="bindContent">
+        <div class="accountWrap">
+            <input type="text" class="account" value="" placeholder="绑定账号"><button class="submitAccount">确认</button>
+        </div>
+        <div class="codeWrap">
+            <input class="veriCode" type="text" placeholder="家长姓名">
+        </div>
+        <div class="telWrap">
+            <input class="telNumber" type="text" placeholder="联系电话">
+        </div>
+
+        <div class="actionBtn bindBtn">
+            绑定
+        </div>
+    </div>
+
+
+    <!-- <div class="bindContent isBound">
+        <div class="accountWrap">
+            <input type="text" class="accountBind" value="" disabled='disabled'>
+        </div>
+        <div class="actionBtn threeAction" onclick="record(1)">
+            评估历史
+        </div>
+        <div class="actionBtn threeAction" onclick="record(2)">
+            评测历史
+        </div>
+        <div class="actionBtn threeAction">
+            教学计划
+        </div>
+    </div> -->
+
+    <div class="notify">
+        请输入绑定账号
+    </div>
+    <div class="showSuccess">
+        绑定成功！
+    </div>
+
+    <script>
+        window.onload = function() {
+            var bindBtn = document.querySelector('.bindBtn');
+            var account = document.querySelector('.account');
+            var notify = document.querySelector('.notify');
+            var parentName = document.querySelector('.veriCode');
+            var telNumber = document.querySelector('.telNumber');
+            var submitAccount = document.querySelector('.submitAccount');
+            var bindContent = document.querySelector('.bindContent');
+            var showSuccess = document.querySelector('.showSuccess');
+
+            account.focus();
+            var defaultParent = 1; //默认是父亲姓名
+
+            submitAccount.addEventListener("click", function() {
+                if (account.value === '') {
+                    notify.style.display = 'block'
+                    setTimeout(function() {
+                        notify.style.display = 'none'
+                    }, 1000)
+                } else {
+                    $.ajax({
+                        type: "GET",
+                        url: "",
+                        data: {
+                            userName: account.value
+                        },
+                        success: function(res) {
+                            console.log(res);
+                            if (res != "") {
+                                if (res.Member1 != null && res.Member1.Name) {
+                                    defaultParent = 1;
+                                    parentName.value = res.Member1.Name;
+                                    telNumber.value = res.Member1.Mobile;
+                                } else if (res.Member2 != null && res.Member2.Name) {
+                                    defaultParent = 2;
+                                    parentName.value = res.Member2.Name;
+                                    telNumber.value = res.Member2.Mobile;
+                                } else {
+                                    defaultParent = 3;
+                                }
+                            } else {
+                                notify.style.display = 'block';
+                                notify.innerHTML = '该用户不存在';
+                                setTimeout(function() {
+                                    notify.style.display = 'none'
+                                }, 1000)
+                            }
+                        },
+                        error: function(err) {
+                            console.log(err);
+                        }
+                    })
+                }
+            });
+
+            bindBtn.addEventListener('click', function() {
+                if (account.value === '') {
+                    notify.style.display = 'block'
+                    setTimeout(function() {
+                        notify.style.display = 'none'
+                    }, 1000)
+                } else {
+                    // ajax
+                    var params;
+                    if (defaultParent == 1) {
+                        params = {
+                            userName: account.value,
+                            Member1: {
+                                Name: parentName.value,
+                                Mobile: telNumber.value
+                            }
+                        }
+                    } else if (defaultParent == 2) {
+                        params = {
+                            userName: account.value,
+                            Member2: {
+                                Name: parentName.value,
+                                Mobile: telNumber.value
+                            }
+                        }
+                    } else {
+                        params = {
+                            userName: account.value,
+                            Member1: {
+                                Name: parentName.value,
+                                Mobile: telNumber.value
+                            }
+                        }
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "",
+                        data: params,
+                        success: function(res) {
+                            if (res.Status) {
+                                bindContent.style.display = 'none';
+                                showSuccess.style.display = 'block';
+                            } else {
+                                notify.style.display = 'block';
+                                notify.innerHTML = res.Msg;
+                                setTimeout(function() {
+                                    notify.style.display = 'none'
+                                }, 1000)
+                            }
+                        },
+                        error: function(res) {
+                            console.log(res);
+                        }
+                    })
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
