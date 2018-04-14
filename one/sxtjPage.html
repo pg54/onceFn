@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>包有客</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="/static/wxfin/js/locationhref.js?r=0.5697035637559159" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/jquery/jquery-2.1.1.js"></script>
+    <script src="/static/wxfin/js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+        body {
+            color: #333333;
+            background-color: #fafafa;
+        }
+        
+        .warp {
+            max-width: 640px;
+            margin: 0 auto;
+            padding-bottom: 2.05rem;
+        }
+        
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .title_top {
+            position: relative;
+            height: 1.632rem;
+            line-height: 1.632rem;
+            text-align: center;
+            font-size: 0.50rem;
+            padding: 0px 0.576rem;
+            background-color: #FFFFFF;
+        }
+        
+        .title_top img {
+            float: left;
+            position: absolute;
+            display: block;
+            height: 0.608rem;
+            top: 0.512rem;
+        }
+        
+        .check {
+            padding: 0px 0.384rem;
+            height: 1.184rem;
+            vertical-align: middle;
+            background-color: #FFFFFF;
+        }
+        
+        .click {
+            width: 0.544rem;
+            height: 0.544rem;
+            /*				box-sizing: border-box;
+*/
+            display: inline-block;
+            border: 1px solid #E6E6E6;
+            vertical-align: middle;
+            margin-right: 0.24rem;
+            position: relative;
+        }
+        
+        #check_group {
+            border-top: 1px solid #E6E6E6;
+        }
+        
+        .check span {
+            display: inline-block;
+            font-size: 0.45rem;
+            vertical-align: middle;
+            line-height: 1.184rem;
+        }
+        
+        .click.active {
+            border: 1px solid #FFFFFF;
+        }
+        
+        .click.active:after {
+            display: block;
+            width: 0.544rem;
+            height: 0.544rem;
+            content: '';
+            top: 0;
+            left: 0;
+            background: url(/static/wxfin/img/sx_02.png) no-repeat;
+            background-position: center;
+            background-size: 100% auto;
+        }
+        
+        .btn_c {
+            padding-left: 0.384rem;
+            background-color: #FFFFFF;
+        }
+        
+        .ti {
+            padding-top: 0.544rem;
+            border-top: 1px solid #E6E6E6;
+        }
+        
+        .ti p {
+            font-size: 0.45rem;
+        }
+        
+        .btn_xx {
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 0.384rem 0.64rem 0.48rem 0.256rem;
+        }
+        
+        .btn_xx span {
+            display: block;
+            float: left;
+            height: 0.976rem;
+            line-height: 0.944rem;
+            text-align: center;
+            width: 3.136rem;
+            box-sizing: border-box;
+            border: 1px solid #E6E6E6;
+            margin-right: 0.656rem;
+            border-radius: 5px;
+            font-size: 0.45rem;
+        }
+        
+        .btn_xx:after {
+            display: block;
+            clear: both;
+            content: '';
+        }
+        
+        .btn_xx img {
+            height: 0.384rem;
+            margin-right: 5px;
+            display: none;
+        }
+        
+        .btn_xx .active img {
+            display: inline-block;
+        }
+        
+        .btn_xx .active {
+            border: 1px solid #e54935;
+            box-sizing: border-box;
+            color: #e54935;
+        }
+        
+        .btn_cli {
+            position: fixed;
+            bottom: 0px;
+            width: 12rem;
+            height: 2.048rem;
+            padding: 0.24rem 0.64rem 0rem;
+            border-top: 1px solid #E6E6E6;
+            box-sizing: border-box;
+            background-color: #FFFFFF;
+        }
+        
+        .btn_cli>span {
+            display: block;
+            width: 5.12rem;
+            height: 1.536rem;
+            line-height: 1.536rem;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 0.5rem;
+        }
+        
+        .btn_cli .rest {
+            float: left;
+            color: #e54935;
+            border: 1px solid #e54935;
+            background-color: #fff;
+        }
+        
+        .btn_cli .sure {
+            float: right;
+            background-color: #e54935;
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <div class="title_top">
+            <img src="/static/wxfin/img/rz01_01.png" onclick="loancustomers();" /> 筛选条件
+        </div>
+        <div id="check_group">
+            <div class="check">
+                <div class="click" id="shebao_ggj">
+
+                </div>
+                <span>
+					有社保
+					</span>
+            </div>
+            <div class="check">
+                <div class="click" id="gjj_cleck">
+
+                </div>
+                <span>
+					有公积金
+					</span>
+            </div>
+            <div class="check">
+                <div class="click" id="house">
+
+                </div>
+                <span>
+						名下有房
+					</span>
+            </div>
+            <div class="check">
+                <div class="click" id="car">
+
+                </div>
+                <span>
+						名下有车
+					</span>
+            </div>
+            <div class="check">
+                <div class="click" id="xyk_wld">
+
+                </div>
+                <span>
+						有微粒贷
+					</span>
+            </div>
+            <div class="check">
+                <div class="click" id="xyk_check">
+
+                </div>
+                <span>
+						有信用卡
+					</span>
+            </div>
+            <div class="check">
+                <div class="click" id="sxbd">
+
+                </div>
+                <span>
+						有寿险保单
+					</span>
+            </div>
+            <div class="btn_c">
+                <div class="ti">
+                    <p>贷款金额</p>
+                </div>
+                <div class="btn_xx">
+                    <span class="active" id="dkje_bx"> <img src="/static/wxfin/img/sx_01.png"/>不限</span>
+                    <span id="dkje_13"><img src="/static/wxfin/img/sx_01.png"/>5万以上</span>
+                    <span style="margin-right: 0px;" id="dkje_3"><img src="/static/wxfin/img/sx_01.png"/>10万以上</span>
+                </div>
+            </div>
+            <div class="btn_c">
+                <div class="ti">
+                    <p>职业身份</p>
+                </div>
+                <div class="btn_xx btn_xf">
+                    <span id="zy_sbz"><img src="/static/wxfin/img/sx_01.png"/>上班族</span>
+                    <span id="zy_gwy"><img src="/static/wxfin/img/sx_01.png"/>公务员</span>
+                    <span style="margin-right: 0px;" id="zy_qyz"><img src="/static/wxfin/img/sx_01.png"/>企业主</span>
+                </div>
+            </div>
+            <div class="btn_c">
+                <div class="ti">
+                    <p>收入信息</p>
+                </div>
+                <div class="btn_xx">
+                    <span class="active" id="payoff_1"><img src="/static/wxfin/img/sx_01.png"/>不限</span>
+                    <span id="payoff_2"><img src="/static/wxfin/img/sx_01.png"/>银行代发</span>
+                </div>
+                <div class="btn_xx" style="padding-top: 0px;">
+                    <span class="active" id="income_1"><img src="/static/wxfin/img/sx_01.png"/>不限</span>
+                    <span id="income_2"><img src="/static/wxfin/img/sx_01.png"/>4千以上</span>
+                    <span style="margin-right: 0px;" id="income_3"><img src="/static/wxfin/img/sx_01.png"/>1万以上</span>
+                </div>
+            </div>
+        </div>
+        <div class="btn_cli">
+            <span class="rest" onclick="resetData();">重置</span>
+            <span class="sure" onclick="addCondition();">确定</span>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        var calldata = {};
+
+        $(".btn_xf span").click(function() {
+            $(this).toggleClass('active')
+        });
+        $(".click").click(function() {
+            $(this).toggleClass('active')
+        });
+        $('.btn_xx span').not(".btn_xf span").click(function() {
+            $(this).addClass('active').siblings().removeClass('active')
+        });
+        /**
+         * 添加条件
+         */
+        function addCondition() {
+            var isSccueess = setModel();
+            if (isSccueess) {
+                loancustomers();
+            }
+        }
+
+        function setModel() {
+            if ($('#shebao_ggj').hasClass('active')) {
+                calldata['isSheBao'] = 0;
+            } else {
+                calldata['isSheBao'] = 1;
+            }
+            if ($('#gjj_cleck').hasClass('active')) {
+                calldata['isGjj'] = 0;
+            } else {
+                calldata['isGjj'] = 1;
+            }
+            if ($('#house').hasClass('active')) {
+                calldata['house'] = 0;
+            } else {
+                calldata['house'] = 1;
+            }
+            if ($('#car').hasClass('active')) {
+                calldata['car'] = 0;
+            } else {
+                calldata['car'] = 1;
+            }
+            if ($('#xyk_wld').hasClass('active')) {
+                calldata['isWlD'] = 0;
+            } else {
+                calldata['isWlD'] = 1;
+            }
+
+            if ($('#xyk_check').hasClass('active')) {
+                calldata['isXyk'] = 0;
+            } else {
+                calldata['isXyk'] = 1;
+            }
+
+            if ($('#sxbd').hasClass('active')) {
+                calldata['sxbd'] = 0;
+            } else {
+                calldata['sxbd'] = 1;
+            }
+
+            if ($('#dkje_bx').hasClass('active')) {
+                calldata['moneyNum'] = 0;
+            }
+            if ($('#dkje_13').hasClass('active')) {
+                calldata['moneyNum'] = 1;
+            }
+            if ($('#dkje_3').hasClass('active')) {
+                calldata['moneyNum'] = 2;
+            }
+            //var workTypeStr = '';
+            if ($('#zy_sbz').hasClass('active')) {
+                //workTypeStr = "0";
+                calldata['workType0'] = 0;
+            }
+            if ($('#zy_gwy').hasClass('active')) {
+                /*if(workTypeStr != ''){
+                 workTypeStr += ",1";
+                 }else {
+                 workTypeStr = "1";
+                 }*/
+                calldata['workType1'] = 1;
+            }
+            if ($('#zy_qyz').hasClass('active')) {
+                /*if(workTypeStr != ''){
+                 workTypeStr += ",2";
+                 }else {
+                 workTypeStr = "2";
+                 }*/
+                calldata['workType2'] = 2;
+            }
+            //calldata['workType'] = workTypeStr;
+
+            if ($('#payoff_1').hasClass('active')) {
+                calldata['payoff'] = 0;
+            }
+            if ($('#payoff_2').hasClass('active')) {
+                calldata['payoff'] = 1;
+            }
+            if ($('#income_1').hasClass('active')) {
+                calldata['income'] = 0;
+            }
+            if ($('#income_2').hasClass('active')) {
+                calldata['income'] = 1;
+            }
+            if ($('#income_3').hasClass('active')) {
+                calldata['income'] = 2;
+            }
+            setCookies('loanCondition', JSON.stringify(calldata));
+            return true;
+        }
+
+        function setCookies(name, value) {
+            var Days = 30;
+            var exp = new Date();
+            exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+            document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+        }
+
+        function getCookies(name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+            if (arr = document.cookie.match(reg))
+                return unescape(arr[2]);
+            else
+                return null;
+        }
+
+        function resetData() {
+            $('#shebao_ggj').removeClass('active');
+            $('#xyk_wld').removeClass('active');
+            $('#gjj_cleck').removeClass('active');
+            $('#xyk_check').removeClass('active');
+            $('#house').removeClass('active');
+            $('#sxbd').removeClass('active');
+            $('#car').removeClass('active');
+            $('#income_1').removeClass('active');
+            $('#income_1').toggleClass('active');
+            $('#income_2').removeClass('active');
+            $('#income_3').removeClass('active');
+            $('#dkje_bx').removeClass('active');
+            $('#dkje_bx').toggleClass('active');
+            $('#dkje_13').removeClass('active');
+            $('#dkje_3').removeClass('active');
+            $('#zy_sbz').removeClass('active');
+            //$('#zy_sbz').toggleClass('active');
+            $('#zy_gwy').removeClass('active');
+            $('#zy_qyz').removeClass('active');
+            $('#payoff_1').removeClass('active');
+            $('#payoff_1').toggleClass('active');
+            $('#payoff_2').removeClass('active');
+        }
+
+        $(document).ready(function() {
+            var loanCondition = getCookies('loanCondition');
+            if (undefined !== loanCondition && null !== loanCondition && "" !== loanCondition) {
+                var array = JSON.parse(loanCondition);
+                setPageValue(array);
+            }
+        });
+
+        function setPageValue(result) {
+            if (result != null && result != undefined) {
+                if (result['isSheBao'] != null && result['isSheBao'] != undefined) {
+                    if (result['isSheBao'] == 0) {
+                        $('#shebao_ggj').toggleClass('active');
+                    }
+                }
+                if (result['isWlD'] != null && result['isWlD'] != undefined) {
+                    if (result['isWlD'] == 0) {
+                        $('#xyk_wld').toggleClass('active');
+                    }
+                }
+                if (result['isGjj'] != null && result['isGjj'] != undefined) {
+                    if (result['isGjj'] == 0) {
+                        $('#gjj_cleck').toggleClass('active');
+                    }
+                }
+                if (result['isXyk'] != null && result['isXyk'] != undefined) {
+                    if (result['isXyk'] == 0) {
+                        $('#xyk_check').toggleClass('active');
+                    }
+                }
+                if (result['house'] != null && result['house'] != undefined) {
+                    if (result['house'] == 0) {
+                        $('#house').toggleClass('active');
+                    }
+                }
+                if (result['sxbd'] != null && result['sxbd'] != undefined) {
+                    if (result['sxbd'] === 0) {
+                        $('#sxbd').toggleClass('active');
+                    }
+                }
+                if (result['car'] != null && result['car'] != undefined) {
+                    if (result['car'] === 0) {
+                        $('#car').toggleClass('active');
+                    }
+                }
+                if (result['income'] != null && result['income'] != undefined) {
+                    if (result['income'] === 0) {
+                        $('#income_1').removeClass('active');
+                        $('#income_1').toggleClass('active');
+                        $('#income_2').removeClass('active');
+                        $('#income_3').removeClass('active');
+                    }
+                    if (result['income'] === 1) {
+                        $('#income_2').removeClass('active');
+                        $('#income_2').toggleClass('active');
+                        $('#income_1').removeClass('active');
+                        $('#income_3').removeClass('active');
+                    }
+                    if (result['income'] === 2) {
+                        $('#income_3').removeClass('active');
+                        $('#income_3').toggleClass('active');
+                        $('#income_1').removeClass('active');
+                        $('#income_2').removeClass('active');
+                    }
+                }
+                if (result['moneyNum'] != null && result['moneyNum'] != undefined) {
+                    if (result['moneyNum'] === 0) {
+                        $('#dkje_bx').removeClass('active');
+                        $('#dkje_bx').toggleClass('active');
+                        $('#dkje_13').removeClass('active');
+                        $('#dkje_3').removeClass('active');
+                    }
+                    if (result['moneyNum'] === 1) {
+                        $('#dkje_13').removeClass('active');
+                        $('#dkje_13').toggleClass('active');
+                        $('#dkje_bx').removeClass('active');
+                        $('#dkje_3').removeClass('active');
+                    }
+                    if (result['moneyNum'] === 2) {
+                        $('#dkje_3').removeClass('active');
+                        $('#dkje_3').toggleClass('active');
+                        $('#dkje_13').removeClass('active');
+                        $('#dkje_bx').removeClass('active');
+                    }
+                }
+                if (result['workType0'] != null && result['workType0'] != undefined) {
+                    /*var workTypes = result['workType'];
+                     if (workTypes !== '') {
+                     var array = workTypes.split(',');
+                     for (var i = 0; i < array.length; i++) {
+                     if (array[i] === '0') {
+                     $('#zy_sbz').removeClass('active');
+                     $('#zy_sbz').toggleClass('active');
+                     $('#zy_gwy').removeClass('active');
+                     $('#zy_qyz').removeClass('active');
+                     }
+                     if (array[i] === '1') {
+                     $('#zy_gwy').removeClass('active');
+                     $('#zy_gwy').toggleClass('active');
+                     $('#zy_sbz').removeClass('active');
+                     $('#zy_qyz').removeClass('active');
+                     }
+                     if (array[i] === '2') {
+                     $('#zy_qyz').removeClass('active');
+                     $('#zy_qyz').toggleClass('active');
+                     $('#zy_sbz').removeClass('active');
+                     $('#zy_gwy').removeClass('active');
+                     }
+                     }
+                     }*/
+                    if (result['workType0'] === 0) {
+                        //$('#zy_sbz').removeClass('active');
+                        $('#zy_sbz').toggleClass('active');
+                        //$('#zy_gwy').removeClass('active');
+                        //$('#zy_qyz').removeClass('active');
+                    }
+                }
+                if (result['workType1'] != null && result['workType1'] != undefined) {
+                    if (result['workType1'] === 1) {
+                        //$('#zy_gwy').removeClass('active');
+                        $('#zy_gwy').toggleClass('active');
+                        //$('#zy_sbz').removeClass('active');
+                        //$('#zy_qyz').removeClass('active');
+                    }
+                }
+                if (result['workType2'] != null && result['workType2'] != undefined) {
+                    if (result['workType2'] === 2) {
+                        //$('#zy_qyz').removeClass('active');
+                        $('#zy_qyz').toggleClass('active');
+                        //$('#zy_sbz').removeClass('active');
+                        //$('#zy_gwy').removeClass('active');
+                    }
+                }
+                if (result['payoff'] != null && result['payoff'] != undefined) {
+                    if (result['payoff'] === 0) {
+                        $('#payoff_1').removeClass('active');
+                        $('#payoff_1').toggleClass('active');
+                        $('#payoff_2').removeClass('active');
+                    }
+                    if (result['payoff'] === 1) {
+                        $('#payoff_2').removeClass('active');
+                        $('#payoff_2').toggleClass('active');
+                        $('#payoff_1').removeClass('active');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>包有客</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="/static/jquery/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=YmHnPjCNpPLrKGxzFgEN0GOTOjXMZSkz"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="/static/wxfin/js/rem.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/wxfin/js/locationhref.js?r=0.9121660447367603" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/wxfin/js/jump.js" type="text/javascript" charset="utf-8"></script>
+    <link href="/static/wxfin/css/login.css" rel="stylesheet" type="text/css" />
+    <script src="/static/wxfin/js/city.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/wxfin/js/utils.js?r=0.8461125201356572" type="text/javascript" charset="utf-8"></script>
+
+    <script src="https://cdn.ecsage.net/global/js/finance/ec_gsc_tc.js"></script>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #333333;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .wrap {
+            max-width: 640px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 2.112rem;
+        }
+        
+        #dk_cust {
+            height: 1.568rem;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            position: fixed;
+            top: 0px;
+            z-index: 200;
+            /*box-sizing: border-box;*/
+        }
+        
+        .cust_nav {
+            height: 1.568rem;
+            width: 12rem;
+            position: relative;
+        }
+        
+        .cust_nav li {
+            width: 4rem;
+            float: left;
+            height: 100%;
+            box-sizing: border-box;
+            line-height: 1.568rem;
+            text-align: center;
+            position: relative;
+            font-size: 0.55rem;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .cust_nav .active {
+            /*border-bottom: 1px solid #f5854e;*/
+            /*color: #f5854e;*/
+            background-color: #e54935;
+            color: white;
+        }
+        
+        .tab_1 .tj,
+        .tab_3 .sxtj {
+            padding: 0px 0.625rem;
+            background-color: #FFFFFF;
+        }
+        
+        .tab_1 .tj span,
+        .tab_3 .sxtj span {
+            font-size: 0.55rem;
+            line-height: 1.136rem;
+        }
+        
+        .tab_1 .tj span:nth-of-type(2),
+        .tab_3 .sxtj span:nth-of-type(2) {
+            float: right;
+        }
+        
+        .tab_1 .tj span:nth-of-type(2) img,
+        .tab_3 .sxtj span:nth-of-type(2) img {
+            height: 10px;
+        }
+        
+        .foot_tab {
+            height: 2.112rem;
+            position: fixed;
+            bottom: 0px;
+            width: 12rem;
+            background-color: #FFFFFF;
+            display: flex;
+            display: -webkit-flex;
+            border-top: 1px solid #CCCCCC;
+        }
+        
+        .foot_tab>div {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .foot_tab img {
+            height: 1rem;
+            margin-top: 0.3rem;
+        }
+        
+        .foot_tab p {
+            color: #808080;
+            font-size: 0.4rem;
+        }
+        
+        .active p {
+            color: #e54935;
+        }
+        
+        .tab_1 .select_btn {
+            padding: 0px 0.625rem;
+            width: 12rem;
+            background-color: #FFFFFF;
+            box-sizing: border-box;
+            padding-bottom: 0.5rem;
+        }
+        
+        .tab_1 .select_btn ul {
+            margin-top: 0.5rem;
+        }
+        
+        .tab_1 .select_btn ul:after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+        
+        .tab_1 .select_btn ul li {
+            float: left;
+            height: 0.688rem;
+            width: 2.3125rem;
+            border-radius: 1rem;
+            box-sizing: border-box;
+            border: 1px solid #CCCCCC;
+            text-align: center;
+            line-height: 0.656rem;
+            font-size: 0.43696rem;
+            margin-left: 0.5rem;
+        }
+        
+        .sxtj2 {
+            margin-top: 0.4rem;
+            height: 1.248rem;
+            width: 12rem;
+            background-color: #FFFFFF;
+            display: flex;
+        }
+        
+        .sxtj2 .item {
+            flex: 1;
+            line-height: 1.248rem;
+            font-size: 0.5rem;
+            position: relative;
+        }
+        
+        .sxtj2 .item {
+            width: 0.3rem;
+        }
+        
+        .sxtj2 .item3 img {
+            width: 0.3rem;
+            margin-top: -0.1rem;
+        }
+        
+        .item1 div,
+        .item2 div {
+            height: 0.8rem;
+            display: inline-block;
+            width: 1rem;
+            overflow: hidden;
+            position: absolute;
+            top: 0.3rem;
+        }
+        
+        .item1 span,
+        .item2 span {
+            padding-right: 8px;
+        }
+        
+        .item1 div img,
+        .item2 div img {
+            height: 0.3rem;
+            display: block;
+        }
+        /*.list {
+            border-top: 1px solid #d9d9d9;
+        }*/
+        
+        .xx_info {
+            padding: 0px 0.625rem;
+            padding-top: 0.6rem;
+            padding-bottom: 0.416rem;
+            border-bottom: 1px solid #e6e6e6;
+            position: relative;
+        }
+        
+        .list .list_item .name {
+            display: flex;
+            display: -webkit-flex;
+            line-height: 0.8rem;
+        }
+        
+        .list .list_item .name span {
+            flex: 1;
+            font-size: 0.512rem;
+        }
+        
+        .list .num {
+            color: #e54935;
+        }
+        
+        .name span:nth-of-type(2) {
+            font-size: 0.384rem !important;
+            color: #888888;
+        }
+        
+        .xx_info>p {
+            line-height: 0.64rem;
+            font-size: 0.4rem;
+            color: #808080;
+        }
+        
+        .xx_info>p:nth-of-type(1) {
+            margin-top: 0.416rem;
+        }
+        
+        .qd {
+            display: block;
+            height: 1.184rem;
+            text-align: center;
+            font-size: 0.45rem;
+            line-height: 1.184rem;
+            /*border-bottom: 1px solid #ccc;*/
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+        
+        .qd>div {
+            width: 50%;
+            display: inline-block;
+        }
+        
+        .qd>div:nth-of-type(1) {
+            float: left;
+            color: #808080;
+            position: relative;
+        }
+        
+        .qd>div:nth-of-type(1):after {
+            content: "";
+            width: 1px;
+            position: absolute;
+            background-color: #d9d9d9;
+            height: 1rem;
+            top: 0.092rem;
+            right: 0;
+        }
+        
+        .qd>div:nth-of-type(2) {
+            float: right;
+            color: #f5854e;
+        }
+        
+        .list_item {
+            margin-top: 0.4rem;
+            background-color: #FFFFFF;
+            position: relative;
+        }
+        
+        .tjdd:after {
+            width: 1.2rem;
+            height: 1.2rem;
+            display: block;
+            position: absolute;
+            background: url(/static/wxfin/img/tj.png);
+            background-size: cover;
+            content: "";
+            top: 0px;
+            left: 0px;
+        }
+        
+        .time {
+            height: 1rem;
+            background-color: #fafafa;
+            padding-left: 0.625rem;
+            color: #888888;
+            border-top: 1px solid #CCCCCC;
+            line-height: 1rem;
+            padding-right: 0.225rem;
+            text-align: left;
+        }
+        /*.dingdan_alert {
+            width: 9.37rem;
+            height: 9.37rem;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.685rem;
+            margin-top: -4.685rem;
+            box-sizing: border-box;
+            !*-moz-box-shadow: 5px 5px 2.5px #CCCCCC;
+            box-shadow: 5px 5px 2.5px #CCCCCC;*!
+            padding: 0.64rem;
+            background-color: #FFFFFF;
+            z-index: 1000;
+        }
+
+        .keye>p {
+            line-height: 1rem;
+            font-size: 0.50rem;
+        }
+
+        .keye p span {
+            color: #F5793A;
+        }
+
+        .dingdan_alert .bz {
+            margin-top: 0.8rem;
+            color: #999999;
+            line-height: 0.8rem;
+            font-size: 0.4rem;
+        }
+
+        .dingdan_alert .btn {
+            height: 1.408rem;
+            line-height: 1.408rem;
+            text-align: center;
+            background-color: #f5854e;
+            color: white;
+            font-size: 0.5rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }*/
+        
+        .dingdan_alert {
+            width: 9.37rem;
+            height: 9.37rem;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.685rem;
+            margin-top: -4.685rem;
+            box-sizing: border-box;
+            padding: 0.64rem;
+            background-color: #FFFFFF;
+            z-index: 1000;
+        }
+        
+        .keye>p {
+            line-height: 1rem;
+            font-size: 0.45rem;
+        }
+        
+        .keye p span {
+            color: #e54935;
+        }
+        /*修改*/
+        
+        .dingdan_alert .bz {
+            margin-top: 0.4rem;
+            color: #999999;
+            line-height: 0.8rem;
+            font-size: 0.4rem;
+        }
+        /*/修改/*/
+        
+        .dingdan_alert .btn {
+            height: 1.408rem;
+            line-height: 1.408rem;
+            /*background-color: #f5854e   ;*/
+            color: white;
+            font-size: 0.5rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+        }
+        /*添加*/
+        
+        .dingdan_alert .btn>div {
+            width: 45%;
+            height: 1.408rem;
+        }
+        /*添加*/
+        
+        .dingdan_alert .btn>div:nth-of-type(1) {
+            float: left;
+        }
+        /*添加*/
+        
+        .dingdan_alert .btn>div:nth-of-type(2) {
+            float: right;
+        }
+        /*添加*/
+        
+        .dingdan_alert .btn>div span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #e54935;
+            line-height: 1.408rem;
+            text-align: center;
+        }
+        /*添加*/
+        
+        .jfbz {
+            background-color: #FFF !important;
+            box-sizing: border-box;
+            border: 1px solid #e54935;
+            color: #e54935;
+        }
+        
+        .close {
+            width: 1rem;
+            height: 1rem;
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+        }
+        
+        .dk_cust_tab {
+            padding-top: 1.568rem;
+        }
+        
+        .select_btn li.active {
+            background-color: #e54935;
+            border: none !important;
+            color: white;
+        }
+        
+        #yxz {
+            font-size: 14px;
+        }
+        /*城市*/
+        
+        #City {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 12rem;
+            background-color: #FFFFFF;
+            opacity: 0;
+            display: none;
+            z-index: 2000;
+            transform: translateX(12rem);
+            transition: all 0.3s ease-in-out;
+        }
+        
+        #City.active {
+            opacity: 1;
+            transform: translateX(0rem);
+        }
+        
+        #City .title {
+            height: 1.568rem;
+            width: 12rem;
+            text-align: center;
+            background-color: #F2F2F2;
+            line-height: 1.568rem;
+            font-size: 0.6rem;
+            padding: 0px 0.625rem;
+            position: relative;
+            box-sizing: border-box;
+        }
+        
+        #City .title img {
+            position: absolute;
+            height: 0.516rem;
+            left: 0.625rem;
+            top: 0.504rem;
+        }
+        
+        #City .search {
+            height: 1.8888rem;
+            border-bottom: 1px solid #CCCCCC;
+            padding: 0px 0.625rem;
+        }
+        
+        #City .search input {
+            width: 100%;
+            height: 1.184rem;
+            border: none;
+            text-align: center;
+            background-color: #F2F2F2;
+            border-radius: 8px;
+            margin-top: 0.35rem;
+            outline: none;
+        }
+        
+        #City .city_wrap {
+            padding: 0px 0.625rem;
+        }
+        
+        #City .city_content {
+            background-color: #F2F2F2;
+            padding: 0.2rem;
+        }
+        
+        #City .city_title {
+            font-size: 0.5rem;
+            line-height: 0.8rem;
+        }
+        
+        #City li {
+            list-style: none;
+            width: 3.2rem;
+            height: 1rem;
+            background-color: white;
+            margin-right: 0.375rem;
+            color: #808080;
+            float: left;
+            margin-top: 0.2rem;
+            line-height: 1rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+        
+        #City li:nth-of-type(3n) {
+            margin-right: 0px;
+        }
+        
+        #City ul:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        
+        .nav_city {
+            width: 0.625rem;
+            position: fixed;
+            right: 0px;
+            top: 10%;
+            z-index: 2001;
+        }
+        
+        .nav_city a {
+            text-decoration: none;
+            font-size: 0.5rem;
+            margin-top: 0.1rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            text-align: center;
+            float: left;
+            color: #0e83dd;
+        }
+        
+        .tj {
+            position: relative;
+        }
+        
+        .tj>.showorhide {
+            float: right;
+            position: absolute;
+            right: 0.625rem;
+            height: 0.3rem;
+            top: 0.412992rem;
+            transition: all 0.3s;
+        }
+        
+        #yxz {
+            display: inline-block;
+            width: 6rem;
+            text-align: right;
+            text-overflow: ellipsis;
+            word-break: break-all;
+            white-space: nowrap;
+            overflow: hidden;
+            padding-right: 0.7rem;
+            font-size: 0.4rem;
+        }
+        
+        .showorhide.active {
+            transform: rotateZ(180deg);
+        }
+        
+        .arrow:nth-of-type(odd) {
+            margin-bottom: 0.1rem;
+        }
+        
+        .item1 div,
+        .item2 div {
+            top: 0.3rem;
+        }
+        
+        .tab_1 .select_btn ul {
+            margin-top: 0.3rem;
+        }
+        
+        #yxz {
+            color: #e54935;
+        }
+        
+        .list_item:nth-of-type(1) {
+            margin-top: 0px;
+        }
+        
+        #dk_cust {
+            width: 12rem;
+            border-bottom: 1px solid #d9d9d9;
+        }
+        
+        .cust_nav {
+            height: 1.248rem;
+            width: 10rem;
+            margin: 0.16rem auto;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        .cust_nav li {
+            width: 33.33%;
+            float: left;
+            box-sizing: border-box;
+            line-height: 1.248rem;
+            text-align: center;
+            position: relative;
+            border: 1px solid #d9d9d9;
+            font-size: 0.55rem;
+        }
+        
+        .gg {
+            height: 1rem;
+            background-color: #fff9eb;
+            border-top: 1px solid #e6e6e6;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gg {
+            line-height: 1rem;
+        }
+        
+        .gg div {
+            height: 1rem;
+            margin-left: 1.2rem;
+        }
+        
+        .gg img {
+            position: absolute;
+            height: 0.5rem;
+            margin-left: 0.4rem;
+            top: 0.25rem;
+        }
+        
+        .qd_ydsmrz {
+            width: 9.37rem;
+            height: 6.4rem;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.685rem;
+            margin-top: -3.2rem;
+            box-sizing: border-box;
+            padding: 0.64rem;
+            padding-top: 0.8rem;
+            background-color: #FFFFFF;
+            z-index: 1200;
+            padding-bottom: 0rem;
+        }
+        
+        .qd_ydsmrz .btnn {
+            height: 1.408rem;
+            line-height: 1.408rem;
+            color: white;
+            font-size: 0.5rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0rem;
+        }
+        
+        .qd_ydsmrz .btnn>div {
+            width: 45%;
+            height: 1.408rem;
+        }
+        
+        .qd_ydsmrz .btnn>div:nth-of-type(1) {
+            float: left;
+        }
+        
+        .qd_ydsmrz .btnn>div:nth-of-type(2) {
+            float: right;
+        }
+        
+        .gg p {
+            color: #622a0b;
+            height: 1rem;
+            font-size: 0.4rem;
+        }
+        
+        .yebz_alert {
+            width: 9.37rem;
+            height: 5.12rem;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.685rem;
+            margin-top: -2.56rem;
+            box-sizing: border-box;
+            padding-top: 0.512rem;
+            background-color: #FFFFFF;
+            background-color: #FFFFFF;
+            text-align: center;
+            z-index: 4000;
+        }
+        
+        .yebz_alert p:nth-of-type(1) {
+            font-size: 0.55rem;
+        }
+        
+        .yebz_alert p:nth-of-type(2) {
+            font-size: 0.45rem;
+            color: #808080;
+        }
+        
+        .yebzbtn {
+            position: absolute;
+            bottom: 0px;
+            text-align: center;
+            width: 9.37rem;
+            border-top: 1px solid #C8C8CC;
+        }
+        
+        .qd_jeqdcg {
+            width: 9.37rem;
+            height: 7.8rem;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.685rem;
+            margin-top: -3.9rem;
+            box-sizing: border-box;
+            padding: 0.64rem;
+            padding-top: 0.8rem;
+            background-color: #FFFFFF;
+            z-index: 1200;
+        }
+        
+        .qd_jeqdcg .handle_btn {
+            height: 1.408rem;
+            line-height: 1.408rem;
+            color: white;
+            font-size: 0.5rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+        }
+        
+        .qd_jeqdcg .handle_btn>div {
+            width: 45%;
+            height: 1.408rem;
+        }
+        
+        .qd_jeqdcg .handle_btn>div:nth-of-type(1) {
+            float: left;
+        }
+        
+        .qd_jeqdcg .handle_btn>div:nth-of-type(2) {
+            float: right;
+        }
+        
+        .yebzbtn>div:nth-of-type(1) {
+            border-right: 1px solid #C8C8CC;
+        }
+        
+        .qd_jeqdcg .qd_p {
+            margin-top: 0.5rem;
+            /*margin-left: 0.9rem;*/
+            font-size: 0.5rem;
+        }
+        /*.qd_jeqdcg p span{
+           color: #e54935;
+       }*/
+        
+        .qd_jeqdcg .handle_btn>div span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #e54935;
+            line-height: 1.408rem;
+            text-align: center;
+        }
+        
+        .name>span:nth-of-type(2) {
+            text-align: center
+        }
+        
+        .name>span:nth-of-type(3) {
+            text-align: right
+        }
+        
+        .fi {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 300;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        /* 
+	#Sptc {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+	    border-radius:0.8rem;
+            margin-top: -9rem;
+            margin-left: -5rem;
+            width: 10rem;
+            height: 16.5rem;
+            background: url(/static/wxfin/img/sptc_04.png) no-repeat;
+            background-size: cover;
+        }
+
+        .huabi {
+            position: absolute;
+            width: 6.4rem;
+            left: 2.58rem;
+            top: -1.09rem;
+        }*/
+        /**
+        *   公告修改前的
+        */
+        
+        #Sptc {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -5.76rem;
+            margin-left: -5rem;
+            width: 10rem;
+            height: 11.52rem;
+            background: url(/static/wxfin/img/sptc_03.png)no-repeat;
+            background-size: cover;
+        }
+        
+        .huabi {
+            position: absolute;
+            width: 6.4rem;
+            left: 3.2rem;
+            top: -1.408rem;
+        }
+        
+        .sp_cont {
+            margin-top: 4.94rem;
+            padding: 0px 0.384rem;
+        }
+        
+        .sp_cont p {
+            font-size: 0.4rem;
+            margin-top: 0.3rem;
+        }
+        
+        .sp_cont img {
+            position: absolute;
+            bottom: -1.90rem;
+            width: 1.28rem;
+            left: 4.32rem;
+        }
+        
+        .sp_btn {
+            width: 8.0448rem;
+            height: 1.184rem;
+            border-radius: 0.592rem;
+            background-color: #e54935;
+            margin: 0 auto;
+            margin-top: 1.4rem;
+            line-height: 1.184rem;
+            text-align: center;
+            color: white;
+            font-size: 0.45rem;
+        }
+        
+        .sxtj2 {
+            padding: 0 0.625rem;
+            box-sizing: border-box;
+        }
+        
+        .item4 div {
+            top: 0.3rem;
+        }
+        
+        .item4 div {
+            height: 0.8rem;
+            display: inline-block;
+            width: 1rem;
+            overflow: hidden;
+            position: absolute;
+            top: 0.3rem;
+        }
+        
+        .item4 div img {
+            height: 0.3rem;
+            display: block;
+        }
+        
+        .item4 span {
+            padding-right: 0.2rem;
+        }
+        
+        .item1,
+        .item2 {
+            padding-left: 0.3rem;
+        }
+        
+        .qd {
+            text-align: left;
+            display: block;
+            height: 1.3rem;
+            font-size: 0.45rem;
+            line-height: 1.3rem;
+            vertical-align: middle;
+        }
+        
+        .qd span:nth-of-type(1) {
+            color: #808080;
+            font-size: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        .qd span:nth-of-type(2) {
+            /*margin-left: 5px;*/
+            color: #e54935;
+            font-size: 0.5rem;
+            vertical-align: middle;
+        }
+        
+        .qd span:nth-of-type(3) {
+            color: #e54935;
+            margin-left: 0.576rem;
+            vertical-align: middle;
+        }
+        
+        .qd span:nth-of-type(4) {
+            display: block;
+            height: 1rem;
+            width: 3rem;
+            background-color: #e54935;
+            color: white;
+            line-height: 1rem;
+            text-align: center;
+            margin-top: 0.15rem;
+            border-radius: 5px;
+            float: right;
+        }
+        
+        .sxtj2 .item span {
+            position: relative;
+            font-size: 0.45rem;
+        }
+        
+        .sxtj2 .item span:after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            z-index: 9;
+        }
+        
+        .xx_info:after {
+            display: block;
+            position: absolute;
+            width: 0.6rem;
+            height: 0.5rem;
+            background: url(/static/wxfin/img/new_jt.png) no-repeat;
+            left: 10.85rem;
+            top: 50%;
+            transform: translateY(50%);
+            content: '';
+            background-size: auto 100%;
+            background-position: center;
+        }
+        
+        .item1 div img,
+        .item2 div img,
+        .item4 div img {
+            height: 0.25rem;
+        }
+        
+        .item div {
+            height: 0.6rem;
+            display: inline-block;
+            width: 1rem;
+            overflow: hidden;
+            position: absolute;
+            top: 0.35rem;
+        }
+        
+        .sxtj2 .item3 img {
+            width: 0.25rem;
+        }
+        /*.qd_ydsmrz {*/
+        /*width: 9.37rem;*/
+        /*height: 9.37rem;*/
+        /*border-radius: 8px;*/
+        /*position: fixed;*/
+        /*top: 50%;*/
+        /*left: 50%;*/
+        /*margin-left: -4.685rem;*/
+        /*margin-top: -4.685rem;*/
+        /*box-sizing: border-box;*/
+        /*padding: 0.64rem;*/
+        /*background-color: #FFFFFF;*/
+        /*z-index: 1200;*/
+        /*}*/
+        /*.qd_ydsmrz .btnn {*/
+        /*height: 1.408rem;*/
+        /*line-height: 1.408rem;*/
+        /*color: white;*/
+        /*font-size: 0.5rem;*/
+        /*width: 100%;*/
+        /*border-radius: 8px;*/
+        /*margin-top: 0.8rem;*/
+        /*}*/
+        
+        .qd_ydsmrz .btnn>div {
+            width: 45%;
+            height: 1.408rem;
+        }
+        
+        .qd_ydsmrz .btnn>div:nth-of-type(1) {
+            float: left;
+        }
+        
+        .qd_ydsmrz .btnn>div:nth-of-type(2) {
+            float: right;
+        }
+        
+        .qd_ydsmrz p {
+            font-size: 0.6rem;
+        }
+        
+        .qd_ydsmrz .btnn>div span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #e54935;
+            line-height: 1.408rem;
+            text-align: center;
+        }
+        
+        .zkkbtn {
+            background-color: #FFF !important;
+            box-sizing: border-box;
+            border: 1px solid #e54935;
+            color: #e54935;
+        }
+        
+        .qd_jeqdcg {
+            width: 9.37rem;
+            height: 9.37rem;
+            border-radius: 8px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-left: -4.685rem;
+            margin-top: -4.685rem;
+            box-sizing: border-box;
+            padding: 0.64rem;
+            background-color: #FFFFFF;
+            z-index: 1200;
+        }
+        
+        .qd_jeqdcg .handle_btn {
+            height: 1.408rem;
+            line-height: 1.408rem;
+            color: white;
+            font-size: 0.5rem;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 0.8rem;
+        }
+        
+        .qd_jeqdcg .handle_btn>div {
+            width: 45%;
+            height: 1.408rem;
+        }
+        
+        .qd_jeqdcg .handle_btn>div:nth-of-type(1) {
+            float: left;
+        }
+        
+        .qd_jeqdcg .handle_btn>div:nth-of-type(2) {
+            float: right;
+        }
+        
+        .qd_jeqdcg .qd_p {
+            margin-top: 0.64rem;
+            /*margin-left: 0.9rem;*/
+            font-size: 0.5rem;
+        }
+        
+        .qd_jeqdcg p span {
+            color: #e54935;
+        }
+        
+        .qd_jeqdcg .handle_btn>div span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #e54935;
+            line-height: 1.408rem;
+            text-align: center;
+        }
+        
+        .jxqdbtn {
+            background-color: #FFF !important;
+            box-sizing: border-box;
+            border: 1px solid #e54935;
+            color: #e54935;
+        }
+        
+        #bannerBuy {
+            height: 1rem;
+            width: 4rem;
+            position: fixed;
+            right: 0;
+            bottom: 2.142rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            /*opacity: 0.9;*/
+            border-top-left-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
+            padding-left: 0.2rem;
+            overflow: hidden;
+            padding-left: 1rem;
+            box-sizing: border-box;
+            width: 0rem;
+            opacity: 0
+        }
+        
+        #bannerBuy p {
+            line-height: 0.5rem;
+            font-size: 0.3rem;
+            color: white;
+            white-space: nowrap;
+        }
+        
+        .bannerBuy_img {
+            position: absolute;
+            float: right;
+            left: 0.1rem;
+            top: 0.1rem;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p>https://client.tongchengfs.cn/weixin/fin/loan/list</p> -->
+    <div class="wrap">
+        <div id="zm" style="display: none;">
+        </div>
+        <div id="dk_cust">
+            <ul class="cust_nav">
+
+
+
+
+
+
+
+
+                <li style="border-bottom-left-radius: 5px;border-top-left-radius: 5px;" class="active" onclick="selectLoanType(3);">会员特价</li>
+
+                <li style="border-left: none" onclick="selectLoanType(2);">优质客户</li>
+                <li style="border-bottom-right-radius: 5px;border-top-right-radius: 5px;border-left: none" id="push_order" onclick="selectLoanType(4);">推送订单</li>
+
+            </ul>
+        </div>
+        <div class="dk_cust_tab">
+            <!--页面tab_1-->
+            <div class="tab_1" style="display: block;">
+                <div class="tj">
+                    <span>筛选条件</span>
+                    <span id="yxz">不限</span>
+                    <img class="showorhide" style="" src="/static/wxfin/img/xuz.png" alt="" />
+                </div>
+                <div class="select_btn">
+                    <ul style="margin-top: 0px;">
+                        <li style="margin-left: 0px;" onclick="queryConditions(0);">有房产</li>
+                        <li onclick="queryConditions(1);">有车产</li>
+                        <li onclick="queryConditions(2);">有社保</li>
+                        <li onclick="queryConditions(3);">有公积金</li>
+                    </ul>
+                    <ul>
+                        <li style="margin-left: 0px;" onclick="queryConditions(4);">上班族</li>
+                        <li onclick="queryConditions(7);">企业主</li>
+                        <li onclick="queryConditions(5);">有信用卡</li>
+                        <li id="select_zdy" onclick="linkToSxtjPage();">自定义</li>
+                    </ul>
+                </div>
+                <div class="sxtj2">
+                    <div class="item item4">
+                        <span onclick="selectChange(this)">时间</span>
+                        <div>
+                            <img src="/static/wxfin/img/top_select_active.png" alt="" class="wxfin_sort arrow " id="wxfin_sort_id_5" onclick="selectSort(5,this);" />
+                            <img src="/static/wxfin/img/bot_select.png" alt="" class="wxfin_sort arrow active" id="wxfin_sort_id_6" onclick="selectSort(6,this);" />
+                        </div>
+                    </div>
+                    <div class="item item1">
+                        <span onclick="selectChange(this)">价格</span>
+                        <div>
+                            <img src="/static/wxfin/img/top_select_active.png" alt="" class="wxfin_sort arrow" id="wxfin_sort_id_1" onclick="selectSort(1,this);" />
+                            <img src="/static/wxfin/img/bot_select.png" alt="" class="wxfin_sort arrow" onclick="selectSort(2,this);" />
+                        </div>
+                    </div>
+                    <div class="item item2">
+                        <span onclick="selectChange(this)">额度</span>
+                        <div>
+                            <img src="/static/wxfin/img/top_select.png" alt="" class="wxfin_sort arrow" onclick="selectSort(3,this);" />
+                            <img src="/static/wxfin/img/bot_select.png" alt="" class="wxfin_sort arrow" onclick="selectSort(4,this);" />
+                        </div>
+                    </div>
+                    <div class="item item3" style="text-align: right">
+                        <span id="wxfin_city">深圳市</span>
+                        <span style="vertical-align: middle;"><img src="/static/wxfin/img/rig_select.png"/></span>
+                    </div>
+                </div>
+                <div class="gg gg3" style="display: none">
+                    <img src="/static/wxfin/img/add_lb.png" />
+                    <div style="display: inline-block;">
+                        <p>新用户首次充值9折优惠，赠送10倍积分！</p>
+                    </div>
+                </div>
+
+                <div class="gg gg4" style="display: none">
+                    <img src="/static/wxfin/img/add_lb.png" />
+                    <div style="display: inline-block;">
+                        <p>优质客户为同成评分优秀客户，购买可大幅提高成功率</p>
+                    </div>
+                </div>
+
+                <div class="gg gg5" style="display: block">
+                    <img src="/static/wxfin/img/add_lb.png" />
+                    <div style="display: inline-block;">
+                        <p>新用户首次充值9折优惠，赠送10倍积分！</p>
+                    </div>
+                </div>
+
+                <div class="gg gg2" style="display:none;" onclick="intelligentPush();">
+                    <img src="/static/wxfin/img/add_lb.png" />
+                    <div style="display: inline-block;width: 10.6rem;box-sizing: border-box;padding-right: 0.625rem;">
+                        <span style="float: left;color: #622a0b;font-size: 0.4rem;">推送功能已开启，可设置条件自动抢单</span>
+                        <span style="float: right;color: #e54935;font-size: 0.4rem;">重新设置&gt;&gt;</span>
+                    </div>
+                </div>
+
+                <div class="list" id="loan_list_div_type_1">
+                </div>
+                <div class="list" id="loan_list_div_type_3">
+                </div>
+                <div class="list" id="loan_list_div_type_4">
+                </div>
+                <!--页面tab_2-->
+                <div class="tab_2" style="display: none;">
+
+                    页面暂无
+                </div>
+
+
+            </div>
+
+            <div class="foot_tab">
+                <div class="tab_item active" onclick="loancustomers();">
+                    <img src="/static/wxfin/img/dkkh.png" alt="" />
+                    <p>贷款客户</p>
+                </div>
+                <div class="tab_item" onclick="customersFunction();">
+                    <img src="/static/wxfin/img/wd_tab_02.png" />
+                    <p>客户</p>
+                </div>
+                <div class="tab_item" onclick="hrefMyHome();">
+                    <img src="/static/wxfin/img/min.png" />
+                    <p>我的</p>
+                </div>
+            </div>
+
+            <div class="dingdan_alert" style="display:none ;">
+                <div class="keye">
+                    <p>订单需支付金额<span id="dingdan_price"></span>包点(或<span id="score_value"></span>积分)</p>
+                    <p>您的余额：<span id="dingdan_loanmoney"></span>包点</p>
+                    <p>您的积分：<span id="score_number">0</span>积分</p>
+                    <input type="hidden" id="diandan_hidden_loan_id" />
+                    <input type="hidden" id="is_Authentication" />
+                </div>
+                <p class="bz">注：平台贷款由客户自己申请，抢单成功 后费用不可退。特殊情况可用退款，7个 工作日核实处理。<a href="/weixin/fin/related/qdxy" style="color: #015DB4;"> 详情＞＞ </a>
+                </p>
+                <div class="btn">
+                    <div>
+                        <span class="jfbz" style="display: none;">积分不足</span>
+                        <span class="jfqd" style="display: none;" onclick="jiFenQiangDan(2);">积分抢单</span>
+                    </div>
+                    <div>
+                        <span class="yeqd" style="display: none;" onclick="purchaseOrder(1);">余额抢单</span>
+                        <span class="xqcz" style="display: none;" onclick="goToRecharge();">先去充值</span>
+                    </div>
+                </div>
+                <div class="close" style="width: 25px;" onclick="onCloseFunction();">
+                    <img style="width: 100%;" src="/static/wxfin/img/close.png" />
+                </div>
+            </div>
+
+            <div id="City">
+                <div class="title">
+                    <img src="/static/wxfin/img/back.png" onclick="returnLoanList();" /> 切换城市
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="请输入城市名称" onchange="inputchangecity(this);" />
+                </div>
+                <p style="padding: 0.625rem;line-height:1rem;font-size: 0.45rem;">当前城市
+                    <b style="color: #e54935;" id="current_city">深圳市</b></p>
+                <div class="city_wrap">
+                    <div class="city_content">
+                        <div class="dw">
+                            <p class="city_title">定位城市</p>
+                            <ul>
+                                <li>正在定位</li>
+                            </ul>
+                        </div>
+
+                        <div class="hot_city">
+                            <p class="city_title">热门城市</p>
+                            <ul>
+                                <li class="popular_city">北京市</li>
+                                <li class="popular_city">上海市</li>
+                                <li class="popular_city">广州市</li>
+                                <li class="popular_city">深圳市</li>
+                                <li class="popular_city">苏州市</li>
+                                <li class="popular_city">重庆市</li>
+                                <li class="popular_city">成都市</li>
+                                <li class="popular_city">杭州市</li>
+                                <li class="popular_city">南京市</li>
+                            </ul>
+                        </div>
+                        <div id="zm_city">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav_city" style="display: none;"></div>
+            <div class="login_alert" style="display: none;z-index: 800;">
+                <p>欢迎登录</p>
+                <div class="item">
+                    <input class="mobilephone" type="text" placeholder="请输入手机号码" />
+                </div>
+                <div class="item" style="">
+                    <input class="code" type="text" placeholder="验证码" />
+                    <div class="getcodebtn code_send_button" onclick="sendSmsCode(this);">获取验证码</div>
+                </div>
+                <div class="loginbtn">
+                    登录
+                </div>
+                <img class="close" src="/static/wxfin/img/close.png" alt="" onclick="loancustomers();" />
+            </div>
+
+            <div class="yebz_alert" style="display:none;">
+                <div style="padding: 0 0.672rem;">
+                    <p>提示</p>
+                    <p style="margin-top: 0.5rem;line-height: 0.8rem;">你当前余额不足，不能抢单，是否立即充值</p>
+
+                </div>
+                <input type="hidden" id="balance_value_input" />
+                <div class="yebzbtn" style="display: flex;display: -webkit-flex;height: 1.216rem;line-height: 1.216rem;font-size: 0.5rem;">
+                    <div style="flex: 1;" onclick="closeAlertPage();">取消</div>
+                    <div style="flex: 1;color: #0094ff;" onclick="tiaozhuangchongzhi_2();">确定</div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="fi" style="display: none;">
+                <div id="Sptc">
+                    <img class="huabi" src="/static/wxfin/img/huabi.png" />
+                    <div class="sp_cont">
+                        <img src="/static/wxfin/img/xx_close.png" alt="" onclick="closeFiAlert();" />
+                        <p style="font-size: 0.48rem;text-align: center;margin-top: 0px;">——&nbsp;&nbsp;&nbsp;最新公告&nbsp;&nbsp;&nbsp;——</p>
+                        <p>1、新人注册立即赠送价值30元积分</p>
+                        <p>2、首次充值最高赠送价值1000元积分</p>
+                        <p>3、邀请好友注册并认证通过赠送价值20元积分</p>
+                        <div class="sp_btn" onclick="closeFiAlert();">
+                            知道了
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class='qd_ydsmrz' style="display:none ;">
+                <p style="text-align: center;font-size: 0.58rem;">您还未实名认证</p>
+                <p style="line-height: 0.7rem;padding: 0.6rem  0rem;font-size: 0.44rem;">
+                    完成实名认证即可获得会员特权，可抢会员特价单。
+                </p>
+                <div class="close" style="width: 25px;">
+                    <img style="width: 100%;" src="/static/wxfin/img/close.png" onclick="closeJiFenShenPiPage();" />
+                </div>
+                <div class="btnn">
+                    <div>
+                        <span class="zkkbtn" onclick="closeJiFenShenPiPage();">再看看</span>
+                    </div>
+                    <div>
+                        <span class="smrzbtn" onclick="smrz();">实名认证</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class='qd_jeqdcg' style="display:none;">
+                <p style="text-align: center;font-size: 0.65rem;">恭喜您抢单成功</p>
+                <p class="qd_p">订单成功支付：<span id="qd_zfje" style="color: #e54935;"> </span><span id="qd_yuan" style="color: #333;"></span><span id="qd_sxjf" style="color: #e54935;"></span><span id="qd_jifen" style="color: #333;"></span></p>
+                <p class="qd_p">您的余额：<span id="qd_syye"></span>包点</p>
+                <p class="qd_p">您的积分：<span id="qd_syjf"></span>积分</p>
+                <div class="close" style="width: 25px;">
+                    <img style="width: 100%;" src="/static/wxfin/img/close.png" onclick="closeQdSuccessPage();" />
+                </div>
+                <div class="handle_btn">
+                    <div>
+                        <span class="jxqdbtn" onclick="closeQdSuccessPage();">继续抢单</span>
+                    </div>
+                    <div>
+                        <span class="clddbtn" onclick="customersFunction();">处理订单</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="bannerBuy">
+                <div style="width: 100%;overflow: hidden;">
+                    <p id="timeCity">1小时前@深圳</p>
+                    <p id="numAndname">任经理成功放款10万</p>
+                </div>
+                <img class="bannerBuy_img" style="height: 0.8rem;width: 0.8rem;border-radius: 0.4rem;" src="/static/wxfin/img/5.png" alt="" />
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var _mtac = {};
+        (function() {
+            var mta = document.createElement("script");
+            mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500580835");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+    </script>
+</body>
+<script src="/static/wxfin/js/bannerMessage.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    /*var ggIndex = 0;
+                     setInterval(function(){
+                     ggIndex--;
+                     $(".gg3>div").animate({"margin-top":ggIndex*1+"rem"},2000,"linear",function(){
+                     if(ggIndex ==-3){
+                     $(".gg3>div").css("margin-top",0+"rem");
+                     ggIndex = 0
+                     }
+                     })
+                     },3000);*/
+    /**
+     * 去实名认证
+     */
+    function smrz() {
+        window.location.href = "/rest/weixin/settled/list";
+    }
+
+    var pageifcity = true;
+    $(".sxtj2>.item3").click(function() {
+        pageifcity = false;
+        $("#City").show();
+        var city = getCookies("cityName");
+        if (city === undefined || city === null || city === '') {
+            $('#current_city').html("深圳市");
+        } else {
+            $('#current_city').html(city);
+        }
+        $("#City").addClass("active");
+        setTimeout(function() {
+            $(".nav_city").show()
+        }, 500);
+        addCity()
+    });
+
+    /**
+     * 关闭弹窗
+     */
+    function closeAlertPage() {
+        $('.yebz_alert').css('display', 'none');
+        $('#zm').css('display', 'none');
+    }
+    /**
+     * 关闭活动窗口
+     */
+    function closeFiAlert() {
+        $('.fi').css('display', 'none');
+    }
+    /**
+     * 关闭积分购买，判断是否身份验证页面
+     */
+    function closeJiFenShenPiPage() {
+        $('.qd_ydsmrz').css('display', 'none');
+        $('#zm').css('display', 'none');
+    }
+    /**
+     * 抢单成功页面关闭
+     */
+    function closeQdSuccessPage() {
+        $('.qd_jeqdcg').css('display', 'none');
+        $('.dingdan_alert').css('display', 'none');
+        $('#zm').css('display', 'none');
+        var loanType = calldata['loanType'];
+        selectLoanType(loanType);
+    }
+
+    function addCity() {
+        var html = "",
+            html3 = "";
+        for (var i in Cityjson) {
+            var html1 = "<p id=" + Cityjson[i].initial + " class='city_title'>" + Cityjson[i].initial + "</p>"
+            html3 += "<a href='#" + Cityjson[i].initial + "'>" + Cityjson[i].initial + "</a>"
+                //var list = Cityjson[i].list
+            var html2 = ""
+            for (var city in Cityjson[i].list) {
+                html2 += "<li onclick='selectCityFunction(this);'>" + Cityjson[i].list[city].name + "市</li>"
+            }
+            html += html1 + "<ul>" + html2 + "</ul>"
+        }
+        $(".nav_city").html(html3);
+        $("#zm_city").html(html)
+    }
+
+    var calldata = {};
+    var loanType = 1;
+    var sortValue = 1;
+    $(".cust_nav li").click(function() {
+        $(this).addClass("active").siblings().removeClass("active");
+        // $(".dk_cust_tab>div").eq($(this).index()).show().siblings().hide()
+    });
+
+    /**
+     * 选择排序
+     */
+    function selectChange(obj) {
+        var target = $(obj);
+        var imgs = target.siblings('div').children('img');
+        var hasActive = imgs.eq(0).hasClass('active');
+        if (hasActive) {
+            imgs.eq(1).click();
+        } else {
+            imgs.eq(0).click();
+        }
+    }
+
+    /**
+     * 价格排序
+     */
+    function selectSort(sortType, obj) {
+        var array = ["/static/wxfin/img/top_select.png", "/static/wxfin/img/bot_select.png"];
+        $(".wxfin_sort:even").attr("src", array[0]);
+        $(".wxfin_sort:odd").attr("src", array[1]);
+        $(obj).addClass('active').siblings().removeClass('active');
+        if (sortType === 1) {
+            $(obj).attr("src", "/static/wxfin/img/top_select_active.png");
+        } else if (sortType === 2) {
+            $(obj).attr("src", "/static/wxfin/img/bot_select_active.png");
+        } else if (sortType === 3) {
+            $(obj).attr("src", "/static/wxfin/img/top_select_active.png");
+        } else if (sortType === 4) {
+            $(obj).attr("src", "/static/wxfin/img/bot_select_active.png");
+        } else if (sortType === 5) {
+            $(obj).attr("src", "/static/wxfin/img/top_select_active.png");
+        } else if (sortType === 6) {
+            $(obj).attr("src", "/static/wxfin/img/bot_select_active.png");
+        }
+        sortValue = sortType;
+        if (sortType !== undefined) {
+            calldata['order'] = sortType;
+        }
+        calldata['page'] = 1;
+        //$('#loan_list_div').html("");
+        loanListDivRemove();
+        if (calldata['loanType'] === '-1') {
+            queryPushLoanInfoList(calldata)
+        } else {
+            queryLoanInfoList(calldata);
+        }
+    }
+    /**
+     * 清空loan类型的div
+     */
+    function loanListDivRemove(type) {
+        $('#loan_list_div_type_1').html("");
+        $('#loan_list_div_type_3').html("");
+        $('#loan_list_div_type_4').html("");
+    }
+    /**
+     * 添加loan类型的div
+     */
+    function setLoanListDiv(type, htmlStr) {
+        if (type === 1 || type === 2) {
+            $('#loan_list_div_type_1').append(htmlStr);
+        } else if (type === 3) {
+            $('#loan_list_div_type_3').append(htmlStr);
+        } else if (type === 4 || type === '-1') {
+            $('#loan_list_div_type_4').append(htmlStr);
+        }
+    }
+
+    /**
+     * 纯粹改变条件查询的颜色
+     */
+    function selectSort_init(sortType, obj) {
+        var array = ["/static/wxfin/img/top_select.png", "/static/wxfin/img/bot_select.png"];
+        $(".wxfin_sort:even").attr("src", array[0]);
+        $(".wxfin_sort:odd").attr("src", array[1]);
+        if (sortType === 6) {
+            $(obj).attr("src", "/static/wxfin/img/bot_select_active.png");
+        }
+    }
+
+    /**
+     * 热门城市
+     */
+    $('.popular_city').on('click', function() {
+        selectCityFunction(this);
+    });
+
+    /**
+     * 输入改变城市
+     */
+    function userChangeCity(cityValue) {
+        var city = getCookies("cityName");
+        if (city === undefined || city === null || city === '') {
+            setCookies("cityName", cityValue);
+            calldata['city'] = cityValue;
+            $('#wxfin_city').html(cityValue);
+        }
+    }
+
+    /**
+     * 输入改变城市
+     */
+    function inputchangecity(obj) {
+        var cityValue = $(obj).val();
+        if (cityValue != undefined) {
+            $("#City").hide();
+            $("#City").removeClass("active");
+            $('.nav_city').hide();
+            pageifcity = true;
+            setCookies("cityName", cityValue);
+            //$('#loan_list_div').html("");
+            loanListDivRemove();
+            calldata['city'] = cityValue;
+            calldata['page'] = 1;
+            queryLoanInfoList(calldata);
+            //selectLoanType(loanType, sortValue, cityValue);
+            $('#wxfin_city').html(cityValue);
+        }
+    }
+
+    /**
+     * 查询城市
+     */
+    function selectCityFunction(obj) {
+        var cityValue = $(obj).html();
+        if (cityValue != undefined) {
+            //            $('#City').css('display','none');
+            //            $("#zm_city").css('display','none');
+            $("#City").hide();
+            $("#City").removeClass("active");
+            $('.nav_city').hide();
+            //            $(".nav_city").html("");
+
+            pageifcity = true;
+            setCookies("cityName", cityValue);
+            //$('#loan_list_div').html("");
+            loanListDivRemove();
+            calldata['city'] = cityValue;
+            calldata['page'] = 1;
+            queryLoanInfoList(calldata);
+            //selectLoanType(loanType, sortValue, cityValue);
+            $('#wxfin_city').html(cityValue);
+        }
+    }
+
+    /**
+     * 往Cookies设置城市
+     */
+    function setCookies(name, cityValue) {
+        var Days = 30;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + Days * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(cityValue) + ";expires=" + exp.toGMTString();
+    }
+
+    /**
+     * 往Cookies设置城市
+     */
+    function getCookies(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg))
+            return unescape(arr[2]);
+        else
+            return null;
+    }
+    /*function getCookies(objName){//获取指定名称的cookie的值
+     alert("cookie="+document.cookie);
+     var arrStr = document.cookie.split("; ");
+     for (var i = 0; i < arrStr.length; i++) {
+     var temp = arrStr[i].split("=");
+     if ("'"+temp[0]+"'" == "'"+objName+"'"){
+     return unescape(temp[1]);
+     }
+     }
+     }*/
+
+    /**
+     *  城市界面返回贷款主界面
+     */
+    function returnLoanList() {
+        $("#City").hide();
+        $("#City").removeClass("active");
+        $('.nav_city').hide();
+        pageifcity = true;
+    }
+
+    /**
+     * 发送短信验证码
+     */
+    var ifgetcodeclick = true;
+
+    function sendSmsCode(obj) {
+        if (ifgetcodeclick) {
+            var phone = $(".mobilephone").val();
+            if (!(/^1[3|4|5|6|7|8|9][0-9]\d{4,8}$/.test(phone)) || phone.length !== 11) {
+                //$("#mobile2").focus();
+                alert("您的电话输入有误，请重新填写！");
+                return false;
+            }
+            $(obj).css("backgroundColor", "#8a8888");
+            $(obj).text("1分钟后再试");
+            var i = 60;
+            ifgetcodeclick = false;
+            var timer = setInterval(function() {
+                if (i === 0) {
+                    clearInterval(timer);
+                    ifgetcodeclick = true;
+                    $(".getcodebtn").css("backgroundColor", "#e54935");
+                    $(".getcodebtn").text("获取验证码");
+                    return;
+                }
+                $(".getcodebtn").text(+i + "秒后再试");
+                i--
+            }, 1000);
+            //var gsc = new EC_GSC('FIN');
+            var gsc = new EC_GSC('FIN', 'alitc', 'msg_tc');
+            //getCode(phone);
+            gsc.getCode(phone);
+        }
+    }
+
+    function onCloseFunction() {
+        $(".dingdan_alert").css('display', 'none');
+        $('#zm').css('display', 'none');
+        //loancustomers();
+        var loanType = calldata['loanType'];
+        selectLoanType(loanType);
+    }
+
+    /**
+     *  点击购买下订单
+     */
+    function purchaseOrder(type) {
+        var loanid = $('#diandan_hidden_loan_id').val();
+        if (loanid !== undefined && loanid !== '' && loanid !== null) {
+            var balance = $('#dingdan_loanmoney').html();
+            var price = $('#dingdan_price').html();
+            if (balance === null || balance === '' || balance === undefined) {
+                balance = 0;
+            }
+            if (parseInt(balance) - parseInt(price) < 0) {
+                $('#balance_value_input').val(balance);
+                $('.yebz_alert').show();
+                $('.dingdan_alert').css('display', 'none');
+                //tiaozhuangchongzhi_2(balance);
+                return;
+            }
+            generateOrder(loanid, type);
+        }
+    }
+    /**
+     *  点击积分抢单
+     */
+    function jiFenQiangDan(type) {
+        var loanid = $('#diandan_hidden_loan_id').val();
+        var is_Authentication = $('#is_Authentication').val();
+        if (is_Authentication === '1') {
+            if (loanid !== undefined && loanid !== '' && loanid !== null) {
+                var scorenumber = $('#score_number').html();
+                var scorevalue = $('#score_value').html();
+
+                if (scorenumber === null || scorenumber === '' || scorenumber === undefined) {
+                    scorenumber = 0;
+                }
+                if (parseInt(scorenumber) - parseInt(scorevalue) < 0) {
+
+                    $('.dingdan_alert').css('display', 'none');
+                    alert("积分不足！");
+                    return;
+                }
+                generateOrder(loanid, type);
+            }
+        } else {
+            $('.dingdan_alert').css('display', 'none');
+            $('.qd_ydsmrz').show();
+        }
+    }
+
+    function generateOrder(loanid, type) {
+        var params = {
+            'loanId': loanid,
+            'type': type
+        };
+        $.ajax({
+            type: "POST",
+            url: "/rest/weixin/order/order",
+            dataType: 'JSON',
+            data: params,
+            success: function(result) {
+                if (null !== result) {
+                    var errCode = result.errCode;
+                    if (errCode === "0") {
+                        console.log("购买成功！");
+                        //var array = result.result;
+                        buyOrder(type);
+                        //customersFunction();
+                    } else {
+                        alert(result.errDes);
+                    }
+                }
+            },
+            failure: function(result) {
+                console.log("购买失败");
+                alert("购买失败");
+            },
+            error: function(result) {
+                //$(".login_alert").show();
+                console.log("购买失败");
+                alert("购买失败");
+            }
+        });
+    }
+
+
+    /**
+     * 有参数登陆
+     */
+    $(".login_alert .loginbtn").on('click', function() {
+        var mobilephone = $('.mobilephone').val();
+        var code = $('.code').val();
+        if (mobilephone === undefined || mobilephone === null || mobilephone === '') {
+            alert("请填写手机号码!");
+            return;
+        }
+        if (code === undefined || code === null || code === '') {
+            alert("请填写验证码!");
+            return;
+        }
+        //var gsc = new EC_GSC('FIN');
+        var gsc = new EC_GSC('FIN', 'alitc', 'msg_tc');
+        gsc.verifyCode(mobilephone, code, smsCodeCallback);
+    });
+
+    function smsCodeCallback(ret) {
+        var mobilephone = $('.mobilephone').val();
+        var code = $('.code').val();
+        var params = {
+            'phone': mobilephone,
+            'code': code
+        };
+        if (ret === 0) {
+            $.ajax({
+                type: "POST",
+                url: "/rest/weixin/login/login",
+                dataType: 'JSON',
+                data: params,
+                success: function(result) {
+                    if (null != result) {
+                        var errCode = result.errCode;
+                        if (errCode === "0") {
+                            $(".login_alert").css('display', 'none');
+                            $('#zm').css('display', 'none');
+                        } else {
+                            alert(result.errDes);
+                        }
+                    }
+                },
+                failure: function(result) {
+                    console.log("failure==" + result);
+                    alert("登录失败");
+                },
+                error: function(result) {
+                    console.log("error==" + result);
+                    alert("登录失败");
+                }
+            });
+        } else {
+            alert("验证码输入错误");
+
+        }
+    }
+
+
+    /**
+     * 切换页
+     */
+    function selectLoanType(type, sortType, city) {
+
+        //$('#loan_list_div').html("");
+        loanListDivRemove();
+        initQueryParas();
+        loanType = type;
+        $('.tj').show();
+        $('.select_btn').show();
+        //$('.gg3').show();
+        $('.gg2').css('display', 'none');
+        $('.item3').show();
+        if (type === 3) {
+            $('.gg5').show();
+            $('.gg4').css('display', 'none');
+            $('.gg3').css('display', 'none');
+            checkLogin(callbackIsLogin, type, sortType, city);
+        } else if (type === 4) {
+            $('.tj').css('display', 'none');
+            $('.select_btn').css('display', 'none');
+            $('.gg3').css('display', 'none');
+            $('.gg4').css('display', 'none');
+            $('.gg5').css('display', 'none');
+            $('.item3').css('display', 'none');
+            $('.gg2').show();
+            checkLogin(callbackPushIsLogin, type, sortType, city);
+        } else {
+            initCallData();
+            /*if (type == 1)
+            {*/
+            $('.gg3').show();
+            $('.gg4').css('display', 'none');
+            $('.gg5').css('display', 'none');
+            /*} else if (type == 2)
+            {
+                $('.gg4').show();
+                $('.gg3').css('display', 'none');
+                $('.gg5').css('display', 'none');
+            }*/
+            calldata['loanTypes'] = '1,1,0';
+            calldata['loanType'] = type;
+
+            /*if (undefined === city ||  null === city || "" === city)
+             calldata['city'] = '深圳市';
+             else
+             calldata['city'] = city;*/
+            queryLoanInfoList(calldata);
+        }
+    }
+    /**
+     * 推送判断是否登录
+     */
+    function callbackPushIsLogin(isLogin, paras, sortType, city) {
+        //登录过了。
+        if (isLogin === "0") {
+            $('#zm').css('display', 'none');
+            initCallData();
+            calldata['loanType'] = '-1';
+            queryPushLoanInfoList(calldata);
+        } else {
+            //没登录
+            console.log("没有登录。" + paras);
+            $('#zm').show();
+            $(".login_alert").show();
+        }
+    }
+
+
+    /**
+     * 功换table时要调用，清空条件选择。
+     */
+    function initQueryParas() {
+        $(".select_btn li").each(function() {
+            console.log($(this));
+            $(this).removeClass("active");
+        });
+        $("#yxz").html("");
+    }
+
+    function callbackIsLogin(isLogin, paras, sortType, city) {
+        //登录过了。
+        if (isLogin === "0") {
+            $('#zm').css('display', 'none');
+            console.log("登录过了。", paras);
+            initCallData();
+            calldata['loanType'] = paras;
+            queryLoanInfoList(calldata);
+        } else {
+            //没登录
+            console.log("没有登录。" + paras);
+            $('#zm').show();
+            $(".login_alert").show();
+        }
+    }
+
+
+    var loanConditionObject = {};
+    /**
+     * 查询贷款条件
+     */
+    var queryArray = [0, 0, 0, 0, 0, 0, 0, 0];
+
+    function queryConditions(type) {
+        if (type >= 0 && type <= 7) {
+            //updateCondition(type);
+            if (queryArray[type] === 0) {
+                queryArray[type] = 1;
+            } else {
+                queryArray[type] = 0;
+            }
+        }
+        calldata['rule'] = queryArray.toString();
+        calldata['page'] = 1;
+        console.log(JSON.stringify(calldata));
+        //$('#loan_list_div').html("");
+        loanListDivRemove();
+        queryLoanInfoList(calldata);
+    }
+    //var conditionStr = {};
+    /**
+     * 修改筛选条件
+     */
+    function updateCondition(type) {
+        var loanCondition = getCookies("loanCondition");
+        var array = {};
+        if (undefined !== loanCondition && null !== loanCondition && "" !== loanCondition) {
+            array = JSON.parse(loanCondition);
+        }
+        if (type === 3) {
+            setUtilsCondition('isGjj', array);
+        }
+        if (type === 2) {
+            setUtilsCondition('isSheBao', array);
+        }
+
+        if (type === 5) {
+            setUtilsCondition('isXyk', array);
+        }
+        if (type === 0) {
+            setUtilsCondition('house', array);
+        }
+
+        if (type === 1) {
+            setUtilsCondition('car', array);
+        }
+        if (type === 7) {
+            setWorkType('workType2', array, type);
+        }
+        if (type === 4) {
+            setWorkType('workType0', array, type);
+        }
+        /*if(type === 7 || type === 4 ){
+         var workTypes = array['workType'];
+         var workType = null;
+         if (workTypes !== '') {
+         workType = workTypes.split(',');
+         }
+         if(loanConditionObject['workType']=== undefined || loanConditionObject['workType']=== null) {
+         if (workType !== null && workType!== undefined) {
+         for (var i = 0; i < workType.length; i++) {
+         if (type === 4) {
+         if (workType[i] !== '0') {
+         conditionStr[0]= '0';
+         }
+         }
+         if(type === 7){
+         if (workType[i] !== '2') {
+         conditionStr[1]= '2';
+         }
+         }
+         console.log(conditionStr.toString());
+         array['workType'] = conditionStr.toString();
+         loanConditionObject['workType']=conditionStr.toString();
+         }
+         }
+         }else {
+         if (workType !== null && workType!== undefined) {
+         for (var i = 0; i < workType.length; i++) {
+         if (type === 4) {
+         if (workType[i] !== '0') {
+         conditionStr[0] = '0';
+         }
+         }
+         if (type === 7) {
+         if (workType[i] !== '2') {
+         conditionStr[1] = '2';
+         }
+         }
+         }
+         }
+         console.log(conditionStr.toString());
+         array['workType'] = conditionStr.toString();
+         loanConditionObject['workType']=conditionStr.toString();
+         }
+         }*/
+    }
+
+    function setUtilsCondition(name, array) {
+        if (loanConditionObject[name] === undefined || loanConditionObject[name] === null) {
+            if (array[name] !== 0) {
+                loanConditionObject[name] = 0;
+                array[name] = 0;
+            } else {
+                loanConditionObject[name] = 0;
+            }
+        } else {
+            if (loanConditionObject[name] === 0) {
+                loanConditionObject[name] = 1;
+                array[name] = 1;
+            } else {
+                loanConditionObject[name] = 0;
+                array[name] = 0;
+            }
+        }
+        setCookies('loanCondition', JSON.stringify(array));
+    }
+
+    function setWorkType(name, array, type) {
+        if (loanConditionObject[name] === undefined || loanConditionObject[name] === null) {
+            if (type === 4) {
+                loanConditionObject[name] = 0;
+                array[name] = 0;
+            }
+            if (type === 7) {
+                loanConditionObject[name] = 2;
+                array[name] = 2;
+            }
+        } else {
+            if (type === 4) {
+                if (array[name] !== 0) {
+                    loanConditionObject[name] = 0;
+                    array[name] = 0;
+                } else {
+                    loanConditionObject[name] = null;
+                    array[name] = null;
+                }
+            }
+            if (type === 7) {
+                if (array[name] !== 2) {
+                    loanConditionObject[name] = 2;
+                    array[name] = 2;
+                } else {
+                    loanConditionObject[name] = null;
+                    array[name] = null;
+                }
+            }
+        }
+        setCookies('loanCondition', JSON.stringify(array));
+    }
+
+    function initCallData() {
+        //$('#loan_list_div').html("");
+        loanListDivRemove();
+        calldata['loanType'] = 3;
+        queryArray = [0, 0, 0, 0, 0, 0, 0, 0];
+        var rule = [0, 0, 0, 0, 0, 0, 0, 0];
+        calldata['rule'] = rule.toString();
+        calldata['order'] = '6';
+        //条件排序
+        selectSort_init(6, "#wxfin_sort_id_6");
+        if (undefined === getCookies("cityName") || null === getCookies("cityName") || "" === getCookies("cityName")) {
+            calldata['city'] = '深圳市';
+        } else {
+            var cityValue = getCookies("cityName");
+            if (cityValue.indexOf("市") <= 0) {
+                cityValue = cityValue + "市";
+            }
+            calldata['city'] = cityValue;
+        }
+        calldata['page'] = 1;
+        calldata['pageSize'] = '10';
+    }
+
+    function nextPage() {
+        calldata['page']++;
+        if (calldata['loanType'] === '-1') {
+            queryPushLoanInfoList(calldata)
+        } else {
+            queryLoanInfoList(calldata);
+        }
+    }
+
+    /**
+     * 加载贷款信息中的数据
+     */
+    $(document).ready(function() {
+        $.ajax({
+            type: "POST",
+            url: "/weixin/auth/jssdk/sign/tcjf",
+            dataType: "JSON",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                'content-type': "application/json"
+            },
+            success: function(result) {
+                var weiXinConfig = eval(result);
+                // 微信配置
+                wx.config({
+                    debug: false,
+                    appId: weiXinConfig.appId,
+                    timestamp: weiXinConfig.timestamp,
+                    nonceStr: weiXinConfig.nonce,
+                    signature: weiXinConfig.signature,
+                    jsApiList: ['getNetworkType', 'checkJsApi', 'onMenuShareTimeline', 'getLocation', 'previewImage', 'hideAllNonBaseMenuItem']
+                });
+                wx.ready(function() {
+                    wx.checkJsApi({
+                        jsApiList: [
+                            'getNetworkType',
+                            'previewImage'
+                        ],
+                        success: function(res) {
+                            console.log(JSON.stringify(res));
+                        }
+                    });
+                    wx.hideAllNonBaseMenuItem();
+
+                    wx.getLocation({
+                        type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+                        success: function(res) {
+                            var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+                            var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+
+                            if (null !== latitude && null != longitude) {
+                                var point = new BMap.Point(longitude, latitude);
+                                var geoc = new BMap.Geocoder();
+                                geoc.getLocation(point, function(rs) {
+                                    var addComp = rs.addressComponents;
+                                    if (null != addComp && null != addComp.city) {
+                                        console.log(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                                        //calldata['city'] = addComp.city;
+                                        if (null !== addComp.city && "" !== addComp.city) userChangeCity(addComp.city);
+                                    }
+                                });
+                            }
+
+                            console.log("latitude=" + latitude + ",longitude=" + longitude);
+                        },
+                        cancel: function(res) {
+
+                        }
+                    });
+                });
+                wx.error(function(res) {
+                    console.log("加载失败。");
+                });
+            },
+            failure: function(result) {
+                console.log("微信调用失败。");
+            }
+        });
+
+        initCallData();
+        jQuery.getUrlParam = function(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        };
+        var pushAlert = $.getUrlParam('pushAlert');
+        if (pushAlert !== '1') {
+            queryLoanInfoList(calldata);
+        }
+        activeOrAdAlert();
+    });
+
+
+    /**
+     * 活动和广告弹窗
+     */
+    function activeOrAdAlert() {
+        jQuery.getUrlParam = function(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        };
+        var num = $.getUrlParam('alertNumber');
+        var pushAlert = $.getUrlParam('pushAlert');
+        if (num === '1') {
+            $('.fi').show();
+        }
+        if (pushAlert === '1') {
+            $('#push_order').addClass("active").siblings().removeClass("active");
+            selectLoanType(4);
+        }
+    }
+
+    /**
+     * 查询推送规则，获取相对应的数据
+     */
+    function queryPushLoanInfoList(queryObject) {
+        console.log(JSON.stringify(queryObject));
+        var city = getCookies("cityName");
+        var loanCondition = getCookies("loanCondition");
+        if (undefined !== loanCondition && null !== loanCondition && "" !== loanCondition) {
+            var array = JSON.parse(loanCondition);
+            setCondition(queryObject, array);
+        }
+        if (undefined === city || null === city || "" === city) {
+            $('#wxfin_city').html("深圳市");
+        } else {
+            $('#wxfin_city').html(city);
+        }
+        console.log(JSON.stringify(queryObject));
+        $.ajax({
+            type: "POST",
+            url: "/rest/weixin/push/pushdata",
+            dataType: "JSON",
+            data: queryObject,
+            success: function(result) {
+                if (null !== result) {
+                    writeLoanListHTML(result);
+                }
+            },
+            failure: function(result) {
+                console.log("failure==" + result);
+            },
+            error: function() {
+                //$(".login_alert").show();
+            }
+        });
+    }
+
+    function queryLoanInfoList(queryObject) {
+        var city = getCookies("cityName");
+        var loanCondition = getCookies("loanCondition");
+        if (undefined !== loanCondition && null !== loanCondition && "" !== loanCondition) {
+            var array = JSON.parse(loanCondition);
+            setCondition(queryObject, array);
+            if (undefined !== array && null !== array && "" !== array) {
+                $('#select_zdy').addClass("active");
+                $("#yxz").html("自定义筛选");
+            }
+        }
+        if (undefined === city || null === city || "" === city) {
+            $('#wxfin_city').html("深圳市");
+        } else {
+            $('#wxfin_city').html(city);
+        }
+        console.log(JSON.stringify(queryObject));
+        $.ajax({
+            type: "POST",
+            url: "/rest/weixin/loan/list",
+            dataType: "JSON",
+            data: queryObject,
+            success: function(result) {
+                if (null !== result) {
+                    writeLoanListHTML(result);
+                }
+            },
+            failure: function(result) {
+                console.log("failure==" + result);
+            },
+            error: function() {
+                //$(".login_alert").show();
+            }
+        });
+    }
+
+    /**
+     * 设置筛选条件
+     * @param loanList
+     */
+    function setCondition(queryObject, array) {
+        if (array['isSheBao'] !== null && array['isSheBao'] !== undefined) {
+            queryObject['isshebao'] = array['isSheBao'];
+        } else {
+            queryObject['isshebao'] = 1;
+        }
+        if (array['isWlD'] !== null && array['isWlD'] !== undefined) {
+            queryObject['iswhd'] = array['isWlD'];
+        } else {
+            queryObject['iswhd'] = 1;
+        }
+        if (array['house'] !== null && array['house'] !== undefined) {
+            queryObject['house'] = array['house'];
+        } else {
+            queryObject['house'] = 1;
+        }
+        if (array['sxbd'] !== null && array['sxbd'] !== undefined) {
+            queryObject['lifeinsurance'] = array['sxbd'];
+        } else {
+            queryObject['lifeinsurance'] = 1;
+        }
+        if (array['car'] !== null && array['car'] !== undefined) {
+            queryObject['car'] = array['car'];
+        } else {
+            queryObject['car'] = 1;
+        }
+        if (array['income'] !== null && array['income'] !== undefined) {
+            queryObject['income'] = array['income'];
+        } else {
+            queryObject['income'] = 0;
+        }
+
+        if (array['moneyNum'] !== null && array['moneyNum'] !== undefined) {
+            queryObject['loanamount'] = array['moneyNum'];
+        } else {
+            queryObject['loanamount'] = 0;
+        }
+
+        if (array['payoff'] !== null && array['payoff'] !== undefined) {
+            queryObject['payoff'] = array['payoff'];
+        } else {
+            queryObject['payoff'] = 0;
+        }
+        if (array['isGjj'] !== null && array['isGjj'] !== undefined) {
+            queryObject['isGjj'] = array['isGjj'];
+        } else {
+            queryObject['isGjj'] = 1;
+        }
+        if (array['isXyk'] !== null && array['isXyk'] !== undefined) {
+            queryObject['isXyk'] = array['isXyk'];
+        } else {
+            queryObject['isXyk'] = 1;
+        }
+        var workTypeStr = '';
+        if (array['workType0'] === 0) {
+            workTypeStr = '0';
+        }
+        if (array['workType1'] === 1) {
+            if (workTypeStr != '') {
+                workTypeStr += ",1";
+            } else {
+                workTypeStr = "1";
+            }
+        }
+        if (array['workType2'] === 2) {
+            if (workTypeStr != '') {
+                workTypeStr += ",2";
+            } else {
+                workTypeStr = "2";
+            }
+        }
+        queryObject['profession'] = workTypeStr;
+    }
+
+    function writeLoanListHTML(loanList) {
+        if (loanList.errCode === "0") {
+            var resultValue = loanList.result;
+            var objectArray = resultValue.list;
+            var htmlStr = "";
+            var loanType = calldata['loanType'];
+
+            for (var i = 0; i < objectArray.length; i++) {
+                if (loanType !== null && loanType !== undefined) {
+                    if (objectArray[i].loanType == loanType) {
+                        htmlStr += createLoanItemHTML(objectArray[i]);
+                    }
+                }
+            }
+            //var loanType = calldata['loanType'];
+            if (htmlStr !== "") {
+                //$('#loan_list_div').append(htmlStr);
+                setLoanListDiv(loanType, htmlStr);
+            }
+            if (loanType === 3) {
+                $('.xx_info').addClass("tjdd");
+            }
+        } else {
+            alert(loanList.errDes);
+        }
+    }
+
+    function createLoanItemHTML(loanItem) {
+        var loanApplyTime = formatDateTime(loanItem.loanApplyTime);
+        var str1 = splicingString_1(loanItem);
+        var str2 = splicingString_2(loanItem);
+        var htmlStr = "";
+        var loanType = calldata['loanType'];
+        var money = loanItem.loanMoney;
+        var loanMoney = '';
+        if (money !== null && money !== '' && money != undefined) {
+            loanMoney = money / 10000;
+        }
+        var createTime = loanItem.createTime;
+        var min = handleTimeToMinute(createTime);
+        htmlStr += "<div class='list_item' onclick=\"loanitemFunction('" + loanItem.id + "');\">";
+        if (loanType === 3) {
+            htmlStr += "<div class='time'>申请时间：" + loanApplyTime + "</div>";
+        }
+        htmlStr += "<div class='xx_info'>";
+        htmlStr += "<div class='name'><span>" + loanItem.loanName + "</span> <span>" + loanItem.loanCity + "</span> <span><span class='num' style='font-size: 0.6rem;'>" + loanMoney + "</span> 万元</span></div>";
+        htmlStr += "<p style=''>" + str1 + "</p>";
+        htmlStr += "<p style=''>" + str2 + "</p>";
+        htmlStr += "</div>";
+        htmlStr += "</div>";
+        //htmlStr += "<span class='qd'><div onclick=\"loanitemFunction('" + loanItem.id + "');\">查看详情</div><div onclick=\"priceQianDanFunction('" + loanItem.id + "');\"> " + loanItem.price + "元抢单 </div></span>";
+        var sellStauts = loanItem.sellStauts;
+        if (loanType === 3) {
+            console.log('sellStauts' + sellStauts);
+            //            if (sellStauts === '1')
+            //            {
+            //                htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span><del>包点" + loanItem.price + "</del></span><span style='color: #e54935' >包点" + loanItem.sellingPrice + "</span><span style='color: #fff;background:#c9c9c9;'>已被抢啦</span></span>";
+            //            } else
+            //            {
+            //                htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span><del>包点" + loanItem.price + "</del></span><span style='color: #e54935'>包点" + loanItem.sellingPrice + "</span><span onclick=\"priceQianDanFunction('" + loanItem.id + "');\">抢单</span></span>";
+            //            }
+            if (loanItem.price == loanItem.sellingPrice) {
+                if (sellStauts === '1' || sellStauts === '4') {
+                    htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span><del>" + parseInt(loanItem.sellingPrice / 0.4) + "包点</del></span>&nbsp&nbsp<span style='color: #e54935' >" + loanItem.sellingPrice + "包点</span><span style='font-size:0.4rem;color: #808080;'></span><span style='color: #fff;background:#c9c9c9;'>已被抢啦</span></span>";
+                } else {
+                    htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span><del>" + parseInt(loanItem.sellingPrice / 0.4) + "包点</del></span>&nbsp&nbsp<span style='color: #e54935'>" + loanItem.sellingPrice + "包点</span><span style='font-size:0.4rem;color: #808080;'></span><span onclick=\"priceQianDanFunction('" + loanItem.id + "');\">抢单</span></span>";
+                }
+            } else {
+                if (sellStauts === '1' || sellStauts === '4') {
+                    htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span><del>" + loanItem.price + "包点</del></span>&nbsp&nbsp<span style='color: #e54935' >" + loanItem.sellingPrice + "包点</span><span style='font-size:0.4rem;color: #808080;'></span><span style='color: #fff;background:#c9c9c9;'>已被抢啦</span></span>";
+                } else {
+                    htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span><del>" + loanItem.price + "包点</del></span>&nbsp&nbsp<span style='color: #e54935'>" + loanItem.sellingPrice + "包点</span><span style='font-size:0.4rem;color: #808080;'></span><span onclick=\"priceQianDanFunction('" + loanItem.id + "');\">抢单</span></span>";
+                }
+            }
+
+        } else {
+            console.log('sellStauts' + sellStauts);
+            if (sellStauts === '1' || sellStauts === '4') {
+                htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span style='color: #e54935'>" + loanItem.price + "包点</span><span>&nbsp&nbsp</span><span style='font-size:0.4rem;color: #808080;'>" + min + "</span><span style='color: #fff;background:#c9c9c9;'>已被抢啦</span></span>"
+            } else {
+                htmlStr += "<span class='qd' style='padding: 0px 0.576rem;'><span style='color: #e54935'>" + loanItem.price + "包点</span><span>&nbsp&nbsp</span><span style='font-size:0.416rem;color: #808080;'>" + min + "</span><span onclick=\"priceQianDanFunction('" + loanItem.id + "');\">抢单</span></span>";
+            }
+        }
+        return htmlStr;
+    }
+    /**
+     * 处理时间转分钟
+     */
+    /*function handleTimeToMinute(createTime) {
+     var end=new Date();
+     var dqTime = end.getTime();
+     var time=(parseInt(dqTime)-parseInt(createTime))/1000;
+     var min = parseInt(time)/60;
+     if(parseInt(min) < 2){
+     min = '刚刚';
+     }else {
+     min = parseInt(min);
+     }
+     return min;
+     }*/
+
+    function splicingString_1(loanItem) {
+        var str = "";
+        if (loanItem.loanProfession !== undefined && loanItem.loanProfession !== '' && loanItem.loanProfession !== null) {
+            str += loanItem.loanProfession;
+        }
+
+        if (loanItem.loanIncome !== undefined && loanItem.loanIncome !== '' && loanItem.loanIncome !== null) {
+            str += "&nbsp&nbsp月收入" + loanItem.loanIncome + "元";
+        }
+
+        if (loanItem.incomeWay !== undefined && loanItem.incomeWay !== '' && loanItem.incomeWay !== null) {
+            if ("银行" === loanItem.incomeWay) {
+                str += "&nbsp&nbsp" + "银行代发";
+            } else if ("现金" === loanItem.incomeWay) {
+                str += "&nbsp&nbsp" + "现金发放";
+            }
+
+        }
+        return str;
+    }
+
+    function splicingString_2(loanItem) {
+        var str = "";
+        if (loanItem.loanSocialSecurity !== undefined && loanItem.loanSocialSecurity !== '' && loanItem.loanSocialSecurity !== null) {
+            if ("有社保1年以内" === loanItem.loanSocialSecurity || "有社保1年以上" === loanItem.loanSocialSecurity) {
+                str += "有社保";
+            }
+        }
+
+        if (loanItem.loanHousingFund !== undefined && loanItem.loanHousingFund !== '' && loanItem.loanHousingFund !== null) {
+            if ("1年以内" === loanItem.loanHousingFund || "1年以上" === loanItem.loanHousingFund) {
+                if (str !== "") {
+                    str += "&nbsp&nbsp有公积金";
+                } else {
+                    str += "有公积金";
+                }
+            }
+        }
+        if (loanItem.creditSituation !== undefined && loanItem.creditSituation !== '' && loanItem.creditSituation !== null && loanItem.creditSituation !== '无') {
+            if ("有" === loanItem.creditSituation) {
+                if (str !== "") {
+                    str += "&nbsp&nbsp有信用卡";
+                } else {
+                    str += "有信用卡";
+                }
+            }
+        }
+        if (loanItem.housingType !== undefined && loanItem.housingType !== '' && loanItem.housingType !== null) {
+            if ("有房产，还贷中" === loanItem.housingType || "有房产，无房贷" === loanItem.housingType) {
+                if (str !== "") {
+                    str += "&nbsp&nbsp有房产";
+                } else {
+                    str += "有房产";
+                }
+            }
+        }
+        if (loanItem.hasCar !== undefined && loanItem.hasCar !== '' && loanItem.hasCar !== null) {
+            if ("有汽车，还贷中" === loanItem.hasCar || "有汽车，无车贷" === loanItem.hasCar) {
+                if (str !== "") {
+                    str += "&nbsp&nbsp有汽车";
+                } else {
+                    str += "有汽车";
+                }
+            }
+        }
+
+        if (loanItem.lifeInsurance !== undefined && loanItem.lifeInsurance !== '' && loanItem.lifeInsurance !== null && loanItem.lifeInsurance !== '无') {
+            if ("有" === loanItem.lifeInsurance) {
+                if (str !== "") {
+                    str += "&nbsp&nbsp有保单";
+                } else {
+                    str += "有保单";
+                }
+            }
+        }
+
+        if (loanItem.hasWld !== undefined && loanItem.hasWld !== '' && loanItem.hasWld !== null && loanItem.hasWld !== '无') {
+            if ("有" === loanItem.hasWld) {
+                if (str !== "") {
+                    str += "&nbsp&nbsp有微粒贷";
+                } else {
+                    str += "有微粒贷";
+                }
+            }
+        }
+
+        return str;
+    }
+
+    //组合值，看是否有空值
+    function isEmpty(loanItem) {
+        var str = "";
+        if (loanItem.loanProfession !== undefined && loanItem.loanProfession !== '' && loanItem.loanProfession !== null) {
+            str += loanItem.loanProfession;
+        }
+        if (loanItem.loanIncome !== undefined && loanItem.loanIncome !== '' && loanItem.loanIncome !== null) {
+            if (str !== "") {
+                str += ",月收入" + loanItem.loanIncome + "元";
+            } else {
+                str += "月收入" + loanItem.loanIncome + "元";
+            }
+        }
+        if (loanItem.housingType !== undefined && loanItem.housingType !== '' && loanItem.housingType !== null) {
+            if (str !== "") {
+                str += "," + loanItem.housingType;
+            } else {
+                str += loanItem.housingType;
+            }
+        }
+        if (loanItem.hasCar !== undefined && loanItem.hasCar !== '' && loanItem.hasCar !== null) {
+            if (str !== "") {
+                str += "," + loanItem.hasCar;
+            } else {
+                str += loanItem.hasCar;
+            }
+        }
+        if (loanItem.loanHousingFund !== undefined && loanItem.loanHousingFund !== '' && loanItem.loanHousingFund !== null) {
+            if (str !== "") {
+                str += "," + loanItem.loanHousingFund;
+            } else {
+                str += loanItem.loanHousingFund;
+            }
+
+        }
+        /*if (loanItem.loanHousingFund !== undefined && loanItem.loanHousingFund !== '' && loanItem.loanHousingFund !== null)
+         {
+
+         if (str !== "")
+         {
+         str += "," + loanItem.loanHousingFund;
+         } else
+         {
+         str += loanItem.loanHousingFund;
+         }
+         }*/
+        if (loanItem.loanSocialSecurity !== undefined && loanItem.loanSocialSecurity !== '' && loanItem.loanSocialSecurity !== null) {
+            if (str !== "") {
+                str += "," + loanItem.loanSocialSecurity;
+            } else {
+                str += loanItem.loanSocialSecurity;
+            }
+        }
+        return str;
+    }
+
+    function loanitemFunction(loanid) {
+
+
+        window.location.href = "/weixin/fin/loan/grab?id=" + escape(loanid) + "";
+    }
+
+    function priceQianDanFunction(loanid) {
+        checkLogin(preOrderCallback, loanid);
+    }
+
+    function preOrderCallback(isLogin, paras) {
+        //登录过了。
+        if (isLogin === "0") {
+            $('#zm').show();
+            console.log("登录过了。", paras);
+            //获取余额
+            selectBalance(paras);
+        } else {
+            //没登录
+            $('#zm').show();
+            console.log("没有登录。" + paras);
+            $(".login_alert").show();
+        }
+    }
+
+    /**
+     * 判断是否登录
+     */
+    function checkLogin(callback, paras, sortType, city) {
+        $.ajax({
+            type: "POST",
+            url: "/rest/weixin/login/checklogin",
+            dataType: "JSON",
+            headers: {
+                Accept: "application/json; charset=utf-8",
+                'content-type': "application/json"
+            },
+            success: function(result) {
+                console.log("success=" + result);
+                if (null !== result) {
+                    var errCode = result.errCode;
+                    if (errCode === "0") {
+                        callback("0", paras, sortType, city);
+                    } else {
+                        callback("1", paras, sortType, city);
+                    }
+                }
+            },
+            failure: function(result) {
+                console.log("failure==" + result);
+                callback("1", paras, sortType, city);
+            },
+            error: function(result) {
+                callback("1", paras, sortType, city);
+            }
+        });
+    }
+
+
+    /**
+     * 查询账号余额
+     */
+    function selectBalance(loanId) {
+        console.log("run selectBalance");
+        var params = {
+            'loanId': loanId
+        };
+        $.ajax({
+            type: "POST",
+            url: "/rest/weixin/order/getpre",
+            dataType: "JSON",
+            data: params,
+            success: function(result) {
+                console.log("success");
+                console.log(JSON.stringify(result));
+                if (null !== result) {
+                    var errCode = result.errCode;
+                    if (errCode === "0") {
+                        var values = result.result;
+                        var balance = values.balance;
+                        var price = values.price;
+                        var score = values.score;
+                        var scoreValue = values.scoreValue;
+                        var idCardStatus = values.idCardStatus;
+                        $('#dingdan_loanmoney').html(balance);
+                        $('#dingdan_price').html(price);
+                        //$('.btn').text(price + "包点抢单");
+                        $(".dingdan_alert").show();
+                        $('#diandan_hidden_loan_id').val(loanId);
+                        $("#score_value").html(scoreValue);
+                        $("#score_number").html(score);
+                        $('#is_Authentication').val(idCardStatus);
+                        if (undefined !== score && null !== score && "" !== score) {
+                            if (parseInt(score) - parseInt(scoreValue) < 0) {
+                                $('.jfbz').show();
+                                $('.jfqd').hide();
+                            } else {
+                                $('.jfbz').hide();
+                                $('.jfqd').show();
+                            }
+                        }
+                        if (undefined !== balance && null !== balance && "" !== balance) {
+                            if (parseInt(balance) - parseInt(price) < 0) {
+                                $('.xqcz').show();
+                                $('.yeqd').hide();
+                            } else {
+                                $('.yeqd').show();
+                                $('.xqcz').hide();
+                            }
+                        }
+                        /* if(jQuery.data('#submitBuy',"events")['click']){
+                         $('#submitBuy').unbind('click', orderThis);
+                         }
+                         $('#submitBuy').bind('click',orderThis = function () {
+                         generateOrder(loanId);
+                         });*/
+
+                        /*if (typeof orderThis === undefined || typeof orderThis === null || typeof orderThis === "")
+                         {
+                         console.log("undefined");
+                         }
+                         else
+                         {
+                         $('#submitBuy').unbind('click', orderThis);
+                         }
+                         $('#submitBuy').bind('click', orderThis=function () {
+                         generateOrder(loanId);
+                         })*/
+                    }
+                }
+            },
+            failure: function(result) {
+                console.log("failure");
+            },
+            error: function(result) {
+                console.log("error");
+            }
+        });
+    }
+
+    $(document).scroll(function() {
+        var windHeith = $(window).height();
+        var wrapHeith = $('body').height();
+        var scorll = $(document).scrollTop();
+        if (wrapHeith - windHeith - scorll <= 0 && pageifcity) {
+            nextPage();
+        }
+    });
+
+    $(".select_btn li").click(function() {
+        $(this).toggleClass("active");
+        var a = $(".select_btn .active");
+        var str = "";
+        for (i = 0; i < a.length; i++) {
+            if ("" === str) {
+                str = $(a[i]).html();
+            } else {
+                str = str + "," + $(a[i]).html();
+            }
+        }
+        if (a.length == 0 || str === '自定义') {
+            str = "不限";
+        }
+        $("#yxz").html(str);
+    });
+    $(".showorhide").click(function() {
+        $(".select_btn").toggle();
+        $(this).toggleClass("active")
+    });
+    /**
+     * 自定义筛选
+     */
+    function linkToSxtjPage() {
+        var loanCondition = getCookies("loanCondition");
+        //var array = JSON.parse(loanCondition);
+        var saixuan = '';
+        if (undefined !== loanCondition && null !== loanCondition && '' !== loanCondition) {
+            console.log("clear cookies start ");
+            setCookies('loanCondition', saixuan);
+            var loanType = calldata['loanType'];
+            setCondition(calldata, saixuan);
+            selectLoanType(loanType);
+            $('#select_zdy').toggleClass('active');
+            console.log("clear cookies success ");
+        } else {
+            window.location.href = "/weixin/fin/loan/sxtjPage";
+        }
+    }
+</script>
+
+</html>
