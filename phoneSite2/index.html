@@ -16,7 +16,7 @@
     <meta http-equiv="cache-control" content="no-cache,no-store,must-revalidate" />
     <meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
     <script>
-        ! function (N, M) {
+        ! function(N, M) {
             function L() {
                 var a = I.getBoundingClientRect().width;
                 a / F > 540 && (a = 540 * F);
@@ -62,18 +62,18 @@
                     u.appendChild(H), J.write(u.innerHTML)
                 }
             }
-            N.addEventListener("resize", function () {
+            N.addEventListener("resize", function() {
                 clearTimeout(K), K = setTimeout(L, 300)
-            }, !1), N.addEventListener("pageshow", function (b) {
+            }, !1), N.addEventListener("pageshow", function(b) {
                 b.persisted && (clearTimeout(K), K = setTimeout(L, 300))
             }, !1), "complete" === J.readyState ? J.body.style.fontSize = 12 * F + "px" : J.addEventListener(
                 "DOMContentLoaded",
-                function () {
+                function() {
                     J.body.style.fontSize = 12 * F + "px"
-                }, !1), L(), D.dpr = N.dpr = F, D.refreshRem = L, D.rem2px = function (d) {
+                }, !1), L(), D.dpr = N.dpr = F, D.refreshRem = L, D.rem2px = function(d) {
                 var c = parseFloat(d) * this.rem;
                 return "string" == typeof d && d.match(/rem$/) && (c += "px"), c
-            }, D.px2rem = function (d) {
+            }, D.px2rem = function(d) {
                 var c = parseFloat(d) / this.rem;
                 return "string" == typeof d && d.match(/px$/) && (c += "rem"), c
             }
@@ -101,95 +101,11 @@
                 </div>
                 <div class="info">
                     <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
                         <div class="info_details_tips">
                             <span class="roundTag">Details</span>
-                            <span>
-                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info_action">
-                        <span class="roundTag">ADDED</span>
-                        <span class="roundTag">REMOVE</span>
-                    </div>
-                </div>
-            </div>
-            <div class="listItem">
-                <div class="logo">
-                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
-                </div>
-                <div class="info">
-                    <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
-                        <div class="info_details_tips">
-                            <span class="roundTag">Details</span>
-                            <span>
-                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info_action">
-                        <span class="roundTag">ADDED</span>
-                        <span class="roundTag">REMOVE</span>
-                    </div>
-                </div>
-            </div>
-            <div class="listItem">
-                <div class="logo">
-                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
-                </div>
-                <div class="info">
-                    <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
-                        <div class="info_details_tips">
-                            <span class="roundTag">Details</span>
-                            <span>
-                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info_action">
-                        <span class="roundTag">ADDED</span>
-                        <span class="roundTag">REMOVE</span>
-                    </div>
-                </div>
-            </div>
-            <div class="listItem">
-                <div class="logo">
-                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
-                </div>
-                <div class="info">
-                    <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
-                        <div class="info_details_tips">
-                            <span class="roundTag">Details</span>
-                            <span>
-                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
-                            </span>
-                        </div>
-                    </div>
-                    <div class="info_action">
-                        <span class="roundTag">ADDED</span>
-                        <span class="roundTag">REMOVE</span>
-                    </div>
-                </div>
-            </div>
-            <div class="listItem">
-                <div class="logo">
-                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
-                </div>
-                <div class="info">
-                    <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
-                        <div class="info_details_tips">
-                            <span class="roundTag">Details</span>
-                            <span>
+                            <span class="loveBtn">
                                 <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
                             </span>
                         </div>
@@ -207,11 +123,11 @@
                 </div>
                 <div class="info">
                     <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
                         <div class="info_details_tips">
                             <span class="roundTag">Details</span>
-                            <span>
+                            <span class="loveBtn">
                                 <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
                             </span>
                         </div>
@@ -229,11 +145,99 @@
                 </div>
                 <div class="info">
                     <div class="info_details">
-                        <p>Chicken Masala Burger</p>
-                        <p>Pirce : $150.00</p>
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
                         <div class="info_details_tips">
                             <span class="roundTag">Details</span>
-                            <span>
+                            <span class="loveBtn">
+                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info_action">
+                        <span class="roundTag">ADDED</span>
+                        <span class="roundTag">REMOVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listItem">
+                <div class="logo">
+                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
+                </div>
+                <div class="info">
+                    <div class="info_details">
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
+                        <div class="info_details_tips">
+                            <span class="roundTag">Details</span>
+                            <span class="loveBtn">
+                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info_action">
+                        <span class="roundTag">ADDED</span>
+                        <span class="roundTag">REMOVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listItem">
+                <div class="logo">
+                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
+                </div>
+                <div class="info">
+                    <div class="info_details">
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
+                        <div class="info_details_tips">
+                            <span class="roundTag">Details</span>
+                            <span class="loveBtn">
+                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info_action">
+                        <span class="roundTag">ADDED</span>
+                        <span class="roundTag">REMOVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listItem">
+                <div class="logo">
+                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
+                </div>
+                <div class="info">
+                    <div class="info_details">
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
+                        <div class="info_details_tips">
+                            <span class="roundTag">Details</span>
+                            <span class="loveBtn">
+                                <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="info_action">
+                        <span class="roundTag">ADDED</span>
+                        <span class="roundTag">REMOVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listItem">
+                <div class="logo">
+                    <img src="./images/Items-List_0002s_0000s_0000_Layer-1.png" alt="">
+                </div>
+                <div class="info">
+                    <div class="info_details">
+                        <p class="info_details_title">Chicken Masala Burger</p>
+                        <p class="info_details_subtitle">Pirce : $150.00</p>
+                        <div class="info_details_tips">
+                            <span class="roundTag">Details</span>
+                            <span class="loveBtn">
                                 <img src="./images/Items-List_0002s_0000s_0006_Fevorite-copy.png" alt="">
                             </span>
                         </div>
