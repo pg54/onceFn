@@ -55,7 +55,7 @@ function _getWebpSrc(src) {
 
     // 根据屏幕分辨率计算大小
     src = src.replace(/\/(thumbnail|crop)\/.*?(\d+)x(\d+)[^\/]*\//ig, function(match, p0, p1, p2) {
-        if(dpr > 1){
+        if (dpr > 1) {
             p1 = Math.round(p1 * ratio[dpr]);
             p2 = Math.round(p2 * ratio[dpr]);
 
@@ -65,7 +65,7 @@ function _getWebpSrc(src) {
         return match;
     });
 
-    if(isNotGifWebp || isGifWebp) {
+    if (isNotGifWebp || isGifWebp) {
         // 替换webp格式，首页/列表页
         src = src.replace(/\/format\/([^\/]*)/ig, function(match, p1) {
             return '/format/webp';
@@ -74,23 +74,23 @@ function _getWebpSrc(src) {
 }
 
 // 方法二
-(function () {
+(function() {
     function checkWebp(callback) {
         var img = new Image();
-        img.onload = function () {
+        img.onload = function() {
             var result = (img.width > 0) && (img.height > 0);
             callback(result);
         };
-        img.onerror = function () {
+        img.onerror = function() {
             callback(false);
         };
         img.src = 'data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA';
     }
-    
+
     function showImage(useWebp) {
         //背景图片 凡是用背景图片的加上bg_check_webp用来判断是否添加类bg_use_webp
         if (useWebp) {
-            $('.bg_check_webp').each(function (index, ele) {
+            $('.bg_check_webp').each(function(index, ele) {
                 var str = ele.classList[0] + '_webp';
                 console.log(str);
                 $(ele).addClass(str)
@@ -101,8 +101,13 @@ function _getWebpSrc(src) {
 })()
 
 //img图片 picture需要html5shiv
-{/* <picture class="picture">
-    <source type="image/webp" srcset="http://img.onenewcare.com/web/production/school/home/xxjj.webp">
-    <img class="schoolModuleItem" src="http://img.onenewcare.com/web/production/school/home/xxjj.png1" alt="">
-</picture> */}
+{
+    /* <picture class="picture">
+        <source type="image/webp" srcset="http://img.onenewcare.com/web/production/school/home/xxjj.webp">
+        <img class="schoolModuleItem" src="http://img.onenewcare.com/web/production/school/home/xxjj.png1" alt="">
+    </picture> */
+}
 
+
+//srcSet 2x 3x的适配
+{ /* <img width="100%" src="./images/banner@2x.png" srcset="./images/banner@2x.png 2x,./images/banner@3x.png 3x" /> */ }

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>常见问题</title>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" /> -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="./js/rem.js" type="text/javascript"></script>
+    <script src="./js/jquery-2.1.1.js" type="text/javascript"></script>
+    <style type="text/css">
+        body {
+            color: #333333;
+            /* background-color: #fafafa; */
+        }
+        
+        .warp {
+            width: 10rem;
+        }
+        
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .title_top {
+            position: relative;
+            height: 1.44rem;
+            line-height: 1.44rem;
+            text-align: center;
+            font-size: 0.50rem;
+            padding: 0px 0.576rem;
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E6E6E6;
+        }
+        
+        .title_top img {
+            float: left;
+            position: absolute;
+            display: block;
+            height: 0.608rem;
+            top: 0.416rem;
+        }
+        
+        .lis_que .ques {
+            height: 1.44rem;
+            border-bottom: 1px solid #E6E6E6;
+            line-height: 1.44rem;
+            padding: 0px 0.576rem 0 0.276rem;
+            margin-left: 0.3rem;
+            background-color: #fff;
+            font-size: 0.45rem;
+        }
+        
+        .lis_que .ques.active {
+            /* color: #ef000e; */
+        }
+        
+        .lis_que .ques img {
+            height: 0.30rem;
+            margin-top: 0.52rem;
+        }
+        
+        .answer {
+            padding: 0.5rem 0.576rem;
+            border-bottom: 1px solid #E6E6E6;
+            /* background-color: #fafafa; */
+            font-size: 0.45rem;
+            display: none;
+            line-height: 0.7rem;
+            color: #999999;
+        }
+        
+        .img_show img:nth-of-type(2) {
+            display: none;
+        }
+        
+        .img_show img:nth-of-type(1) {
+            display: block;
+        }
+        
+        .active .img_show img:nth-of-type(1) {
+            display: none;
+            transform: rotate(180deg);
+        }
+        
+        .active .img_show img:nth-of-type(2) {
+            display: block;
+            transform: rotate(180deg);
+        }
+        
+        .btn_nosu {
+            width: 8.96rem;
+            height: 1.184rem;
+            line-height: 1.184rem;
+            text-align: center;
+            border: 1px solid #ef000e;
+            color: #EF000E;
+            margin: 0.672rem auto 0;
+            border-radius: 0.592rem;
+            font-size: 0.5rem;
+        }
+        
+        .question_category {
+            border-bottom: 1px solid #E6E6E6;
+            line-height: 1.44rem;
+            padding: 0px 0.576rem;
+            background-color: #fff;
+            font-size: 0.50rem;
+            color: #ef000e;
+        }
+        
+        .gap {
+            height: 0.36rem;
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <p class="question_category">热门问题</p>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">如何申请借款？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">请在首页选择额度对应的商品，下单无需支付，可选择转卖拿钱，预计3分钟到账。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">审核一般需要多久？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+
+                </div>
+                <div class="answer">
+                    首次提交资料审核一般20分钟，最长不超过1天。如超过1天还没有审核结果，请联系微信客服。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">如何修改手机号码？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    如需修改登录手机号码，请联系微信客服。（注：手机号码应与银行卡预留手机一致）。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">忘记服务密码了怎么办？</span>
+                    <div class="img_show" class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    <p>1、请拨打手机运营商客服热线，咨询人工客服。</p>
+                    <p>2、可通过网上营业厅或当地营业厅查询。</p>
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">预留手机不一致怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    请核实银行卡预留手机号码与您登录的手机号码是否一致。如不一致，请联系客服修改登录手机号码，或请到银行柜台更改预留手机后再绑定。
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+
+        <p class="question_category">审核问题</p>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">审核一般需要多久？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    首次提交资料审核一般20分钟，最长不超过1天。如超过1天还没有审核结果，请联系微信客服。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">申请借款需要什么资料？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    只需手机号、身份证和银行卡即可申请借款。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">身份证扫描不了？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    扫描身份证时，请保持光线充足，身份证文字清晰可见。若还是识别不了。请点击扫描界面的下方文字“点击扫描遇到问题？”点击相机进行拍摄。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">为什么绑卡失败？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    <p>1、请核实银行卡开户人姓名与绑定的身份证姓名是否一致；</p>
+                    <p>2、请核实输入的应行卡卡号填写是否正确；</p>
+                    <p>3、请核实银行卡预留手机号码与您登录的手机号码是否一致。如不一致，请联系客服修改登录手机号码，或请到银行柜台更改后预留手机再绑定。</p>
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">忘记服务密码了怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    <p>1、请拨打手机运营商客服热线，咨询人工客服。</p>
+                    <p>2、可通过网上营业厅或当地营业厅查询。</p>
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">预留手机不一致怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    请核实银行卡预留手机号码与您登录的手机号码是否一致。如不一致，请联系客服修改登录手机号码，或请到银行柜台更改预留手机后再绑定。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">审核失败可以再次申请？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    审核失败的用户暂时不可以再次申请借款。
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+
+
+        <p class="question_category">贷款问题</p>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">借款利息是多少？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    借款利息为每天0.1%。例如：您借了1000元，需要还款的利息费为每天1.00元。可提前还款，利息按天收取。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">出售商品后多久可以到账？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    申请借款后，一般3分钟内到账，请留意到账信息提醒。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">如何让提升借款提额？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    借款额度是平台根据您的个人综合信用评定，我们会不定期根据您的借还款情况提升您的额度。按时主动还款并保持良好的信用记录，有利于提高您的借款额度。
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+        <p class="question_category">还款问题</p>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">还款失败怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    <p>1、请核实绑定的银行卡中是否有足够的余额；</p>
+                    <p>2、联系微信客服处理。</p>
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">一直显示还款中，怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    为防止用户重复还款，用户点击还款后，还款状态显示为“还款中”。10分钟内反馈还款结果，若还款失败，请再次还款。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">已经逾期了怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    请尽快在app中主动还款，避免产生信用影响和更多的逾期费用。如果长时间逾期，我们将保留法律诉讼的权利。如系统问题导致还款失败等特殊原因，请联系微信客服。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">逾期是否会上传征信？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    会的，每一笔逾期交易都会上传征信。如果您有逾期记录，很可能会对您的信誉造成影响，所以请您按时还款，保持您的良好的信用记录。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">如何还款？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    只需从还款页面点击还款按钮，我们将从您绑定的银行卡内进行扣款，目前不支持自动扣款。
+                </div>
+            </div>
+        </div>
+        <div class="gap"></div>
+
+        <p class="question_category">账号问题</p>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">如何修改手机号码？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    如需修改登录手机号码，请联系微信客服。（注：手机号码应与银行卡预留手机一致）
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">如何修改银行卡信息？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    如需修改银行卡信息，请联系微信客服。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">忘记登录密码怎么办？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    您可在登录界面直接点击“忘记密码”，根据提醒重置您的登录密码。你也可以在“我的”-“更多”-“修改密码”进行修改。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">为什么收不到短信通知？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    请检查手机内是否安装短信拦截软件（如腾讯手机管家、360手机管家等），如有安装，请卸载短信拦截软件后再次尝试接收。
+                </div>
+            </div>
+        </div>
+        <div class="lis_que">
+            <div class="item">
+                <div class="ques">
+                    <span style="float: left;">账户可以注销吗？</span>
+                    <div class="img_show" style="float: right">
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                        <img style="line-height: 1.44rem;" src="./images/qu_bot.png" alt="" />
+                    </div>
+                </div>
+                <div class="answer">
+                    尊敬的用户，很抱歉，目前平台暂时不支持注销个人账户，我们将保证您的个人信息安全，请放心。
+                </div>
+            </div>
+        </div>
+        <div class="btn_nosu" style="display: none;">
+            问题未解决，直接联系客服
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(".ques").click(function() {
+            var isUnfold = $(this).hasClass('active');
+            $(".ques").each(function(inex, ele) {
+                $(ele).removeClass('active');
+                $(ele).siblings('.answer').hide();
+            })
+            if (isUnfold) {
+                $(this).removeClass('active');
+                $(this).siblings('.answer').hide();
+            } else {
+                $(this).addClass('active');
+                $(this).siblings('.answer').show();
+            }
+        })
+    </script>
+</body>
+
+</html>
