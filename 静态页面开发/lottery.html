@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抽奖</title>
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main {
+            width: 100%;
+            height: 100vh;
+            background-image: url('./images/lottery/93kr5l044w.png');
+            background-size: 100% 100%;
+            overflow: hidden;
+        }
+        
+        .rules {
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin-left: 40px;
+        }
+        
+        .prize {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin-right: 40px;
+        }
+        
+        .freeTimes {
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            margin-top: 180px;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: #ffed00;
+        }
+        
+        .footer_title {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="rules">
+            <span>规则</span>
+        </div>
+        <div class="prize">
+            <span>奖品</span>
+        </div>
+        <p class="freeTimes">今日免费： 4次</p>
+
+
+
+        <div class="pointer"></div>
+        <div class="core">
+
+        </div>
+        <div class="guider">
+            <div class="guilder_spot"></div>
+            <div class="guider_finger"></div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <p class="footer_title">*奖品与活动和设备生产商Apple Inc.公司无关</p>
+    </div>
+
+</body>
+
+</html>
