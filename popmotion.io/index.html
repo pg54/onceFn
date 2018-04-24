@@ -6,20 +6,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>https://popmotion.io/</title>
-    <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+    <style>
+        .ball {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ec0002;
+        }
+        
+        .purpleBox {
+            width: 40px;
+            height: 40px;
+            background: #9b65de;
+        }
+    </style>
+
 </head>
 
 <body>
     <div class="counter">1</div>
-
+    <div class="ball"></div>
+    <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
     <script>
-        const { tween } = window.popmotion;
+        const {
+            tween,
+            styler,
+            easing,
+            spring,
+            listen,
+            pointer,
+            value,
+            action
+        } = window.popmotion;
+
         const counter = document.querySelector('.counter');
         const updateCounter = (v) => counter.innerHTML = v;
-
         tween().start(updateCounter);
 
+        // const ball = document.querySelector('.ball');
+        // const ballStyler = styler(ball);
+        // //styler 是 popmotion 对样式进行 get 、 set 封装的函数 
+        // tween({
+        //         from: {
+        //             x: 0,
+        //             scale: 1,
+        //             y: 0
+        //         },
+        //         to: {
+        //             x: 300,
+        //             scale: 2,
+        //             y: 100
+        //         },
+        //         ease: easing.easeInOut,
+        //         flip: Infinity,
+        //         duration: 1000
+        //     })
+        //     .start(ballStyler.set);
 
+
+        const ball = document.querySelector('.ball');
+        const divStyler = styler(ball);
+        const ballXY = value({
+            x: 0,
+            y: 0
+        }, divStyler.set);
+
+        listen(ball, 'mousedown touchstart')
+            .start((e) => {
+                e.preventDefault();
+                pointer(ballXY.get()).start(ballXY);
+            });
+
+        listen(document, 'mouseup touchend')
+            .start(() => {
+                spring({
+                    from: ballXY.get(),
+                    velocity: ballXY.getVelocity(),
+                    to: {
+                        x: 0,
+                        y: 0
+                    },
+                    stiffness: 200,
+                    // mass: 1,
+                    // damping: 10
+                }).start(ballXY);
+            });
+
+
+        const mySpring = spring({
+            to: 500
+        });
+
+        mySpring.start({
+            update: (v) => console.log('FIRST spring: ' + v),
+            complete: () => console.log('complete!')
+        });
+
+        mySpring.start({
+            update: (v) => console.log('second spring: ' + v),
+            complete: () => console.log('second spring also complete!')
+        });
     </script>
 
 </body>

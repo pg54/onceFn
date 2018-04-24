@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>樊登读书会</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <script src="./js/rem.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            font-family: "PingFangSC", "microsoft yahei", "Helvetica Neue", Helvetica, STHeiTi, SimHei, sans-serif;
+        }
+        
+        .box {
+            height: 100%;
+            overflow: scroll;
+        }
+        
+        .videoArea {
+            width: 100%;
+            height: 200px;
+            ;
+        }
+        
+        .join {
+            position: fixed;
+            padding: 0;
+            margin: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            font-size: 14px;
+            text-align: center;
+            background-color: #636476;
+            color: #22243D;
+            text-align: center;
+        }
+        
+        .bookTag {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 96px;
+            height: 106px;
+        }
+        
+        .join_person {
+            font-size: 17px;
+            font-weight: 800;
+        }
+        
+        .video {
+            width: 100%;
+            display: none;
+        }
+        
+        .freeVIP {}
+        
+        .test {
+            height: 40px;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="videoArea">
+            <p class="join">已有<span class="join_person"></span> 名用户参与本次活动</p>
+            <img class="videoBtn" src="./images/fandeng/video_default.png" alt="">
+            <video class="video" controls="controls" x5-playsinline="" playsinline="" webkit-playsinline="" poster="">
+                    <source src="./media/testVideo.mp4" type="video/mp4">
+                    视频无法播放，请升级至浏览器最新版本或检查浏览器是否禁用了js
+            </video>
+            <img class="bookTag" src="./images/fandeng/book.png" alt="">
+        </div>
+        <div class="freeVIP">
+            <img src="" alt="">
+            <div></div>
+            <div></div>
+            <div>展开更多</div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+            <div class="test"></div>
+        </div>
+        <div class="vipRight"></div>
+        <div class="fandeng"></div>
+        <div class="popBooks"></div>
+        <div class="aboutVIP"></div>
+    </div>
+
+    <script src="./js/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var str = '3478924446'
+            $('.join_person').html(str);
+
+            $('.videoBtn').click(function() {
+                console.log('is 1')
+                $(this).hide();
+                $('.video').show();
+            })
+        })
+    </script>
+</body>
+
+
+
+
+
+</html>
