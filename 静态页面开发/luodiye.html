@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>唤起App</title>
+    <script src="./js/rem.js"></script>
+    <script src="./js/lodash.custom.js"></script>
+    <!-- <script src="./js/jquery-2.1.1.js"></script> -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+</head>
+<style>
+    /* checkAmmout */
+    
+    .content {
+        width: 7.9467rem;
+        /* height: 6.5867rem; */
+        overflow: hidden;
+        padding-top: 0.16rem;
+        margin: 0 auto 1.4667rem;
+        border-radius: 0.4rem;
+        background: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contentLine {
+        width: 7.0667rem;
+        margin: 0 auto;
+        padding: 0.5333rem 0.16rem 0.2133rem 0.16rem;
+        border-bottom: 0.0133rem solid #f1f1f1;
+    }
+    
+    .content input {
+        font-size: 0.3467rem;
+        border: 0;
+        outline: none;
+    }
+    
+    .inputTitle {
+        font-size: 0.4rem;
+        color: #333333;
+        margin-right: 0.5333rem;
+    }
+    
+    .codeTitle {
+        margin-right: 1.3333rem;
+    }
+    
+    .content .ready {
+        background: #ff9500;
+        color: #ffffff;
+    }
+    
+    .content .sendMoney {
+        display: block;
+        width: 4.4267rem;
+        height: 0.9067rem;
+        line-height: 0.9067rem;
+        margin: 0.6rem auto 0.6rem;
+        border-radius: 0.4267rem;
+        background: #ff9500;
+        color: #ffffff;
+        font-size: 0.4267rem;
+        text-align: center;
+    }
+    /* checkAmmout---------------------------------------end */
+    /* getMoney */
+    
+    #getMoney {
+        display: none;
+    }
+    
+    .openApp {
+        display: inline-block;
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid black;
+    }
+    
+    .circle {
+        width: 6rem;
+        height: 6rem;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 1px solid #333;
+    }
+    
+    .growNumber {
+        width: 3rem;
+        margin: 1.4rem auto 1rem;
+        text-align: center;
+    }
+    
+    .dayRadio {
+        width: 3rem;
+        margin: 0.4rem auto 1rem;
+        text-align: center;
+    }
+    
+    .loanNews {
+        text-align: center;
+    }
+    
+    #btn {
+        text-align: center;
+    }
+    /* getMoney -----------------------------------------------end*/
+    /* haveAccount */
+    
+    #haveAccount {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        border: 1px solid #ff9500;
+        border-radius: 4px;
+        display: none;
+    }
+    /* haveAccount------------------------------------end */
+    /* notify */
+    
+    .notifyWrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #4a4a4a;
+        display: none;
+        transition: all ease-in-out 0.4s;
+    }
+    
+    .notify {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 7.8rem;
+        height: 2.4rem;
+        border-radius: 0.08rem;
+        text-align: center;
+        font-size: 0.4rem;
+        background: #ffffff;
+        display: block;
+        transition: all 0.8s ease-in-out;
+    }
+    
+    .notify_content {
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        border-bottom: 1px solid #f2f2f2;
+    }
+    
+    .notify_action {
+        height: 1.2rem;
+        line-height: 1.2rem;
+        text-align: center;
+        color: #ff9500;
+    }
+    /* notify-----------------------------end */
+</style>
+
+<body>
+    <!-- 唤醒APP参考
+    http://www.php.cn/html5-tutorial-382466.html
+    https://blog.csdn.net/sinat_29194935/article/details/70820398
+    http://doc.okbase.net/wq1994/archive/288054.html
+    https://juejin.im/post/57b6ba9f128fe10054bb5401 -->
+    <div id="checkAmount">
+
+        <div class="content">
+            <div class="contentLine">
+                <span class="inputTitle">手机号码</span><input class="tel" type="tel" maxlength="16" placeholder="请输入手机号">
+            </div>
+            <div class="contentLine">
+                <span class="inputTitle codeTitle">密码</span><input class="password" type="password" maxlength="6" placeholder="请设置6位数密码">
+            </div>
+            <input class="sendMoney" type="submit" value="查看额度">
+        </div>
+
+    </div>
+
+
+    <div id="getMoney">
+        <div class="loanNews">恭喜17690760861用户借款10,000元</div>
+        <div class="circle">
+            <p class="growNumber">0</p>
+            <p class="dayRadio">日利率低于0.02%</p>
+        </div>
+        <div id="btn">
+            <span class="openApp">唤醒APP</span>
+        </div>
+    </div>
+
+    <div id="haveAccount">
+        <p class="closeBtn" style="text-align: left">关闭</p>
+        <p>已有账号</p>
+    </div>
+
+    <div class="notifyWrap">
+        <div class="notify">
+            <div class="notify_content">
+                请输入正确的手机号
+            </div>
+            <div class="notify_action">
+                确定
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        //埋点
+        var _mtac = {
+            "performanceMonitor": 1,
+            "senseQuery": 1
+        };
+        (function() {
+            var mta = document.createElement("script");
+            mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500592354");
+            mta.setAttribute("cid", "500592355");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+
+        $(function() {
+            document.querySelector('.openApp').addEventListener('click', function() {
+                submitFn();
+            })
+
+            $('.tel').on('keyup', _.debounce(dsh, 500));
+
+
+            $('.notify_action').on('click', function() {
+                $('.notifyWrap').hide();
+            });
+
+            document.querySelector('.sendMoney').addEventListener('', function() {
+                console.log('sendMoney 1');
+            })
+
+            $('.sendMoney').on('click', function() {
+                console.log('sendMoney 1');
+            }, false)
+
+            $('.sendMoney').on('click', function() {
+                console.log('sendMoney 2');
+            }, false)
+
+
+
+
+            function dsh() {
+                var tel = $(".tel").val();
+                console.log(tel);
+                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+                if (reg.test(tel)) {
+                    $.ajax({
+                        type: "POST",
+                        dataType: "text",
+                        url: 'http://127.0.0.1:9999/api/getOrder',
+                        data: '',
+                        data: {
+                            tel: $(".tel").val(),
+                        },
+                        success: function(res) {
+                            var res = JSON.parse(res);
+                            console.log(res);
+                            if (res.status === 0) {
+                                $("#haveAccount").show();
+                                // location.href = "${ctx}/html5/cms/regOk/" + $("#channel").val();
+                            } else {
+                                alert(res);
+                            }
+                        }
+                    });
+                } else {
+                    $('.notifyWrap').show();
+                }
+
+
+
+
+            }
+            $('.closeBtn').on('click', function() {
+                $("#haveAccount").hide();
+            })
+
+            function submitFn() {
+                //判断浏览器
+                var u = navigator.userAgent;
+                if (/MicroMessenger/gi.test(u)) {
+                    // 引导用户在浏览器中打开
+                    alert('请在浏览器中打开');
+                    return;
+                }
+                var d = new Date();
+                var t0 = d.getTime();
+                var androidUrl = 'tongchengfs://byq';
+                var iosUrl = 'zjmobile://platformapi/startapp';
+                if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+                    //Android链接
+                    if (openApp(androidUrl)) {
+                        openApp(androidUrl);
+                    } else {
+                        //由于打开需要1～2秒，利用这个时间差来处理－－打开app后，返回h5页面会出现页面变成app下载页面，影响用户体验
+                        var delay = setInterval(function() {
+                            var d = new Date();
+                            var t1 = d.getTime();
+                            if (t1 - t0 < 3000 && t1 - t0 > 2000) {
+                                alert('检测到未安装，请下载APP');
+                                // window.location.href = "app下载地址 ";
+                            }
+                            if (t1 - t0 >= 3000) {
+                                clearInterval(delay);
+                            }
+                        }, 1000);
+                    }
+                } else if (u.indexOf('iPhone') > -1) {
+                    //IOS链接
+                    if (openApp(iosUrl)) {
+                        openApp(iosUrl);
+                    } else {
+                        var delay = setInterval(function() {
+                            var d = new Date();
+                            var t1 = d.getTime();
+                            if (t1 - t0 < 3000 && t1 - t0 > 2000) {
+                                alert('检测到未安装，请下载APP');
+                                // window.location.href = "app下载地址 ";
+                            }
+                            if (t1 - t0 >= 3000) {
+                                clearInterval(delay);
+                            }
+                        }, 1000);
+                    }
+                }
+            };
+
+            function openApp(src) {
+                // 通过iframe的方式试图打开APP，如果能正常打开，会直接切换到APP，并自动阻止a标签的默认行为
+                // 否则打开a标签的href链接
+                var ifr = document.createElement('iframe');
+                ifr.src = src;
+                ifr.style.display = 'none';
+                document.body.appendChild(ifr);
+                window.setTimeout(function() {
+                    document.body.removeChild(ifr);
+                }, 2000);
+            }
+
+            function numberGrow(ele) {
+                var number = ele;
+                var n = 0;
+                var t = setInterval(function() {
+                    if (n < 16000) {
+                        n = n + 500;
+                    } else if (n >= 16000 && n < 17950) {
+                        n = n + 18;
+                    } else if (n >= 17950 && n < 18000) {
+                        n++;
+                    } else if (n == 18000) {
+                        clearInterval(t)
+                    }
+                    number.html(n)
+                }, 25)
+            }
+            numberGrow($('.growNumber'));
+
+            //生成真实电话号码
+            setInterval(function() {
+                randomNews();
+            }, 1000)
+
+            function randomNews() {
+                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+                var tel;
+                while (!reg.test(tel)) {
+                    tel = produceTel()
+                }
+                var str = '恭喜' + tel.substr(0, 3) + '****' + tel.substr(7, 11) + '用户借款10,000元';
+                $('.loanNews').html(str)
+            }
+
+
+            function produceTel() {
+                var nums = [];
+                for (i = 0; i < 11; i++) {
+                    var n = Math.floor(Math.random() * 10);
+                    nums.push(n);
+                }
+                var tel = nums.join("")
+                return tel;
+            }
+
+
+
+
+
+
+
+        })
+    </script>
+</body>
+
+
+
+</html>

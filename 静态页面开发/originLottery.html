@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Expires" CONTENT="0" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <meta http-equiv="Pragma" CONTENT="no-cache" />
+    <title></title>
+    <script type="text/javascript">
+        ! function(a, c) {
+            var h = a.documentElement,
+                v = navigator.userAgent.match(/iphone|ipod|ipad/gi),
+                w = v ? Math.min(c.devicePixelRatio, 3) : 1,
+                g = "orientationchange" in window ? "orientationchange" : "resize";
+            h.dataset.dpr = w;
+            for (var d, l, E = !1, b = a.getElementsByTagName("meta"), r = 0; r < b.length; r++) l = b[r], "viewport" == l.name && (E = !0, d = l);
+            if (E) d.content = "width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no";
+            else {
+                var o = a.createElement("meta");
+                o.name = "viewport", o.content = "width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no", h.firstElementChild.appendChild(o)
+            }
+            var s = function() {
+                var e = h.clientWidth;
+                e / w > 640 && (e = 640 * w), window.remScale = e / 640, h.style.fontSize = 200 * (e / 640) + "px"
+            };
+            s(), a.addEventListener && c.addEventListener(g, s, !1)
+        }(document, window);
+    </script>
+
+    <link rel="stylesheet" type="text/css" href=".css/TurntableLottery_aio.css" />
+</head>
+
+<body>
+    <!-- <h1>ob.nicetui.cn/huodong/Production/20180321/page/TurntableLottery/TurntableLottery.html?key=38d11458d5544d32ac6570cec3bd58f0</h1> -->
+    <div id="db-content" style="display: none;" class="">
+        <div class="banner">
+            <div class="record"></div>
+            <div class="rule"></div>
+            <img class="theme">
+        </div>
+        <div class="needCredits">
+            <p>今日免费：
+                <span>**</span>次</p>
+        </div>
+        <div class="core">
+            <div class="core-overflow">
+                <div class="radius-group"></div>
+                <div class="radius-bg default"></div>
+                <div id="circle" style="transform: rotate3d(0, 0, 1, 0deg);">
+                    <div class="circle-box" id="circle-box">
+                    </div>
+                </div>
+                <div id="start"></div>
+            </div>
+            <div class="point"></div>
+        </div>
+
+        <div class="DB_guide">
+            <span class="DB_G_circle"></span>
+            <span class="DB_G_hand"></span>
+        </div>
+    </div>
+
+    <div class="rule-modal rule-modal-zcd" style="display: none;">
+        <div class="bg-rule">
+            <div class="rule-modal-dialog">
+                <header>
+                    <i></i>
+                    <span>活动说明</span>
+                    <i></i>
+                </header>
+                <section class="scroll-box">
+                    <div style="transform: translate(0px, 0px) translateZ(0px);">
+                        <div class="description rule-3">
+                            <div class="description-scroller">
+                            </div>
+                        </div>
+                        <!-- <div class="probability rule-3">
+                        <div class="nav">
+                            <span>更多概率说明</span>
+                            <i></i>
+                        </div>
+                        <div class="text">
+                            <div class="probability-wrapper rule-3">
+                                <div class="probability-scroller">
+                                    <p>惊喜一：500元话费，共1份，中奖概率0.01%，该奖项每人每天限领1次；</p>
+                                    <p>惊喜二：4G全国流量包，共20份，中奖概率0.02%，该奖项每人每天限领1次；</p>
+                                    <p>惊喜三：100元话费，共30份，中奖概率0.03%，该奖项每人每天限领1次；</p>
+                                    <p>惊喜四：1G全国流量包，共50份，中奖概率0.1%，该奖项每人每天限领1次。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    </div>
+                </section>
+            </div>
+
+            <div class="close"></div>
+        </div>
+    </div>
+    <script src="./js/TurntableLottery_aio.js"></script>
+    <script>
+        require('zepto')
+        require('zepto/fx')
+        require('zepto/cookie')
+        require('page/TurntableLottery/js/TurntableLottery')
+
+
+
+        var niceGuide = require('widget/NiceGuide/NiceGuide');
+        $(document).ready(function() {
+            niceGuide.show();
+        });
+
+
+        // 后续 调整初始化方法 initWithContentxxx 初始化好数据 调用入口做调整
+        var CommonRuleWidget = require('widget/CommonRuleWidget/CommonRuleWidget');
+        CommonRuleWidget.init();
+
+
+        // pg
+        (function() {
+            // 3 -》 随机转多少圈 最后一圈停在3上面
+            var Toucher;
+            var Rondom;
+
+        })()
+    </script>
+</body>
+
+</html>

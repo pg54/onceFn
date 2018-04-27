@@ -63,6 +63,16 @@
             transform: rotate(270deg);
         }
         
+        .arrow {
+            display: block;
+            border-width: 2px 2px 0 0;
+            border-color: #c8c8cd;
+            border-style: solid;
+            width: 12px;
+            height: 12px;
+            transform: rotate(45deg);
+        }
+        
         [data-dpr="3"] .arrowImg {
             width: 60px;
             height: 32px;
@@ -76,11 +86,14 @@
         <div class="cells">
             <a href="./serviceContract.html" class="cell">
                 <p>服务协议</p>
-                <img class="arrowImg" src="./images/qu_bot.png" alt="" />
+                <!-- <img class="arrowImg" src="./images/qu_bot.png" alt="" /> -->
+                <span class="arrow"></span>
+
             </a>
             <a href="./loanContract.html" class="cell">
                 <p>借款协议</p>
-                <img class="arrowImg" src="./images/qu_bot.png" alt="" />
+                <!-- <img class="arrowImg" src="./images/qu_bot.png" alt="" /> -->
+                <span class="arrow"></span>
             </a>
         </div>
     </div>
