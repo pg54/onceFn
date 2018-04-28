@@ -11,7 +11,7 @@
     <title>包有钱 注册</title>
     <style>
         body {
-            background: #fffcf7;
+            background: #e6f4ff;
         }
         
         .imgWrap {
@@ -63,8 +63,8 @@
             line-height: 0.6667rem;
             text-align: center;
             font-size: 0.32rem;
-            color: #ff9500;
-            border: 0.0133rem solid #ffaa33;
+            color: #7088ff;
+            border: 0.0133rem solid #7088ff;
             border-radius: 0.08rem;
             margin-left: 0.1333rem;
             background: #ffffff;
@@ -82,7 +82,7 @@
             line-height: 0.9067rem;
             margin: 0.6rem auto 0.6rem;
             border-radius: 0.4267rem;
-            background: #ff9500;
+            background: #4c6aff;
             color: #ffffff;
             font-size: 0.4267rem;
             text-align: center;
@@ -140,7 +140,7 @@
 <body>
     <div class="wrap">
         <div class="imgWrap">
-            <img width="100%" src="./images/banner@2x.png" srcset="./images/banner@2x.png 2x,./images/banner@3x.png 3x" />
+            <img width="100%" src="./images/landpage/banner@2x.png" srcset="./images/landpage/banner@2x.png 2x,./images/landpage/banner@3x.png 3x" />
         </div>
         <div class="content">
             <div class="contentLine">
@@ -152,7 +152,7 @@
             <div class="contentLine">
                 <span class="inputTitle codeTitle">密码</span><input class="password" type="password" maxlength="6" placeholder="请设置6位数密码">
             </div>
-            <input class="getMoney" value="马上拿钱">
+            <input class="getMoney" type="submit" value="查看额度">
         </div>
         <div class="footer">
             <p class="backup">粤ICP备17123265号-1</p>
@@ -172,97 +172,101 @@
         </div>
     </div>
 
+
     <script src="./js/jquery-2.1.1.js"></script>
     <script>
-        // 手机号验证： /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
-        $(".tel").bind('input', function() {
-            if ($(this).val() != "") {
-                $('.getCode').removeAttr("disabled").addClass('ready');
-            } else {
-                $('.getCode').attr("disabled", "disabled").removeClass('ready');
-            }
-        });
-
-        $('.getCode').on('click', function() {
-            console.log('send code');
-            var v = $('.tel').val();
-            var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-            console.log(reg.test(v));
-            if (v == '') return
-            if (reg.test(v)) {
-                $('.getCode').attr("disabled", "disabled");
-                var time = 60;
-                $(this).val(time + 's');
-                timeGap(60)
-            } else {
-                // $('.warr').hide();
-                $('.notifyWrap').show();
-                // setTimeout(() => {
-                //     $('.notifyWrap').hide();
-                // }, 1500);
-            }
-        })
-
-        $('.getMoney').on('click', function() {
-            var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-            var code = $(".code").val();
-            var psd = $(".password").val();
-            if (!reg.test($(".tel").val())) {
-                return $('.notifyWrap').show();
-            }
-            if (code && code.length !== 4) {
-                $('.notify_content').html('请输入正确的验证码');
-                return $('.notifyWrap').show();
-            }
-            if (psd && psd.length !== 6) {
-                $('.notify_content').html('请设置正确的6位密码');
-                return $('.notifyWrap').show();
-            }
-            $.ajax({
-                type: "POST",
-                dataType: "text",
-                url: 'http://127.0.0.1:9999/api/changeInfo',
-                data: '',
-                data: {
-                    userId: $("#userId").val(),
-                    phoneNumber: $(".tel").val(),
-                    captcha: $(".code").val(),
-                    password: $(".password").val(),
-                    channel: $("#channel").val(),
-                    /*toda 注册类型*/
-                },
-                success: function(res) {
-                    console.log(res);
-                    if (res.message == "success") {
-                        $(".getMoney").attr({
-                            "disabled": "disabled"
-                        });
-                        // location.href = "${ctx}/html5/cms/regOk/" + $("#channel").val();
-                    } else {
-                        alert(res);
-
-                    }
+        $(function() {
+            // 手机号验证： /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
+            $(".tel").bind('input', function() {
+                if ($(this).val() != "") {
+                    $('.getCode').removeAttr("disabled").addClass('ready');
+                } else {
+                    $('.getCode').attr("disabled", "disabled").removeClass('ready');
                 }
             });
-        })
 
-        $('.notify_action').on('click', function() {
-            $('.notify_content').html('请输入正确的验证码')
-            $('.notifyWrap').hide();
-        })
-
-        function timeGap(time) {
-            setInterval(function() {
-                console.log(this)
-                time--;
-                if (time > 0) {
-                    $('.getCode').val(time + 's');
+            $('.getCode').on('click', function() {
+                console.log('send code');
+                var v = $('.tel').val();
+                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+                console.log(reg.test(v));
+                if (v == '') return
+                if (reg.test(v)) {
+                    $('.getCode').attr("disabled", "disabled");
+                    var time = 60;
+                    $(this).val(time + 's');
+                    timeGap(60)
                 } else {
-                    $('.getCode').val('获取验证');
-                    $('.getCode').removeAttr("disabled");
+                    // $('.warr').hide();
+                    $('.notifyWrap').show();
+                    // setTimeout(() => {
+                    //     $('.notifyWrap').hide();
+                    // }, 1500);
                 }
-            }, 1000)
-        }
+            })
+
+            $('.getMoney').on('click', function() {
+                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+                var code = $(".code").val();
+                var psd = $(".password").val();
+                if (!reg.test($(".tel").val())) {
+                    return $('.notifyWrap').show();
+                }
+                if (code && code.length !== 4) {
+                    $('.notify_content').html('请输入正确的验证码');
+                    return $('.notifyWrap').show();
+                }
+                if (psd && psd.length !== 6) {
+                    $('.notify_content').html('请设置正确的6位密码');
+                    return $('.notifyWrap').show();
+                }
+                $.ajax({
+                    type: "POST",
+                    dataType: "text",
+                    url: 'http://127.0.0.1:9999/api/changeInfo',
+                    data: '',
+                    data: {
+                        userId: $("#userId").val(),
+                        phoneNumber: $(".tel").val(),
+                        captcha: $(".code").val(),
+                        password: $(".password").val(),
+                        channel: $("#channel").val(),
+                        /*toda 注册类型*/
+                    },
+                    success: function(res) {
+                        console.log(res);
+                        if (res.message == "success") {
+                            $(".getMoney").attr({
+                                "disabled": "disabled"
+                            });
+                            // location.href = "${ctx}/html5/cms/regOk/" + $("#channel").val();
+                        } else {
+                            alert(res);
+
+                        }
+                    }
+                });
+            })
+
+            $('.notify_action').on('click', function() {
+                $('.notify_content').html('请输入正确的验证码')
+                $('.notifyWrap').hide();
+            })
+
+            function timeGap(time) {
+                setInterval(function() {
+                    console.log(this)
+                    time--;
+                    if (time > 0) {
+                        $('.getCode').val(time + 's');
+                    } else {
+                        $('.getCode').val('获取验证');
+                        $('.getCode').removeAttr("disabled");
+                    }
+                }, 1000)
+            }
+
+        })
     </script>
 
 </body>

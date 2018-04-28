@@ -1,0 +1,277 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* checkAmmout */
+
+.imgbackground {
+    display: block;
+    display: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.content {
+    position: absolute;
+    top: 816px;
+    left: 0;
+    width: 750px;
+}
+
+.contentLine {
+    width: 690px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0 auto 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: solid 1px #d5d5d5;
+}
+
+.contentLine:nth-child(2) {
+    margin-bottom: 68px;
+}
+
+.content input {
+    font-size: 26px;
+    border: 0;
+    outline: none;
+}
+
+.inputTitle {
+    font-size: 0.4rem;
+    color: #333333;
+    margin-right: 0.5333rem;
+}
+
+.codeTitle {
+    margin-right: 1.3333rem;
+}
+
+.content .ready {
+    background: #ff9500;
+    color: #ffffff;
+}
+
+.content .sendMoney {
+    position: relative;
+    display: block;
+    width: 690px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0px auto;
+}
+
+.sendMoney img {
+    width: 100%;
+}
+
+.sendMoney_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 124px;
+    height: 30px;
+    line-height: 30px;
+    transform: translate(-62px, -15px);
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+/* checkAmmout---------------------------------------end */
+
+
+/* getMoney */
+
+#getMoney {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.accountNumber {
+    width: 100%;
+    height: 740px;
+    background: #f5f5f5;
+}
+
+.loanNews {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    line-height: 52px;
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    background: #5396ca;
+}
+
+.moneybackground {
+    width: 100%;
+}
+
+.completedTel {
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+
+.completedTel_title {
+    font-size: 40px;
+    color: #5f97e8;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.completedTel_subtitle {
+    font-size: 30px;
+    color: #333333;
+    text-align: center;
+}
+
+.quickMoney {
+    margin: 264px auto 0;
+    width: 690px;
+    height: 100px;
+    position: relative;
+}
+
+.quickMoney img {
+    width: 100%;
+}
+
+.quickMoney_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 184px;
+    height: 48px;
+    line-height: 48px;
+    transform: translate(-82px, -24px);
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.openApp {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.circle {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+.growNumber {
+    width: 3rem;
+    margin: 1.4rem auto 1rem;
+    text-align: center;
+}
+
+.dayRadio {
+    width: 3rem;
+    margin: 0.4rem auto 1rem;
+    text-align: center;
+}
+
+#btn {
+    text-align: center;
+}
+
+
+/* getMoney -----------------------------------------------end*/
+
+
+/* haveAccount */
+
+#haveAccount {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ff9500;
+    border-radius: 4px;
+    display: none;
+}
+
+.haveAccount_p {
+    text-align: center;
+}
+
+.haveAccount_p:nth-child(1) {
+    border-bottom: 1px solid #333;
+}
+
+
+/* haveAccount------------------------------------end */
+
+
+/* notify */
+
+.notifyWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #4a4a4a;
+    display: none;
+    transition: all ease-in-out 0.4s;
+}
+
+.notify {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7.8rem;
+    height: 2.4rem;
+    border-radius: 0.08rem;
+    text-align: center;
+    font-size: 0.4rem;
+    background: #ffffff;
+    display: block;
+    transition: all 0.8s ease-in-out;
+}
+
+.notify_content {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.notify_action {
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    color: #ff9500;
+}
+
+
+/* notify-----------------------------end */
