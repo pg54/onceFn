@@ -63,7 +63,7 @@
             line-height: 0.6667rem;
             text-align: center;
             font-size: 0.32rem;
-            color: #7088ff;
+            color: #4c6aff;
             border: 0.0133rem solid #7088ff;
             border-radius: 0.08rem;
             margin-left: 0.1333rem;
@@ -71,7 +71,7 @@
         }
         
         .content .ready {
-            background: #ff9500;
+            background: #4c6aff;
             color: #ffffff;
         }
         
@@ -101,7 +101,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #4a4a4a;
+            background: rgba(0, 0, 0, 0.8);
             display: none;
             transition: all ease-in-out 0.4s;
         }
@@ -118,7 +118,7 @@
             font-size: 0.4rem;
             background: #ffffff;
             display: block;
-            transition: all 0.8s ease-in-out;
+            transition: all ease-in-out 0.4s;
         }
         
         .notify_content {
@@ -132,7 +132,8 @@
             height: 1.2rem;
             line-height: 1.2rem;
             text-align: center;
-            color: #ff9500;
+            color: #ffffff;
+            background: #4c6aff;
         }
     </style>
 </head>
@@ -176,6 +177,17 @@
     <script src="./js/jquery-2.1.1.js"></script>
     <script>
         $(function() {
+            var appDownUrl = '';
+            //埋点
+            // (function() {
+            //     var mta = document.createElement("script");
+            //     mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+            //     mta.setAttribute("name", "MTAH5");
+            //     mta.setAttribute("sid", "500609889");
+            //     var s = document.getElementsByTagName("script")[0];
+            //     s.parentNode.insertBefore(mta, s);
+            // })();
+
             // 手机号验证： /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/
             $(".tel").bind('input', function() {
                 if ($(this).val() != "") {
@@ -189,7 +201,6 @@
                 console.log('send code');
                 var v = $('.tel').val();
                 var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-                console.log(reg.test(v));
                 if (v == '') return
                 if (reg.test(v)) {
                     $('.getCode').attr("disabled", "disabled");
@@ -197,12 +208,11 @@
                     $(this).val(time + 's');
                     timeGap(60)
                 } else {
-                    // $('.warr').hide();
                     $('.notifyWrap').show();
-                    // setTimeout(() => {
-                    //     $('.notifyWrap').hide();
-                    // }, 1500);
                 }
+            })
+            $('.getMoney').on('click', function() {
+                // MtaH5.clickStat('100001');
             })
 
             $('.getMoney').on('click', function() {
@@ -234,12 +244,13 @@
                         /*toda 注册类型*/
                     },
                     success: function(res) {
-                        console.log(res);
+                        res = JSON.parse(res);
                         if (res.message == "success") {
                             $(".getMoney").attr({
                                 "disabled": "disabled"
                             });
                             // location.href = "${ctx}/html5/cms/regOk/" + $("#channel").val();
+                            location.href = appDownUrl;
                         } else {
                             alert(res);
 

@@ -8,25 +8,18 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css//luodiye.css">
     <script src="./js/rem.js"></script>
-    <script src="./js/lodash.custom.js"></script>
-    <script src="./js/jquery-2.1.1.js"></script>
 </head>
 
 <body>
-    <!-- 唤醒APP参考
-    http://www.php.cn/html5-tutorial-382466.html
-    https://blog.csdn.net/sinat_29194935/article/details/70820398
-    http://doc.okbase.net/wq1994/archive/288054.html
-    https://juejin.im/post/57b6ba9f128fe10054bb5401 -->
     <div id="checkAmount">
         <img class="imgbackground" src="./images/landpage/beijing@2x.png" srcset="./images//landpage/beijing@2x.png 2x, ./images//landpage/beijing@3x.png 3x" alt="img">
 
         <div class="content">
             <div class="contentLine">
-                <span class="inputTitle">手机号码</span><input class="tel" type="tel" maxlength="16" placeholder="请输入手机号">
+                <img class="inputTitle" src="./images/landpage/phone.png"><input class="tel" type="tel" maxlength="16" placeholder="请输入手机号">
             </div>
             <div class="contentLine">
-                <span class="inputTitle codeTitle">密码</span><input class="password" type="password" maxlength="6" placeholder="请设置6位登录密码">
+                <img class="inputTitle" src="./images/landpage/password.png"><input class="password" type="password" maxlength="6" placeholder="请设置6位登录密码">
             </div>
             <!-- <div class="sendMoney">查看额度</div> -->
             <div class="sendMoney">
@@ -47,26 +40,28 @@
             </div>
         </div>
 
+        <p class="loanedPerson">已超过<span class="growNumber"></span>人成功借款</p>
+
 
         <div class="quickMoney">
             <img src="./images//landpage/getMoney@2x.png" srcset="./images//landpage/getMoney@2x.png 2x, ./images//landpage/getMoney@3x.png 3x" alt="img">
             <span class="quickMoney_btn">马上拿钱</span>
         </div>
-
-        <!-- <div id="btn">
-            <span class="openApp">唤醒APP</span>
-        </div> -->
     </div>
 
     <div id="haveAccount">
-        <p style="text-align: right;">
-            <svg xmlns="http://www.w3.org/2000/svg" class="closeHaveAccount" version="1.1" width="16" height="16" viewBox="0 0 32 32">
-                    <title>cross</title>
-                    <path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"/>
-                    </svg>
-        </p>
-        <p class="haveAccount_p">打开APP</p>
-        <p class="haveAccount_p">重新输入</p>
+        <div class="haveAccount_content">
+            <p class="haveAccount_c">
+                <svg xmlns="http://www.w3.org/2000/svg" class="closeHaveAccount" version="1.1" width="44" height="44" viewBox="0 0 32 32">
+                                <title>cross</title>
+                                <path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"/>
+                                </svg>
+            </p>
+            <p class="haveAccount_t">已有账号</p>
+            <p class="haveAccount_s">您的手机已注册包找钱账号，请直接打开APP免费申请借款。</p>
+            <p class="haveAccount_op openApp">打开APP</p>
+            <p class="haveAccount_re reInput">重新输入</p>
+        </div>
     </div>
 
     <div class="notifyWrap">
@@ -79,86 +74,114 @@
             </div>
         </div>
     </div>
-
-
-
-
+    <script src="./js/lodash.custom.js"></script>
+    <script src="./js/jquery-2.1.1.js"></script>
     <script>
         $(function() {
-            //埋点
-            var _mtac = {
-                "performanceMonitor": 1,
-                "senseQuery": 1
-            };
-            (function() {
-                var mta = document.createElement("script");
-                mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.4";
-                mta.setAttribute("name", "MTAH5");
-                mta.setAttribute("sid", "500592354");
-                mta.setAttribute("cid", "500592355");
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(mta, s);
-            })();
+            var isUserUrl = 'http://127.0.0.1:9999/api/changeInfo';
+            var registerUrl = '';
+            var appDownUrl = ''
+                //埋点
+                // var _mtac = {};
+                // (function() {
+                //     var mta = document.createElement("script");
+                //     mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+                //     mta.setAttribute("name", "MTAH5");
+                //     mta.setAttribute("sid", "500609886");
+                //     var s = document.getElementsByTagName("script")[0];
+                //     s.parentNode.insertBefore(mta, s);
+                // })();
 
             $('.openApp').on('click', function() {
                 submitFn();
             })
 
+            $('.reInput').on('click', function() {
+                $("#haveAccount").hide();
+                $(".tel").val('');
+                $(".password").val('');
+            })
 
             $('.closeHaveAccount').on('click', function(e) {
                 $('#haveAccount').hide();
             })
 
-
-            $('.tel').on('keyup', _.debounce(dsh, 500));
-
+            $('.tel').on('keyup', _.debounce(dsh, 600));
 
             $('.notify_action').on('click', function() {
                 $('.notifyWrap').hide();
             });
 
-
             $('.sendMoney_btn').on('click', function() {
-                console.log('AAA');
-                $('#checkAmount').hide();
-                $('#getMoney').show();
-            })
-
-            $('.sendMoney_btn').on('click', function() {
-                MtaH5.clickStat('100001');
-            })
-
-
-            function dsh() {
-                var tel = $(".tel").val();
-                console.log(tel);
-                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
-                if (reg.test(tel)) {
+                var telReg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+                var tel = $('.tel').val();
+                var psd = $('.password').val()
+                var telOK = tel && telReg.test(tel);
+                var psdOK = psd && psd.length === 6;
+                debugger;
+                if (telOK && psdOK) {
                     $.ajax({
                         type: "POST",
                         dataType: "text",
-                        url: 'http://127.0.0.1:9999/api/changeInfo',
+                        url: isUserUrl,
                         data: '',
                         data: {
                             tel: $(".tel").val(),
                         },
                         success: function(res) {
                             var res = JSON.parse(res);
-                            console.log(res);
                             if (res.status === 0) {
-                                $("#haveAccount").show();
-                                // location.href = "${ctx}/html5/cms/regOk/" + $("#channel").val();
+                                $('.completedTel_title').html(tel.substr(0, 4) + '****' + tel.substr(7, 10))
+                                $('#checkAmount').hide();
+                                $('#getMoney').show();
+                                numberGrow($('.growNumber'));
                             } else {
                                 alert(res);
                             }
                         }
                     });
                 } else {
-                    $('.notifyWrap').show();
+                    if (!telOK) {
+                        $('.notify_content').html('请输入正确的手机号');
+                        $('.notifyWrap').show();
+                    }
+                    if (!psdOK) {
+                        $('.notify_content').html('请输入正确的密码');
+                        $('.notifyWrap').show();
+                    }
                 }
+            })
 
+            $('.sendMoney_btn').on('click', function() {
+                // MtaH5.clickStat('100001');
+            })
 
+            $('.quickMoney_btn').on('click', function() {
+                window.location.href = appDownUrl;
+            })
 
+            function dsh() {
+                var tel = $(".tel").val();
+                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|166|17[3678]|18[0-9]|14[57])[0-9]{8}$/;
+                if (reg.test(tel)) {
+                    $.ajax({
+                        type: "POST",
+                        dataType: "text",
+                        url: isUserUrl,
+                        data: '',
+                        data: {
+                            tel: $(".tel").val(),
+                        },
+                        success: function(res) {
+                            var res = JSON.parse(res);
+                            if (res.status === 0) {
+                                $("#haveAccount").show();
+                            } else {
+                                alert(res);
+                            }
+                        }
+                    });
+                }
 
             }
             $('.closeBtn').on('click', function() {
@@ -187,7 +210,7 @@
                             var t1 = d.getTime();
                             if (t1 - t0 < 3000 && t1 - t0 > 2000) {
                                 alert('检测到未安装，请下载APP');
-                                // window.location.href = "app下载地址 ";
+                                window.location.href = appDownUrl;
                             }
                             if (t1 - t0 >= 3000) {
                                 clearInterval(delay);
@@ -204,7 +227,7 @@
                             var t1 = d.getTime();
                             if (t1 - t0 < 3000 && t1 - t0 > 2000) {
                                 alert('检测到未安装，请下载APP');
-                                // window.location.href = "app下载地址 ";
+                                window.location.href = appDownUrl;
                             }
                             if (t1 - t0 >= 3000) {
                                 clearInterval(delay);
@@ -226,8 +249,6 @@
                 }, 2000);
             }
 
-
-
             function numberGrow(ele) {
                 var number = ele;
                 var n = 0;
@@ -244,7 +265,7 @@
                     number.html(n)
                 }, 25)
             }
-            numberGrow($('.growNumber'));
+
 
             //生成真实电话号码
             setInterval(function() {
@@ -257,10 +278,11 @@
                 while (!reg.test(tel)) {
                     tel = produceTel()
                 }
-                var str = '恭喜' + tel.substr(0, 3) + '****' + tel.substr(7, 11) + '用户借款10,000元';
+                var moneyNumber = Math.floor(Math.random() * (10 - 1)) + 1;
+                var mStr = moneyNumber + ',000'
+                var str = '恭喜' + tel.substr(0, 3) + '****' + tel.substr(7, 11) + '用户借款' + mStr + '元';
                 $('.loanNews').html(str)
             }
-
 
             function produceTel() {
                 var nums = [];
@@ -271,12 +293,6 @@
                 var tel = nums.join("")
                 return tel;
             }
-
-
-
-
-
-
 
         })
     </script>
