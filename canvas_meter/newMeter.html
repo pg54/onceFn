@@ -6,6 +6,8 @@
     <title>新的画布</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             background: url("http://ursb.me/canvas/Canvas/9/images/bg3.jpg") repeat;
         }
         
@@ -28,16 +30,9 @@
     <script src="./newMeter.js"></script>
     <script>
         window.onload = function() {
-            var canvas = document.getElementById("canvas");
-            canvas.width = 800;
-            canvas.height = 600;
-            var context = canvas.getContext("2d");
-            context.fillStyle = "#FFF";
-            context.fillRect(0, 0, 800, 600);
 
-            context.beginPath();
-            context.arc(100, 100, 50, 0, Math.PI * 2);
-            context.closePath();
+
+
 
         }
     </script>

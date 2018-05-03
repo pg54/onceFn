@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仪表</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <script src="./js/rem.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("http://ursb.me/canvas/Canvas/9/images/bg3.jpg") repeat;
+        }
+        
+        .test {
+            border: 1px solid #aaaaaa;
+            display: block;
+            margin: 122px auto 0;
+            width: 538px;
+            height: 250px;
+            background: aqua;
+        }
+        
+        #canvas {
+            border: 1px solid #aaaaaa;
+            display: block;
+            margin: 122px auto 0;
+            width: 540px;
+            height: 290px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="test"></div>
+    <canvas id="canvas"></canvas>
+    <script src="./js/jquery-2.1.1.js"></script>
+    <script>
+        $(function() {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            context.fillStyle = 'rgba(255, 255, 255, 0)';
+            context.fillRect(0, 0, 540, 290);
+
+            var canvasArea = {
+                w: 540,
+                h: 270
+            };
+
+
+            //最外层圆弧
+            drawMoney();
+
+            function drawMoney(center) {
+                var h = canvasArea.h;
+                var moneyNumber = 10000;
+                var number = 0;
+                var timer = setInterval(function() {
+                    //清除画布
+                    context.clearRect(0, 0, 540, 270);
+                    //最外面一层的圆弧
+                    context.beginPath();
+                    context.arc(h / 2, h / 2, h / 2, 0, Math.PI, true);
+                    context.strokeStyle = '#fff';
+                    context.stroke();
+
+                    //中间的文字
+                    context.font = "48px serif";
+                    context.fillStyle = "#fff";
+                    number = number + 2000;
+                    context.fillText(number + '', 80, 126);
+
+                    //滚动的小球  和方块
+
+                    setBallAndTrick(moneyNumber, number, h, 0.375 * h, 20, 12);
+                    if (number >= moneyNumber) {
+                        clearInterval(timer)
+                    }
+                }, 400)
+            }
+
+            function setBallAndTrick(moneyNumber, number, h, shortR, trickW, trickH) {
+                var deg = number / 20000;
+                // 滚动的圆球
+                if (deg < 0.5) {
+                    var d = deg;
+                    context.beginPath();
+                    context.arc(h / 2 - Math.cos(d * Math.PI) * (h / 2), h / 2 - Math.sin(d * Math.PI) * (h / 2), 5, 0, Math.PI * 2, true);
+                    context.fillStyle = '#fff';
+                    context.fill();
+
+                } else if (deg === 0.5) {
+                    context.beginPath();
+                    context.arc(h / 2, 0, 5, 0, Math.PI * 2, true);
+                    context.fillStyle = '#fff';
+                    context.fill();
+
+                } else if (deg > 0.5) {
+                    var d = 180 - deg * 180;
+                    var x = Math.cos(d * Math.PI / 180);
+                    var y = Math.sin(d * Math.PI / 180);
+                    context.beginPath();
+                    context.arc(h / 2 + x * (h / 2), h / 2 - y * (h / 2), 5, 0, Math.PI * 2, true);
+                    context.fillStyle = '#fff';
+                    context.fill();
+                }
+                //方块 实心部分
+                var n = number / 2000;
+                for (var i = 0; i < n + 1; i++) {
+                    var nDeg = i * 2000 / 20000;
+                    if (nDeg > 0 && nDeg < 0.5) {
+                        var dq = nDeg * Math.PI;
+                        context.beginPath();
+                        context.moveTo(h / 2 - Math.cos(dq) * (shortR + trickW) + Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR + trickW) - Math.cos(dq) * trickH / 2);
+                        context.lineTo(h / 2 - Math.cos(dq) * (shortR + trickW) - Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR + trickW) + Math.cos(dq) * trickH / 2);
+                        context.lineTo(h / 2 - Math.cos(dq) * (shortR) - Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR) + Math.cos(dq) * trickH / 2);
+                        context.lineTo(h / 2 - Math.cos(dq) * (shortR) + Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR) - Math.cos(dq) * trickH / 2);
+                        context.closePath();
+                        context.lineWidth = 1;
+                    } else if (nDeg === 0.5) {
+                        context.beginPath();
+                        context.moveTo(h / 2 - trickH / 2, h / 2 - shortR - trickW);
+                        context.lineTo(h / 2 - trickH / 2, h / 2 - shortR);
+                        context.lineTo(h / 2 + trickH / 2, h / 2 - shortR);
+                        context.lineTo(h / 2 + trickH / 2, h / 2 - shortR - trickW);
+                        context.closePath();
+                        context.lineWidth = 1;
+                    } else if (nDeg > 0.5) {
+                        var q = (1 - nDeg) * Math.PI;
+                        context.beginPath();
+                        context.moveTo(h / 2 + Math.cos(q) * shortR - Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * shortR - Math.cos(q) * trickH / 2);
+                        context.lineTo(h / 2 + Math.cos(q) * shortR + Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * shortR + Math.cos(q) * trickH / 2);
+                        context.lineTo(h / 2 + Math.cos(q) * (shortR + trickW) + Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * (shortR + trickW) + Math.cos(q) * trickH / 2);
+                        context.lineTo(h / 2 + Math.cos(q) * (shortR + trickW) - Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * (shortR + trickW) - Math.cos(q) * trickH / 2);
+                        context.closePath();
+                        context.lineWidth = 1;
+                    }
+                    if (i <= moneyNumber / 2000) {
+                        context.fillStyle = "#fff";
+                        context.fill();
+                    } else {
+                        context.strokeStyle = "#fff";
+                        context.stroke();
+                    }
+                }
+                //方块 空心部分
+                for (var i = n + 1; i < 11; i++) {
+                    var nDeg = i * 2000 / 20000;
+                    if (nDeg < 0.5) {
+                        var dq = nDeg * Math.PI;
+                        context.beginPath();
+                        context.moveTo(h / 2 - Math.cos(dq) * (shortR + trickW) + Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR + trickW) - Math.cos(dq) * trickH / 2);
+                        context.lineTo(h / 2 - Math.cos(dq) * (shortR + trickW) - Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR + trickW) + Math.cos(dq) * trickH / 2);
+                        context.lineTo(h / 2 - Math.cos(dq) * (shortR) - Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR) + Math.cos(dq) * trickH / 2);
+                        context.lineTo(h / 2 - Math.cos(dq) * (shortR) + Math.sin(dq) * trickH / 2, h / 2 - Math.sin(dq) * (shortR) - Math.cos(dq) * trickH / 2);
+                        context.closePath();
+                        context.lineWidth = 1;
+                    } else if (nDeg === 0.5) {
+                        context.beginPath();
+                        context.moveTo(h / 2 - trickH / 2, h / 2 - shortR - trickW);
+                        context.lineTo(h / 2 - trickH / 2, h / 2 - shortR);
+                        context.lineTo(h / 2 + trickH / 2, h / 2 - shortR);
+                        context.lineTo(h / 2 + trickH / 2, h / 2 - shortR - trickW);
+                        context.closePath();
+                        context.lineWidth = 1;
+                    } else if (nDeg > 0.5) {
+                        var q = (1 - nDeg) * Math.PI;
+                        context.beginPath();
+                        context.moveTo(h / 2 + Math.cos(q) * shortR - Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * shortR - Math.cos(q) * trickH / 2);
+                        context.lineTo(h / 2 + Math.cos(q) * shortR + Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * shortR + Math.cos(q) * trickH / 2);
+                        context.lineTo(h / 2 + Math.cos(q) * (shortR + trickW) + Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * (shortR + trickW) + Math.cos(q) * trickH / 2);
+                        context.lineTo(h / 2 + Math.cos(q) * (shortR + trickW) - Math.sin(q) * trickH / 2, h / 2 - Math.sin(q) * (shortR + trickW) - Math.cos(q) * trickH / 2);
+                        context.closePath();
+                        context.lineWidth = 1;
+                    }
+                    context.strokeStyle = "#fff";
+                    context.stroke();
+                }
+            }
+
+        })
+    </script>
+</body>
+
+</html>
