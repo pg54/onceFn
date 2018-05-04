@@ -118,7 +118,6 @@
                 var psd = $('.password').val()
                 var telOK = tel && telReg.test(tel);
                 var psdOK = psd && psd.length === 6;
-                debugger;
                 if (telOK && psdOK) {
                     $.ajax({
                         type: "POST",
@@ -143,11 +142,11 @@
                 } else {
                     if (!telOK) {
                         $('.notify_content').html('请输入正确的手机号');
-                        $('.notifyWrap').show();
+                        return $('.notifyWrap').show();
                     }
                     if (!psdOK) {
                         $('.notify_content').html('请输入正确的密码');
-                        $('.notifyWrap').show();
+                        return $('.notifyWrap').show();
                     }
                 }
             })

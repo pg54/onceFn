@@ -43,16 +43,16 @@ h6 {
 }
 
 .content input {
-    font-size: 26px;
+    font-size: 0.32rem;
     border: 0;
     outline: none;
 }
 
 .inputTitle {
-    width: 44px;
-    height: 44px;
-    margin-left: 30px;
-    margin-right: 20px;
+    width: 0.5867rem;
+    height: 0.5867rem;
+    margin-left: 0.4rem;
+    margin-right: 0.2667rem;
 }
 
 .codeTitle {
@@ -79,13 +79,12 @@ h6 {
 
 .sendMoney_btn {
     position: absolute;
-    top: 50%;
-    left: 50%;
     display: block;
-    width: 1.6533rem;
-    height: 0.4rem;
-    line-height: 0.4rem;
-    transform: translate(-62px, -15px);
+    top: 0;
+    left: 0;
+    width: 9.2rem;
+    height: 1.0667rem;
+    line-height: 1.0667rem;
     font-size: 0.4rem;
     color: #ffffff;
     text-align: center;
